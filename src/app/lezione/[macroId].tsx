@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ActivityIndicator,
+  Linking,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { colors, spacing, typography } from '@/constants/theme';
@@ -26,6 +27,13 @@ import { updateQuestionState } from '@/lib/progress';
 import { MACROS } from '@/constants/macros';
 
 const SESSION_SIZE = 10;
+const REPORT_EMAIL = 'ematods@gmail.com';
+
+function buildReportUrl(id: number, question: string, explanation: string | undefined): string {
+  const subject = encodeURIComponent(`Segnalazione domanda ${id}`);
+  const body = encodeURIComponent(`Domanda: ${question}\nSpiegazione: ${explanation || ''}\nProblema: `);
+  return `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
+}
 
 function formatGuido(explanation: string | undefined, isCorrect: boolean): string {
   const cleaned = (explanation || '')
@@ -198,10 +206,17 @@ export default function LezioneScreen() {
             </QuestionCard>
 
             {answered && (
-              <GuidoBubble
-                text={formatGuido(current.explanation, isCorrect)}
-                variant={isCorrect ? 'success' : 'error'}
-              />
+              <>
+                <GuidoBubble
+                  text={formatGuido(current.explanation, isCorrect)}
+                  variant={isCorrect ? 'success' : 'error'}
+                />
+                <TouchableOpacity
+                  onPress={() => Linking.openURL(buildReportUrl(current.id, current.question, current.explanation))}
+                >
+                  <Text style={styles.reportLink}>Segnala un problema</Text>
+                </TouchableOpacity>
+              </>
             )}
           </>
         )}
@@ -280,5 +295,12 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 14,
     fontWeight: '600',
+  },
+  reportLink: {
+    fontSize: 11,
+    color: colors.textDim,
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+    marginTop: -spacing.sm,
   },
 });

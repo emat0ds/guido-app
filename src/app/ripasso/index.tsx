@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ActivityIndicator,
+  Linking,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { colors, spacing, typography } from '@/constants/theme';
@@ -16,6 +17,14 @@ import { GuidoBubble } from '@/components/GuidoBubble';
 import { saveQuestionState, addMasteredQuestion } from '@/lib/storage';
 import { updateQuestionState } from '@/lib/progress';
 import { useReviewQueue } from '@/hooks/useReviewQueue';
+
+const REPORT_EMAIL = 'ematods@gmail.com';
+
+function buildReportUrl(id: number, question: string, explanation: string | undefined): string {
+  const subject = encodeURIComponent(`Segnalazione domanda ${id}`);
+  const body = encodeURIComponent(`Domanda: ${question}\nSpiegazione: ${explanation || ''}\nProblema: `);
+  return `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
+}
 
 function formatGuido(explanation: string | undefined, isCorrect: boolean): string {
   const cleaned = (explanation || '')
@@ -151,10 +160,17 @@ export default function RipassoScreen() {
         </QuestionCard>
 
         {answered && (
-          <GuidoBubble
-            text={formatGuido(current.question.explanation, isCorrect)}
-            variant={isCorrect ? 'success' : 'error'}
-          />
+          <>
+            <GuidoBubble
+              text={formatGuido(current.question.explanation, isCorrect)}
+              variant={isCorrect ? 'success' : 'error'}
+            />
+            <TouchableOpacity
+              onPress={() => Linking.openURL(buildReportUrl(current.question.id, current.question.question, current.question.explanation))}
+            >
+              <Text style={styles.reportLink}>Segnala un problema</Text>
+            </TouchableOpacity>
+          </>
         )}
 
         {answered && (
@@ -207,4 +223,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   nextButtonText: { color: colors.textPrimary, fontSize: 14, fontWeight: '600' },
+  reportLink: {
+    fontSize: 11,
+    color: colors.textDim,
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+    marginTop: -spacing.sm,
+  },
 });
