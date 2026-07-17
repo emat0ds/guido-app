@@ -1,56 +1,124 @@
-# Welcome to your Expo app 👋
+# Fedal — Impara davvero le regole della strada
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Un'app mobile per imparare le regole della strada italiana (patente B) **non per passare il quiz, ma per capire come si guida**.
 
-## Get started
+Fedal è un progetto veloce e divertente, creato per rendere l'apprendimento del codice della strada più engaging.
 
-1. Install dependencies
+## Caratteristiche
 
-   ```bash
-   npm install
-   ```
+- **7.139 domande vero/falso** dal database MIT di Edoardo
+- **Spaced repetition intelligente** — le domande sbagliate tornano al momento giusto
+- **Onboarding interattivo** — ti spiega come funziona l'app
+- **Gamification** — streak giornalieri, badge, stelle per macro-area
+- **Nessuna registrazione** — tutto funziona offline, i progressi sono locali
+- **Design premium** — dark mode, animazioni fluide, UX pulita
 
-2. Start the app
+## Stack tecnico
 
-   ```bash
-   npx expo start
-   ```
+- **Framework**: React Native + Expo SDK 57
+- **Linguaggio**: TypeScript
+- **Navigazione**: Expo Router (file-based)
+- **Animazioni**: React Native Reanimated 3
+- **Storage locale**: AsyncStorage
+- **Build**: Expo EAS Build
+- **Target**: iOS e Android
 
-In the output, you'll find options to open the app in a
+## Installazione
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Requisiti
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Node.js 16+ e npm
+- Xcode (per iOS) o Android Studio (per Android)
+- Expo Go (app su App Store/Google Play)
 
-## Get a fresh project
-
-When you're ready, run:
+### Setup locale
 
 ```bash
-npm run reset-project
+# 1. Clona il progetto
+git clone https://github.com/tuonome/fedal-app.git
+cd fedal-app
+
+# 2. Installa dipendenze
+npm install
+
+# 3. Avvia dev server
+npm start
+
+# 4. Scansiona il QR code con Expo Go
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Poi nel terminale vedrai il QR code che puoi scansionare con il tuo telefono.
 
-### Other setup steps
+### Esegui nel simulatore
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+**iOS:**
+```bash
+npm run ios
+```
 
-## Learn more
+**Android:**
+```bash
+npm run android
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Architettura
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
+fedal-app/
+├── src/
+│   ├── app/                    # Schermate (Expo Router)
+│   │   ├── (tabs)/            # Tab navigation
+│   │   ├── lezione/           # Schermata lezione
+│   │   ├── ripasso/           # Coda di ripasso
+│   │   └── onboarding/        # Flusso onboarding
+│   ├── components/            # Componenti riutilizzabili
+│   ├── lib/                   # Logica (storage, progressi, API)
+│   ├── hooks/                 # React hooks custom
+│   └── constants/             # Design system, macro-aree
+├── data/                      # Database domande (MIT License Edoardo)
+└── docs/                      # Documentazione
+```
 
-## Join the community
+## Design System
 
-Join our community of developers creating universal apps.
+- **Tema**: Dark mode (#0f0f13 sfondo, #edeae4 testo)
+- **Accent**: Purple (#5b3fff)
+- **Tipografia**: Sistema gerarchico (h1-h3, body, small)
+- **Spacing**: 8px base (xs: 4, sm: 8, md: 14, lg: 20, xl: 28)
+- **Componenti**: Card, Button, Input, Badge con animazioni
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Vedi `src/constants/theme.ts` per dettagli completi.
+
+## Come funziona
+
+1. **Onboarding** — Ti spiega come usare l'app, chiede il tuo nome
+2. **Home** — Scegli una macro-area (La strada, Segnali stradali, ecc.)
+3. **Lezione** — Leggi spiegazioni brevi, rispondi a domande, vedi il feedback
+4. **Ripasso** — Le domande sbagliate tornano per la revisione (spaced repetition)
+5. **Progressi** — Dashboard con statistiche per macro-area
+
+## Licenza
+
+**Fedal** è proprietaria. Tutti i diritti riservati.
+
+Il **database domande** è distribuito sotto MIT License — vedi [LICENSE](LICENSE) per dettagli e attribuzioni.
+
+## Privacy
+
+Questa app **non raccoglie dati personali**. Tutto rimane sul tuo dispositivo. Vedi [PRIVACY.md](PRIVACY.md) per dettagli.
+
+## Sicurezza
+
+Per segnalare una vulnerabilità di sicurezza, contatta in privato.
+
+Non aprire issue pubbliche per problemi di sicurezza. Vedi [SECURITY.md](SECURITY.md) per dettagli.
+
+## Ringraziamenti
+
+- **Database domande**: Edoardo (MIT License)
+- **Framework**: Expo, React Native
+- **Design e sviluppo**: Emanuele Todini
+
+---
+
+**Fatto da Emanuele Todini** | [GitHub](https://github.com/yourusername) | [Fedal](#)

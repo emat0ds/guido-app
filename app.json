@@ -4,11 +4,19 @@
     "slug": "guido-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icon.png",
     "scheme": "guidoapp",
     "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/icon.png",
+      "backgroundColor": "#0f0f13"
+    },
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/icon.png",
+      "bundleIdentifier": "com.t0ds.guidoapp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -28,15 +36,30 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#0f0f13",
+          "image": "./assets/icon.png",
+          "imageWidth": 120
         }
-      ]
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "REPLACE_WITH_SENTRY_ORG",
+          "project": "REPLACE_WITH_SENTRY_PROJECT"
+        }
+      ],
+      "@sentry/react-native"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d3d5ddc3-f175-4918-9609-c89a4913e9db"
+      }
+    },
+    "owner": "t0ds"
   }
 }

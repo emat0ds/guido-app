@@ -1,6 +1,20 @@
-The MIT License (MIT)
+PROPRIETARIA - Fedal
 
-Copyright (c) 2015-present 650 Industries, Inc. (aka Expo)
+Copyright (c) 2026 Emanuele Todini (P.IVA: [inserisci la tua P.IVA])
+
+Tutti i diritti riservati. Questo software è proprietario e non può essere
+copiato, modificato, distribuito o utilizzato senza il permesso esplicito
+del proprietario.
+
+---
+
+LICENZE TERZE PARTI
+
+Il database delle domande (questions_with_explanations.json) è distribuito
+sotto MIT License:
+
+MIT License - Database domande
+Copyright (c) 2023 Edoardo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
