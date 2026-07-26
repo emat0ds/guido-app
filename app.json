@@ -7,10 +7,6 @@
     "icon": "./assets/icon.png",
     "scheme": "guidoapp",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/icon.png",
-      "backgroundColor": "#0f0f13"
-    },
     "ios": {
       "icon": "./assets/icon.png",
       "bundleIdentifier": "com.t0ds.guidoapp",
@@ -50,7 +46,8 @@
         }
       ],
       "@sentry/react-native",
-      "react-native-iap"
+      "react-native-iap",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
