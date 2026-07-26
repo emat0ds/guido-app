@@ -129,6 +129,25 @@ export async function getMasteredCount(): Promise<number> {
   return mastered ? JSON.parse(mastered).length : 0;
 }
 
+export async function saveExamSession(session: {
+  questions: any[];
+  answers: (boolean | null)[];
+  startedAt: number;
+  finishedAt?: number;
+}): Promise<void> {
+  await AsyncStorage.setItem('current_exam_session', JSON.stringify(session));
+}
+
+export async function getExamSession(): Promise<{
+  questions: any[];
+  answers: (boolean | null)[];
+  startedAt: number;
+  finishedAt?: number;
+} | null> {
+  const val = await AsyncStorage.getItem('current_exam_session');
+  return val ? JSON.parse(val) : null;
+}
+
 export async function clearAllProgress(): Promise<void> {
   const keys = await AsyncStorage.getAllKeys();
   const prefixes = Object.values(STORAGE_KEYS);

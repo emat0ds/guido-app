@@ -6,11 +6,14 @@ import { colors } from '@/constants/theme';
 import { useOnboarding } from '@/hooks/useOnboarding';
 
 Sentry.init({
-  // Sostituisci con il tuo DSN da sentry.io → Project Settings → Client Keys
-  dsn: 'REPLACE_WITH_YOUR_DSN',
+  dsn: 'https://88d9b9464c4af9bc728bf5d7eb119dce@o4511750197870592.ingest.de.sentry.io/4511750229852240',
+  sendDefaultPii: true,
+  enableLogs: true,
   tracesSampleRate: 0.2,
   enableAutoSessionTracking: true,
-  // Disabilita in sviluppo per non sporcare le statistiche
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1,
+  integrations: [Sentry.mobileReplayIntegration(), Sentry.feedbackIntegration()],
   enabled: !__DEV__,
 });
 

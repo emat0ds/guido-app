@@ -57,6 +57,13 @@ export default function TabsLayout() {
           tabBarLabel: 'Profilo',
         }}
       />
+      <Tabs.Screen
+        name="esame"
+        options={{
+          title: 'Esame',
+          tabBarLabel: 'Esame',
+        }}
+      />
     </Tabs>
   );
 }
