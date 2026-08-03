@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -9,8 +9,9 @@ import {
   Alert,
   ActivityIndicator,
 } from 'react-native';
-import { useRouter, useFocusEffect } from 'expo-router';
-import { colors, spacing, typography } from '@/constants/theme';
+import { useRouter } from 'expo-router';
+import { spacing } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 import { buildExamSession } from '@/lib/exam';
 import { saveExamSession } from '@/lib/storage';
 import {
@@ -18,31 +19,35 @@ import {
   getExamCount,
   purchasePremium,
   restorePurchases,
+  fetchProductPrice,
 } from '@/lib/iap';
+import type { TabScreenProps } from './_layout';
 
-export default function EsameScreen() {
+export default function EsameScreen({ refreshKey }: TabScreenProps) {
   const router = useRouter();
+  const { colors } = useTheme();
   const [premium, setPremiumState] = useState(false);
   const [examCount, setExamCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [purchasing, setPurchasing] = useState(false);
   const [restoring, setRestoring] = useState(false);
   const [starting, setStarting] = useState(false);
+  const [productPrice, setProductPrice] = useState<string | null>(null);
 
-  useFocusEffect(
-    useCallback(() => {
-      let active = true;
-      (async () => {
-        const [p, c] = await Promise.all([isPremium(), getExamCount()]);
-        if (active) {
-          setPremiumState(p);
-          setExamCount(c);
-          setLoading(false);
-        }
-      })();
-      return () => { active = false; };
-    }, [])
-  );
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    (async () => {
+      const [p, c, price] = await Promise.all([isPremium(), getExamCount(), fetchProductPrice()]);
+      if (active) {
+        setPremiumState(p);
+        setExamCount(c);
+        setProductPrice(price);
+        setLoading(false);
+      }
+    })();
+    return () => { active = false; };
+  }, [refreshKey]);
 
   const canStartFree = examCount === 0;
   const canStart = premium || canStartFree;
@@ -98,6 +103,8 @@ export default function EsameScreen() {
       setRestoring(false);
     }
   };
+
+  const styles = useMemo(() => makeStyles(colors), [colors]);
 
   if (loading) {
     return (
@@ -171,7 +178,9 @@ export default function EsameScreen() {
               {purchasing ? (
                 <ActivityIndicator size="small" color={colors.textPrimary} />
               ) : (
-                <Text style={styles.primaryButtonText}>Acquista — €3,49</Text>
+                <Text style={styles.primaryButtonText}>
+                  {productPrice ? `Acquista — ${productPrice}` : 'Acquista'}
+                </Text>
               )}
             </TouchableOpacity>
 
@@ -203,139 +212,141 @@ export default function EsameScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  content: {
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: 40,
-    gap: spacing.lg,
-  },
-  title: {
-    fontSize: 26,
-    fontWeight: '500',
-    color: colors.textPrimary,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: colors.textMuted,
-    marginTop: -spacing.sm,
-  },
-  statsRow: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  statBox: {
-    flex: 1,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 12,
-    padding: spacing.md,
-    alignItems: 'center',
-    gap: 2,
-  },
-  statNumber: {
-    fontSize: 22,
-    fontWeight: '600',
-    color: colors.textPrimary,
-  },
-  statLabel: {
-    fontSize: 11,
-    color: colors.textMuted,
-    fontWeight: '500',
-  },
-  infoBox: {
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 14,
-    padding: spacing.lg,
-    gap: 6,
-  },
-  infoTitle: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: colors.textSecondary,
-    marginBottom: 4,
-  },
-  infoItem: {
-    fontSize: 13,
-    color: colors.textMuted,
-    lineHeight: 20,
-  },
-  primaryButton: {
-    backgroundColor: colors.purple,
-    borderRadius: 12,
-    paddingVertical: 15,
-    alignItems: 'center',
-  },
-  buttonDisabled: {
-    opacity: 0.6,
-  },
-  primaryButtonText: {
-    color: colors.textPrimary,
-    fontSize: 15,
-    fontWeight: '600',
-  },
-  paywallBox: {
-    backgroundColor: colors.purpleDim,
-    borderWidth: 1,
-    borderColor: colors.purple,
-    borderRadius: 14,
-    padding: spacing.lg,
-    gap: spacing.md,
-  },
-  paywallTitle: {
-    fontSize: 17,
-    fontWeight: '600',
-    color: colors.textPrimary,
-  },
-  paywallBody: {
-    fontSize: 13,
-    color: colors.textMuted,
-    lineHeight: 20,
-  },
-  paywallNote: {
-    fontSize: 11,
-    color: colors.purpleLight,
-    fontWeight: '500',
-  },
-  restoreButton: {
-    alignItems: 'center',
-    paddingVertical: spacing.sm,
-  },
-  restoreButtonText: {
-    fontSize: 13,
-    color: colors.textDim,
-    textDecorationLine: 'underline',
-  },
-  freeNote: {
-    fontSize: 11,
-    color: colors.textDim,
-    textAlign: 'center',
-    lineHeight: 16,
-  },
-  premiumBadge: {
-    alignSelf: 'center',
-    backgroundColor: colors.purpleDim,
-    borderWidth: 1,
-    borderColor: colors.purple,
-    borderRadius: 20,
-    paddingHorizontal: spacing.md,
-    paddingVertical: 6,
-  },
-  premiumBadgeText: {
-    fontSize: 11,
-    color: colors.purpleLight,
-    fontWeight: '500',
-  },
-});
+function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
+  return StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    center: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    content: {
+      paddingHorizontal: spacing.lg,
+      paddingTop: spacing.lg,
+      paddingBottom: 40,
+      gap: spacing.lg,
+    },
+    title: {
+      fontSize: 26,
+      fontWeight: '500',
+      color: colors.textPrimary,
+    },
+    subtitle: {
+      fontSize: 14,
+      color: colors.textMuted,
+      marginTop: -spacing.sm,
+    },
+    statsRow: {
+      flexDirection: 'row',
+      gap: spacing.sm,
+    },
+    statBox: {
+      flex: 1,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 12,
+      padding: spacing.md,
+      alignItems: 'center',
+      gap: 2,
+    },
+    statNumber: {
+      fontSize: 22,
+      fontWeight: '600',
+      color: colors.textPrimary,
+    },
+    statLabel: {
+      fontSize: 11,
+      color: colors.textMuted,
+      fontWeight: '500',
+    },
+    infoBox: {
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 14,
+      padding: spacing.lg,
+      gap: 6,
+    },
+    infoTitle: {
+      fontSize: 13,
+      fontWeight: '600',
+      color: colors.textSecondary,
+      marginBottom: 4,
+    },
+    infoItem: {
+      fontSize: 13,
+      color: colors.textMuted,
+      lineHeight: 20,
+    },
+    primaryButton: {
+      backgroundColor: colors.purple,
+      borderRadius: 12,
+      paddingVertical: 15,
+      alignItems: 'center',
+    },
+    buttonDisabled: {
+      opacity: 0.6,
+    },
+    primaryButtonText: {
+      color: colors.textPrimary,
+      fontSize: 15,
+      fontWeight: '600',
+    },
+    paywallBox: {
+      backgroundColor: colors.purpleDim,
+      borderWidth: 1,
+      borderColor: colors.purple,
+      borderRadius: 14,
+      padding: spacing.lg,
+      gap: spacing.md,
+    },
+    paywallTitle: {
+      fontSize: 17,
+      fontWeight: '600',
+      color: colors.textPrimary,
+    },
+    paywallBody: {
+      fontSize: 13,
+      color: colors.textMuted,
+      lineHeight: 20,
+    },
+    paywallNote: {
+      fontSize: 11,
+      color: colors.purpleLight,
+      fontWeight: '500',
+    },
+    restoreButton: {
+      alignItems: 'center',
+      paddingVertical: spacing.sm,
+    },
+    restoreButtonText: {
+      fontSize: 13,
+      color: colors.textDim,
+      textDecorationLine: 'underline',
+    },
+    freeNote: {
+      fontSize: 11,
+      color: colors.textDim,
+      textAlign: 'center',
+      lineHeight: 16,
+    },
+    premiumBadge: {
+      alignSelf: 'center',
+      backgroundColor: colors.purpleDim,
+      borderWidth: 1,
+      borderColor: colors.purple,
+      borderRadius: 20,
+      paddingHorizontal: spacing.md,
+      paddingVertical: 6,
+    },
+    premiumBadgeText: {
+      fontSize: 11,
+      color: colors.purpleLight,
+      fontWeight: '500',
+    },
+  });
+}

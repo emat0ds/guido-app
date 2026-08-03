@@ -17,6 +17,7 @@ export interface GlobalProgress {
   currentStreak: number;
   totalStudyDays: number;
   masteredCount: number;
+  wrongCount: number;
   macroProgress: Record<string, UserProgress>;
 }
 
@@ -33,7 +34,7 @@ export function useUserProgress() {
 
       const macroProgressMap: Record<string, UserProgress> = {};
       let totalCorrect = 0;
-      let totalQuestions = 0;
+      let totalWrong = 0;
 
       for (const macro of MACROS) {
         const macroData = await getMacroProgress(macro.id);
@@ -41,22 +42,22 @@ export function useUserProgress() {
         if (macroData) {
           macroProgressMap[macro.id] = macroData;
           totalCorrect += macroData.correctAnswers;
-          totalQuestions += macroData.totalQuestions;
+          totalWrong += macroData.wrongAnswers || 0;
         } else {
           macroProgressMap[macro.id] = {
             macroId: macro.id,
             totalQuestions: macro.totalQuestions,
             correctAnswers: 0,
+            wrongAnswers: 0,
             masteredCount: 0,
             lastUpdated: 0,
           };
-          totalQuestions += macro.totalQuestions;
         }
       }
 
-      const totalProgress = totalQuestions > 0
-        ? Math.round((totalCorrect / totalQuestions) * 100)
-        : 0;
+      const totalAnswered = totalCorrect + totalWrong;
+      const totalProgress =
+        totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
       setProgress({
         userName,
@@ -64,6 +65,7 @@ export function useUserProgress() {
         currentStreak: streak,
         totalStudyDays: days,
         masteredCount: mastered,
+        wrongCount: totalWrong,
         macroProgress: macroProgressMap,
       });
     } catch (error) {
@@ -85,6 +87,7 @@ export function useUserProgress() {
         macroId,
         totalQuestions: MACROS.find((m) => m.id === macroId)?.totalQuestions || 0,
         correctAnswers: 0,
+        wrongAnswers: 0,
         masteredCount: 0,
         lastUpdated: 0,
       };
@@ -97,28 +100,19 @@ export function useUserProgress() {
 
       await saveMacroProgress(macroId, updated);
 
-      setProgress((prev) =>
-        prev
-          ? {
-              ...prev,
-              macroProgress: {
-                ...prev.macroProgress,
-                [macroId]: updated,
-              },
-              totalProgress: Math.round(
-                (Object.values({
-                  ...prev.macroProgress,
-                  [macroId]: updated,
-                }).reduce((sum, m) => sum + m.correctAnswers, 0) /
-                  Object.values({
-                    ...prev.macroProgress,
-                    [macroId]: updated,
-                  }).reduce((sum, m) => sum + m.totalQuestions, 0)) *
-                  100
-              ),
-            }
-          : null
-      );
+      setProgress((prev) => {
+        if (!prev) return null;
+        const merged = { ...prev.macroProgress, [macroId]: updated };
+        const correct = Object.values(merged).reduce((sum, m) => sum + m.correctAnswers, 0);
+        const wrong = Object.values(merged).reduce((sum, m) => sum + (m.wrongAnswers || 0), 0);
+        const answered = correct + wrong;
+        return {
+          ...prev,
+          macroProgress: merged,
+          totalProgress: answered > 0 ? Math.round((correct / answered) * 100) : 0,
+          wrongCount: wrong,
+        };
+      });
     },
     [progress]
   );

@@ -11,6 +11,7 @@ export interface UserProgress {
   macroId: string;
   totalQuestions: number;
   correctAnswers: number;
+  wrongAnswers: number;
   masteredCount: number;
   lastUpdated: number;
 }

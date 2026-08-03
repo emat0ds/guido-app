@@ -6012,7 +6012,7 @@
     "subcategory": "strada-dissestata",
     "question": "Il segnale raffigurato preannuncia una discesa pericolosa",
     "answer": false,
-    "img": "/img_sign/1.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale avverte di strada accidentata, non di una discesa pericolosa (quella avrebbe un segnale specifico diverso)."
   },
@@ -6353,7 +6353,7 @@
     "subcategory": "dosso",
     "question": "Il segnale raffigurato preannuncia lavori in corso",
     "answer": false,
-    "img": "/img_sign/2.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "I lavori in corso hanno un segnale specifico diverso; questo segnale riguarda solo dossi e avvallamenti."
   },
@@ -7409,7 +7409,7 @@
     "subcategory": "doppia-curva-destra",
     "question": "Il segnale raffigurato preannuncia una discesa pericolosa",
     "answer": false,
-    "img": "/img_sign/6.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Le curve pericolose sono un segnale distinto dalla discesa pericolosa, che ha un'icona diversa."
   },
@@ -7420,7 +7420,7 @@
     "subcategory": "doppia-curva-destra",
     "question": "Il segnale raffigurato preannuncia un tratto di strada con superficie sdrucciolevole",
     "answer": false,
-    "img": "/img_sign/6.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale avverte di curve pericolose, non di pavimentazione sdrucciolevole (che ha un segnale separato)."
   },
@@ -7442,7 +7442,7 @@
     "subcategory": "doppia-curva-destra",
     "question": "Il segnale raffigurato preannuncia un tratto di strada con pavimentazione irregolare",
     "answer": false,
-    "img": "/img_sign/6.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Questo segnale preannuncia curve pericolose, non pavimentazione irregolare (che ha un segnale specifico)."
   },
@@ -7706,7 +7706,7 @@
     "subcategory": "doppia-curva-sinistra",
     "question": "Il segnale raffigurato preannuncia una deviazione per lavori in corso",
     "answer": false,
-    "img": "/img_sign/7.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Il segnale di curve è un preavviso di tratto con curve successive, non di lavori in corso. I lavori hanno segnali specifici diversi."
   },
@@ -8025,7 +8025,7 @@
     "subcategory": "passaggio-livello-barriere",
     "question": "Il segnale raffigurato preannuncia barriere di recinzione di un cantiere stradale",
     "answer": false,
-    "img": "/img_sign/8.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Falso. Il passaggio a livello riguarda i binari di ferrovia, non i cantieri stradali."
   },
@@ -8300,7 +8300,7 @@
     "subcategory": "ferrovia-senza-barriere",
     "question": "In presenza del segnale raffigurato è necessario rallentare esclusivamente in caso di nebbia",
     "answer": false,
-    "img": "/img_sign/9.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Falso. La parola «esclusivamente» è il trabocchetto. Quando vedi il segnale di passaggio a livello devi rallentare e stare attento sempre, non solo in caso di nebbia."
   },
@@ -8740,7 +8740,7 @@
     "subcategory": "pannelli-passaggio-livello",
     "question": "I pannelli raffigurati indicano lavori in corso",
     "answer": false,
-    "img": "/img_sign/13.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Non indicano lavori: sono pannelli specifici per i passaggi a livello ferroviari, posti per preavvertire il conducente."
   },
@@ -10214,7 +10214,7 @@
     "subcategory": "restringimento-sinistra",
     "question": "Il segnale raffigurato preannuncia un tratto di strada sdrucciolevole",
     "answer": false,
-    "img": "/img_sign/20.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Falso. La strada sdrucciolevole è un pericolo legato all'asfalto, mentre questo segnale avverte del restringimento della larghezza della carreggiata."
   },
@@ -12007,7 +12007,7 @@
     "subcategory": "semaforo-verticale",
     "question": "Il segnale raffigurato è a fondo giallo se posto prima di un cantiere stradale",
     "answer": true,
-    "img": "/img_sign/34.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "VERO. I segnali di preavviso diventano a fondo giallo quando segnalano pericoli temporanei come i cantieri stradali."
   },
@@ -12799,7 +12799,7 @@
     "subcategory": "pericolo-generico",
     "question": "Il segnale raffigurato preannuncia una salita ripida",
     "answer": false,
-    "img": "/img_sign/39.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale mostra una banchina pericolosa/cedevole, non una pendenza del terreno in salita."
   },
@@ -21071,7 +21071,7 @@
     "subcategory": "passaggio-sinistra",
     "question": "Il segnale raffigurato indica una discesa pericolosa a sinistra",
     "answer": false,
-    "img": "/img_sign/101.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Questo è un segnale di obbligo (forma circolare), non di pericolo. Una discesa pericolosa si segnala con un triangolo giallo."
   },
@@ -30014,7 +30014,7 @@
     "subcategory": "semaforo-trasporto-pubblico",
     "question": "Il semaforo in figura preannuncia lavori in corso",
     "answer": false,
-    "img": "/img_sign/156.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Questo semaforo regola il traffico dei tram e autobus pubblici, non ha nulla a che fare con segnalazione di lavori in corso."
   },
@@ -30113,7 +30113,7 @@
     "subcategory": "semaforo-trasporto-pubblico",
     "question": "Il semaforo in figura, con il triangolo giallo acceso, preavvisa lavori in corso",
     "answer": false,
-    "img": "/img_sign/156.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Falso. Il triangolo giallo acceso non indica lavori: questo semaforo regola sempre il traffico su rotaia, il triangolo giallo è un aspetto normale del segnale."
   },
@@ -40145,7 +40145,7 @@
     "subcategory": "delinatore-curva-stretta",
     "question": "Il delineatore raffigurato indica che si è vicini ad un passaggio a livello",
     "answer": false,
-    "img": "/img_sign/293.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Il passaggio a livello è segnalato da appositi cartelli di avvertimento e dalla croce di Sant'Andrea rossa e bianca, non dal delineatore di curva."
   },
@@ -40233,7 +40233,7 @@
     "subcategory": "delineatore-incrocio-T",
     "question": "Il delineatore raffigurato indica una strada chiusa per lavori in corso",
     "answer": false,
-    "img": "/img_sign/294.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "FALSO — I lavori in corso hanno segnalazioni proprie (cantieri, transenne). Questo delineatore riguarda la viabilità dell'incrocio."
   },
@@ -40453,7 +40453,7 @@
     "subcategory": "preavviso-semaforo",
     "question": "Il segnale raffigurato preavvisa un attraversamento ferroviario senza barriere",
     "answer": false,
-    "img": "/img_sign/297.png",
+    "img": null,
     "difficulty": "easy",
     "explanation": "Falso: il segnale è per un semaforo stradale. L'attraversamento ferroviario ha segnali propri (bandiere, luci rosse alternate, sbarre)."
   },

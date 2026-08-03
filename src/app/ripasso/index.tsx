@@ -14,6 +14,7 @@ import { colors, spacing, typography } from '@/constants/theme';
 import { QuestionCard } from '@/components/QuestionCard';
 import { AnswerButton } from '@/components/AnswerButton';
 import { GuidoBubble } from '@/components/GuidoBubble';
+import { QuestionImage } from '@/components/QuestionImage';
 import { saveQuestionState, addMasteredQuestion } from '@/lib/storage';
 import { updateQuestionState } from '@/lib/progress';
 import { useReviewQueue } from '@/hooks/useReviewQueue';
@@ -28,7 +29,7 @@ function buildReportUrl(id: number, question: string, explanation: string | unde
 
 function formatGuido(explanation: string | undefined, isCorrect: boolean): string {
   const cleaned = (explanation || '')
-    .replace(/^(vero|falso)[.\s,:]+/i, '')
+    .replace(/^(vero|falso|esatto|corretto|attenzione|sbagliato)[.\s,:!]+/i, '')
     .trim();
   const prefix = isCorrect ? 'Esatto.' : 'Attenzione.';
   return cleaned ? `${prefix} ${cleaned}` : prefix;
@@ -139,6 +140,7 @@ export default function RipassoScreen() {
         </View>
 
         <QuestionCard question={current.question.question} type="boolean">
+          {current.question.imagePath && <QuestionImage imagePath={current.question.imagePath} />}
           <View style={styles.answerRow}>
             <AnswerButton
               label="Vero"

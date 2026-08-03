@@ -21,7 +21,15 @@ export const Fonts = Platform.select({
   },
 });
 
-export const colors = {
+export type AppColors = {
+  bg: string; surface: string; surfaceAlt: string; surfaceDone: string; border: string;
+  purple: string; purpleLight: string; purpleDim: string;
+  success: string; successDim: string; successBorder: string;
+  error: string; errorDim: string; errorBorder: string;
+  textPrimary: string; textSecondary: string; textMuted: string; textDim: string; textDisabled: string;
+};
+
+export const colors: AppColors = {
   bg: '#0f0f13',
   surface: '#13111f',
   surfaceAlt: '#141417',

@@ -5,7 +5,8 @@ import Animated, {
   withTiming,
   useAnimatedStyle,
 } from 'react-native-reanimated';
-import { colors, spacing } from '@/constants/theme';
+import { spacing } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface GuidoBubbleProps {
   text: string;
@@ -13,6 +14,7 @@ interface GuidoBubbleProps {
 }
 
 export function GuidoBubble({ text, variant = 'default' }: GuidoBubbleProps) {
+  const { colors } = useTheme();
   const opacityValue = useSharedValue(0);
   const translateYValue = useSharedValue(10);
 
@@ -38,13 +40,13 @@ export function GuidoBubble({ text, variant = 'default' }: GuidoBubbleProps) {
   }
 
   return (
-    <Animated.View style={animatedStyle}>
+    <Animated.View style={[animatedStyle, styles.wrapper]}>
       <View style={styles.container}>
         <View style={[styles.avatar, { backgroundColor: colors.purpleDim }]}>
           <Text style={styles.letter}>G</Text>
         </View>
         <View style={[styles.bubble, { backgroundColor: bgColor }]}>
-          <Text style={styles.text}>{text}</Text>
+          <Text style={[styles.text, { color: colors.textMuted }]}>{text}</Text>
         </View>
       </View>
     </Animated.View>
@@ -52,6 +54,9 @@ export function GuidoBubble({ text, variant = 'default' }: GuidoBubbleProps) {
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    alignSelf: 'stretch',
+  },
   container: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -80,7 +85,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
-    color: colors.textMuted,
     lineHeight: 20,
   },
 });

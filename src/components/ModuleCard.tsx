@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ViewStyle,
 } from 'react-native';
-import { colors, spacing, radius } from '@/constants/theme';
+import { spacing, radius } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface ModuleCardProps {
   title: string;
@@ -29,6 +30,9 @@ export function ModuleCard({
   isLocked = false,
   onPress,
 }: ModuleCardProps) {
+  const { colors } = useTheme();
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   const containerStyle: ViewStyle = {
     borderLeftColor: color,
     opacity: isLocked ? 0.5 : 1,
@@ -79,45 +83,47 @@ export function ModuleCard({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.surface,
-    borderLeftWidth: 3,
-    borderRadius: radius.lg,
-    padding: spacing.lg,
-    marginVertical: spacing.xs,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: spacing.md,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: colors.textPrimary,
-    flex: 1,
-  },
-  starsContainer: {
-    flexDirection: 'row',
-    gap: 2,
-  },
-  star: {
-    fontSize: 14,
-  },
-  progressBarContainer: {
-    height: 4,
-    backgroundColor: colors.border,
-    borderRadius: radius.full,
-    overflow: 'hidden',
-    marginBottom: spacing.sm,
-  },
-  progressBar: {
-    height: '100%',
-  },
-  subtitle: {
-    fontSize: 12,
-    color: '#555555',
-  },
-});
+function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
+  return StyleSheet.create({
+    container: {
+      backgroundColor: colors.surface,
+      borderLeftWidth: 3,
+      borderRadius: radius.lg,
+      padding: spacing.lg,
+      marginVertical: spacing.xs,
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: spacing.md,
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: '500',
+      color: colors.textPrimary,
+      flex: 1,
+    },
+    starsContainer: {
+      flexDirection: 'row',
+      gap: 2,
+    },
+    star: {
+      fontSize: 14,
+    },
+    progressBarContainer: {
+      height: 4,
+      backgroundColor: colors.border,
+      borderRadius: radius.full,
+      overflow: 'hidden',
+      marginBottom: spacing.sm,
+    },
+    progressBar: {
+      height: '100%',
+    },
+    subtitle: {
+      fontSize: 12,
+      color: colors.textDim,
+    },
+  });
+}

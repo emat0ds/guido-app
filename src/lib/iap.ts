@@ -6,7 +6,18 @@ const EXAM_COUNT_KEY = 'exam_count';
 
 export async function getExamCount(): Promise<number> {
   const val = await AsyncStorage.getItem(EXAM_COUNT_KEY);
-  return val ? parseInt(val, 10) : 0;
+  if (!val || val === '0') return 0;
+
+  // Migration: if exam_count survived a progress wipe (macro_progress_ keys gone),
+  // reset it — the user effectively has no history.
+  const allKeys = await AsyncStorage.getAllKeys();
+  const hasProgress = allKeys.some((k) => k.startsWith('macro_progress_'));
+  if (!hasProgress) {
+    await AsyncStorage.removeItem(EXAM_COUNT_KEY);
+    return 0;
+  }
+
+  return parseInt(val, 10);
 }
 
 export async function incrementExamCount(): Promise<void> {
@@ -31,6 +42,25 @@ async function getIAPModule(): Promise<any | null> {
   }
 }
 
+export async function fetchProductPrice(): Promise<string | null> {
+  const iap = await getIAPModule();
+  if (!iap) return null;
+  try {
+    await iap.initConnection();
+    const products = await iap.fetchProducts({ skus: [PREMIUM_PRODUCT_ID], type: 'in-app' });
+    if (!products || products.length === 0) return null;
+    const product = products[0];
+    return product.localizedPrice ?? product.displayPrice ?? null;
+  } catch {
+    return null;
+  } finally {
+    try {
+      const iap2 = await getIAPModule();
+      if (iap2) await iap2.endConnection();
+    } catch {}
+  }
+}
+
 export async function purchasePremium(): Promise<{ success: boolean; error?: string }> {
   const iap = await getIAPModule();
   if (!iap) return { success: false, error: 'Acquisti in-app non disponibili su questo dispositivo.' };
@@ -38,14 +68,17 @@ export async function purchasePremium(): Promise<{ success: boolean; error?: str
   try {
     await iap.initConnection();
 
-    const products = await iap.getProducts({ skus: [PREMIUM_PRODUCT_ID] });
+    const products = await iap.fetchProducts({ skus: [PREMIUM_PRODUCT_ID], type: 'in-app' });
     if (!products || products.length === 0) {
       return { success: false, error: 'Prodotto non disponibile sul negozio.' };
     }
 
     const purchase = await iap.requestPurchase({
-      sku: PREMIUM_PRODUCT_ID,
-      andDangerouslyFinishTransactionAutomaticallyIOS: false,
+      request: {
+        apple: { sku: PREMIUM_PRODUCT_ID, andDangerouslyFinishTransactionAutomatically: false },
+        google: { skus: [PREMIUM_PRODUCT_ID] },
+      },
+      type: 'in-app',
     });
 
     if (purchase) {

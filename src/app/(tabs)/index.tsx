@@ -1,35 +1,41 @@
 import { ScrollView, View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import { useRouter, useFocusEffect } from 'expo-router';
-import { useCallback } from 'react';
-import { colors, spacing, typography } from '@/constants/theme';
+import { useRouter } from 'expo-router';
+import { useEffect, useCallback, useMemo } from 'react';
+import { spacing } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 import { ModuleCard } from '@/components/ModuleCard';
 import { ProgressRing } from '@/components/ProgressRing';
 import { StreakBar } from '@/components/StreakBar';
+import { DailyGoalCard } from '@/components/DailyGoalCard';
 import { MACROS } from '@/constants/macros';
 import { useUserProgress } from '@/hooks/useUserProgress';
 import { useReviewQueue } from '@/hooks/useReviewQueue';
+import { useDailyGoal } from '@/hooks/useDailyGoal';
+import type { TabScreenProps } from './_layout';
 
-export default function HomeScreen() {
+export default function HomeScreen({ refreshKey }: TabScreenProps) {
   const router = useRouter();
+  const { colors } = useTheme();
   const { progress, loading, loadProgress } = useUserProgress();
   const { totalDue: reviewCount } = useReviewQueue();
+  const { count: dailyCount, goal: dailyGoal, completed: dailyCompleted, celebrated: dailyCelebrated, markCelebrated } = useDailyGoal(refreshKey);
 
-  useFocusEffect(
-    useCallback(() => {
-      loadProgress();
-    }, [loadProgress])
-  );
+  useEffect(() => {
+    loadProgress();
+  }, [refreshKey]);
 
   const totalProgress = progress?.totalProgress ?? 0;
   const currentStreak = progress?.currentStreak ?? 0;
   const masteredCount = progress?.masteredCount ?? 0;
   const userName = progress?.userName || '';
 
+  const styles = useMemo(() => makeStyles(colors), [colors]);
+
   if (loading) {
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.loadingContainer}>
-          <Text style={[typography.h2, { color: colors.textSecondary }]}>
+          <Text style={{ fontSize: 20, fontWeight: '500', color: colors.textSecondary }}>
             Caricamento...
           </Text>
         </View>
@@ -77,6 +83,14 @@ export default function HomeScreen() {
           </TouchableOpacity>
         )}
 
+        <DailyGoalCard
+          count={dailyCount}
+          goal={dailyGoal}
+          completed={dailyCompleted}
+          celebrated={dailyCelebrated}
+          onCelebrationDone={markCelebrated}
+        />
+
         <Text style={styles.sectionLabel}>MACRO-AREE</Text>
 
         {MACROS.map((macro) => {
@@ -112,7 +126,7 @@ export default function HomeScreen() {
         {masteredCount > 0 && (
           <View style={styles.statsBox}>
             <Text style={styles.reviewTitle}>Progresso</Text>
-            <Text style={styles.reviewSub}>{masteredCount} domande masterate</Text>
+            <Text style={styles.reviewSub}>{masteredCount} domande dominate</Text>
           </View>
         )}
       </ScrollView>
@@ -120,108 +134,110 @@ export default function HomeScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.bg,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  contentContainer: {
-    paddingHorizontal: 20,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.xl,
-    gap: 16,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  header: {
-    gap: 8,
-  },
-  headerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  claim: {
-    fontSize: 12,
-    fontWeight: '500',
-    color: '#444444',
-    letterSpacing: 0.5,
-  },
-  greeting: {
-    fontSize: 28,
-    fontWeight: '500',
-    color: '#edeae4',
-    lineHeight: 34,
-  },
-  tagline: {
-    fontSize: 13,
-    color: '#555555',
-    lineHeight: 18,
-  },
-  progressSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.lg,
-    backgroundColor: '#13111f',
-    borderWidth: 1,
-    borderColor: '#2a2a35',
-    borderRadius: 16,
-    padding: spacing.lg,
-  },
-  progressText: {
-    flex: 1,
-    gap: 4,
-  },
-  progressLabel: {
-    fontSize: 14,
-    color: colors.textSecondary,
-  },
-  progressNumber: {
-    fontSize: 28,
-    fontWeight: '500',
-    color: '#edeae4',
-  },
-  sectionLabel: {
-    fontSize: 11,
-    fontWeight: '500',
-    color: '#444444',
-    letterSpacing: 0.8,
-    marginTop: 4,
-  },
-  reviewBox: {
-    backgroundColor: colors.purpleDim,
-    borderWidth: 1,
-    borderColor: colors.purple,
-    borderRadius: 14,
-    padding: spacing.lg,
-    gap: 6,
-  },
-  reviewTitle: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.textSecondary,
-  },
-  reviewSub: {
-    fontSize: 12,
-    color: colors.textMuted,
-  },
-  reviewCta: {
-    fontSize: 12,
-    color: colors.purple,
-    marginTop: 2,
-  },
-  statsBox: {
-    backgroundColor: colors.purpleDim,
-    borderWidth: 1,
-    borderColor: colors.purple,
-    borderRadius: 14,
-    padding: spacing.lg,
-    gap: 6,
-  },
-});
+function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
+  return StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: colors.bg,
+    },
+    scrollView: {
+      flex: 1,
+    },
+    contentContainer: {
+      paddingHorizontal: 20,
+      paddingTop: spacing.lg,
+      paddingBottom: spacing.xl,
+      gap: 16,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    header: {
+      gap: 8,
+    },
+    headerRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    claim: {
+      fontSize: 12,
+      fontWeight: '500',
+      color: colors.textDim,
+      letterSpacing: 0.5,
+    },
+    greeting: {
+      fontSize: 28,
+      fontWeight: '500',
+      color: colors.textPrimary,
+      lineHeight: 34,
+    },
+    tagline: {
+      fontSize: 13,
+      color: colors.textDim,
+      lineHeight: 18,
+    },
+    progressSection: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.lg,
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 16,
+      padding: spacing.lg,
+    },
+    progressText: {
+      flex: 1,
+      gap: 4,
+    },
+    progressLabel: {
+      fontSize: 14,
+      color: colors.textSecondary,
+    },
+    progressNumber: {
+      fontSize: 28,
+      fontWeight: '500',
+      color: colors.textPrimary,
+    },
+    sectionLabel: {
+      fontSize: 11,
+      fontWeight: '500',
+      color: colors.textDim,
+      letterSpacing: 0.8,
+      marginTop: 4,
+    },
+    reviewBox: {
+      backgroundColor: colors.purpleDim,
+      borderWidth: 1,
+      borderColor: colors.purple,
+      borderRadius: 14,
+      padding: spacing.lg,
+      gap: 6,
+    },
+    reviewTitle: {
+      fontSize: 16,
+      fontWeight: '500',
+      color: colors.textSecondary,
+    },
+    reviewSub: {
+      fontSize: 12,
+      color: colors.textMuted,
+    },
+    reviewCta: {
+      fontSize: 12,
+      color: colors.purple,
+      marginTop: 2,
+    },
+    statsBox: {
+      backgroundColor: colors.purpleDim,
+      borderWidth: 1,
+      borderColor: colors.purple,
+      borderRadius: 14,
+      padding: spacing.lg,
+      gap: 6,
+    },
+  });
+}

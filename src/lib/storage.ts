@@ -5,9 +5,15 @@ const STORAGE_KEYS = {
   USER_NAME: 'user_name',
   TOTAL_STREAK: 'total_streak',
   LAST_STUDY_DATE: 'last_study_date',
+  STUDY_DAYS_COUNT: 'study_days_count',
   MACRO_PROGRESS: 'macro_progress_',
   QUESTION_STATES: 'question_states_',
   MASTERED_QUESTIONS: 'mastered_questions',
+  UNLOCKED_BADGES: 'unlocked_badges',
+  CONSECUTIVE_CORRECT: 'consecutive_correct',
+  DAILY_GOAL_DATE: 'daily_goal_date',
+  DAILY_GOAL_COUNT: 'daily_goal_count',
+  DAILY_GOAL_CELEBRATED: 'daily_goal_celebrated',
 };
 
 export async function saveUserName(name: string): Promise<void> {
@@ -88,6 +94,10 @@ export async function incrementStreak(): Promise<number> {
     streak = 1;
   }
 
+  const rawDays = await AsyncStorage.getItem(STORAGE_KEYS.STUDY_DAYS_COUNT);
+  const studyDays = rawDays ? parseInt(rawDays, 10) : 0;
+  await AsyncStorage.setItem(STORAGE_KEYS.STUDY_DAYS_COUNT, (studyDays + 1).toString());
+
   await AsyncStorage.setItem(STORAGE_KEYS.LAST_STUDY_DATE, today);
   await AsyncStorage.setItem(STORAGE_KEYS.TOTAL_STREAK, streak.toString());
 
@@ -99,16 +109,15 @@ export async function getCurrentStreak(): Promise<number> {
   return streak ? parseInt(streak, 10) : 0;
 }
 
-export async function getTotalStudyDays(): Promise<number> {
+export async function hasStudiedToday(): Promise<boolean> {
+  const today = new Date().toDateString();
   const lastDate = await AsyncStorage.getItem(STORAGE_KEYS.LAST_STUDY_DATE);
-  if (!lastDate) return 0;
+  return lastDate === today;
+}
 
-  const startDate = new Date('2026-01-01');
-  const endDate = new Date(lastDate);
-  const diffTime = endDate.getTime() - startDate.getTime();
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  return Math.max(1, diffDays);
+export async function getTotalStudyDays(): Promise<number> {
+  const raw = await AsyncStorage.getItem(STORAGE_KEYS.STUDY_DAYS_COUNT);
+  return raw ? parseInt(raw, 10) : 0;
 }
 
 export async function addMasteredQuestion(questionId: number): Promise<void> {
@@ -146,6 +155,82 @@ export async function getExamSession(): Promise<{
 } | null> {
   const val = await AsyncStorage.getItem('current_exam_session');
   return val ? JSON.parse(val) : null;
+}
+
+export async function getUnlockedBadges(): Promise<string[]> {
+  const data = await AsyncStorage.getItem(STORAGE_KEYS.UNLOCKED_BADGES);
+  return data ? JSON.parse(data) : [];
+}
+
+// Returns true if the badge was newly unlocked (i.e. wasn't already in the list).
+export async function unlockBadge(id: string): Promise<boolean> {
+  const current = await getUnlockedBadges();
+  if (current.includes(id)) return false;
+  await AsyncStorage.setItem(STORAGE_KEYS.UNLOCKED_BADGES, JSON.stringify([...current, id]));
+  return true;
+}
+
+// Increments or resets the consecutive correct counter.
+// Returns the new count.
+export async function updateConsecutiveCorrect(isCorrect: boolean): Promise<number> {
+  if (!isCorrect) {
+    await AsyncStorage.setItem(STORAGE_KEYS.CONSECUTIVE_CORRECT, '0');
+    return 0;
+  }
+  const raw = await AsyncStorage.getItem(STORAGE_KEYS.CONSECUTIVE_CORRECT);
+  const current = raw ? parseInt(raw, 10) : 0;
+  const next = current + 1;
+  await AsyncStorage.setItem(STORAGE_KEYS.CONSECUTIVE_CORRECT, next.toString());
+  return next;
+}
+
+export interface DailyGoalData {
+  count: number;
+  celebrated: boolean;
+}
+
+export async function getDailyGoal(): Promise<DailyGoalData> {
+  const today = new Date().toDateString();
+  const storedDate = await AsyncStorage.getItem(STORAGE_KEYS.DAILY_GOAL_DATE);
+
+  if (storedDate !== today) {
+    await AsyncStorage.multiSet([
+      [STORAGE_KEYS.DAILY_GOAL_DATE, today],
+      [STORAGE_KEYS.DAILY_GOAL_COUNT, '0'],
+      [STORAGE_KEYS.DAILY_GOAL_CELEBRATED, 'false'],
+    ]);
+    return { count: 0, celebrated: false };
+  }
+
+  const countStr = await AsyncStorage.getItem(STORAGE_KEYS.DAILY_GOAL_COUNT);
+  const celebStr = await AsyncStorage.getItem(STORAGE_KEYS.DAILY_GOAL_CELEBRATED);
+  return {
+    count: countStr ? parseInt(countStr, 10) : 0,
+    celebrated: celebStr === 'true',
+  };
+}
+
+// Returns the new count after incrementing (resets if a new day).
+export async function incrementDailyGoal(): Promise<number> {
+  const today = new Date().toDateString();
+  const storedDate = await AsyncStorage.getItem(STORAGE_KEYS.DAILY_GOAL_DATE);
+
+  let count = 0;
+  if (storedDate === today) {
+    const raw = await AsyncStorage.getItem(STORAGE_KEYS.DAILY_GOAL_COUNT);
+    count = raw ? parseInt(raw, 10) : 0;
+  } else {
+    await AsyncStorage.setItem(STORAGE_KEYS.DAILY_GOAL_DATE, today);
+    await AsyncStorage.setItem(STORAGE_KEYS.DAILY_GOAL_CELEBRATED, 'false');
+  }
+
+  count += 1;
+  await AsyncStorage.setItem(STORAGE_KEYS.DAILY_GOAL_COUNT, count.toString());
+  return count;
+}
+
+export async function markDailyGoalCelebrated(): Promise<void> {
+  await AsyncStorage.setItem(STORAGE_KEYS.DAILY_GOAL_CELEBRATED, 'true');
 }
 
 export async function clearAllProgress(): Promise<void> {

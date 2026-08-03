@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -22,7 +22,14 @@ import {
   saveMacroProgress,
   getMacroProgress,
   addMasteredQuestion,
+  incrementStreak,
+  updateConsecutiveCorrect,
+  unlockBadge,
+  incrementDailyGoal,
 } from '@/lib/storage';
+import { onStudiedToday } from '@/lib/notifications';
+import { getBadgeForConsecutive, getBadgeById } from '@/lib/badges';
+import { useBadge } from '@/contexts/BadgeContext';
 import { updateQuestionState } from '@/lib/progress';
 import { MACROS } from '@/constants/macros';
 
@@ -37,7 +44,7 @@ function buildReportUrl(id: number, question: string, explanation: string | unde
 
 function formatGuido(explanation: string | undefined, isCorrect: boolean): string {
   const cleaned = (explanation || '')
-    .replace(/^(vero|falso)[.\s,:]+/i, '')
+    .replace(/^(vero|falso|esatto|corretto|attenzione|sbagliato)[.\s,:!]+/i, '')
     .trim();
   const prefix = isCorrect ? 'Esatto.' : 'Attenzione.';
   return cleaned ? `${prefix} ${cleaned}` : prefix;
@@ -46,6 +53,7 @@ function formatGuido(explanation: string | undefined, isCorrect: boolean): strin
 export default function LezioneScreen() {
   const { macroId } = useLocalSearchParams();
   const router = useRouter();
+  const { showBadgeUnlock } = useBadge();
 
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -54,6 +62,7 @@ export default function LezioneScreen() {
   const [loading, setLoading] = useState(true);
   const [correctCount, setCorrectCount] = useState(0);
   const [sessionAnswers, setSessionAnswers] = useState<Record<number, boolean>>({});
+  const studyTracked = useRef(false);
 
   useEffect(() => {
     loadSessionQuestions();
@@ -80,6 +89,16 @@ export default function LezioneScreen() {
 
     console.log('question.answer:', current.answer, typeof current.answer, '| selected:', answerValue, typeof answerValue);
 
+    // Track study session on first answer of the day
+    if (!studyTracked.current) {
+      studyTracked.current = true;
+      await incrementStreak();
+      await onStudiedToday();
+    }
+
+    // Daily goal: count every answered question
+    await incrementDailyGoal();
+
     const isCorrect = answerValue === current.answer;
     setSelectedAnswer(answerValue);
     setAnswered(true);
@@ -104,6 +123,21 @@ export default function LezioneScreen() {
 
     if (newState.mastered) await addMasteredQuestion(current.id);
     await saveQuestionState(macroIdStr, current.id, newState);
+
+    // Badge: prima curva (first answer ever — unlockBadge is idempotent)
+    const primaIsNew = await unlockBadge('prima-curva');
+    if (primaIsNew) {
+      const primaBadge = getBadgeById('prima-curva');
+      if (primaBadge) showBadgeUnlock(primaBadge);
+    }
+
+    // Badge: consecutive correct answers (only checked if no higher-priority popup just shown)
+    const consecutive = await updateConsecutiveCorrect(isCorrect);
+    const consecutiveBadge = getBadgeForConsecutive(consecutive);
+    if (consecutiveBadge) {
+      const isNew = await unlockBadge(consecutiveBadge.id);
+      if (isNew) showBadgeUnlock(consecutiveBadge);
+    }
   };
 
   const handleNext = async () => {
@@ -117,10 +151,12 @@ export default function LezioneScreen() {
 
       if (macro) {
         const existingProgress = await getMacroProgress(macroIdStr);
+        const wrongCount = questions.length - correctCount;
         await saveMacroProgress(macroIdStr, {
           macroId: macroIdStr,
           totalQuestions: macro.totalQuestions,
           correctAnswers: (existingProgress?.correctAnswers || 0) + correctCount,
+          wrongAnswers: (existingProgress?.wrongAnswers || 0) + wrongCount,
           masteredCount:
             (existingProgress?.masteredCount || 0) +
             Object.values(sessionAnswers).filter((v) => v).length,

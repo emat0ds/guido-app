@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -10,22 +10,40 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { colors, spacing } from '@/constants/theme';
-import { getExamSession } from '@/lib/storage';
+import { getExamSession, unlockBadge } from '@/lib/storage';
 import { computeExamResult, EXAM_MAX_ERRORS, ExamSession } from '@/lib/exam';
 import type { Question } from '@/lib/questions';
+import { getBadgeById } from '@/lib/badges';
+import { useBadge } from '@/contexts/BadgeContext';
 
 export default function EsameRisultato() {
   const router = useRouter();
+  const { showBadgeUnlock } = useBadge();
   const [session, setSession] = useState<ExamSession | null>(null);
   const [loading, setLoading] = useState(true);
+  const badgeChecked = useRef(false);
 
   useEffect(() => {
     (async () => {
       const stored = await getExamSession();
       if (stored) setSession(stored as ExamSession);
+
+      // Badge: pronto per l'esame (first completed exam)
+      if (!badgeChecked.current) {
+        badgeChecked.current = true;
+        const isNew = await unlockBadge('pronto-esame');
+        if (isNew) {
+          const badge = getBadgeById('pronto-esame');
+          if (badge) {
+            // Small delay so the results screen renders first
+            setTimeout(() => showBadgeUnlock(badge), 800);
+          }
+        }
+      }
+
       setLoading(false);
     })();
-  }, []);
+  }, [showBadgeUnlock]);
 
   if (loading || !session) {
     return (

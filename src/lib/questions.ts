@@ -20,7 +20,7 @@ export async function getAllQuestions(): Promise<Question[]> {
 
   const rawData = await loadQuestions();
   questionsCache = rawData.map((q: any) => ({
-    id: q.id || Math.random(),
+    id: q.id ?? Math.random(),
     question: q.question || '',
     answer: q.answer === true,
     macro_area: q.macro_area || '',
@@ -70,7 +70,7 @@ export async function getQuestionsByCategory(category: string): Promise<Question
           category.toLowerCase()
     )
     .map((q: any) => ({
-      id: q.id || Math.random(),
+      id: q.id ?? Math.random(),
       question: q.question || '',
       answer: q.answer === true,
       macro_area: q.macro || q.macro_area || '',

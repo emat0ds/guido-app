@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "guido-app",
+    "name": "Guido Quiz",
     "slug": "guido-app",
-    "version": "1.1.0",
+    "version": "1.3.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "guidoapp",
@@ -10,6 +10,7 @@
     "ios": {
       "icon": "./assets/icon.png",
       "bundleIdentifier": "com.t0ds.guidoapp",
+      "buildNumber": "23",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -46,7 +47,15 @@
         }
       ],
       "@sentry/react-native",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#5b3fff",
+          "iosDisplayInForeground": true
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
