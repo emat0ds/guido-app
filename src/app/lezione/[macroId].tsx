@@ -23,6 +23,7 @@ import {
   getMacroProgress,
   addMasteredQuestion,
   incrementStreak,
+  recordStudyDate,
   updateConsecutiveCorrect,
   unlockBadge,
   incrementDailyGoal,
@@ -93,6 +94,7 @@ export default function LezioneScreen() {
     if (!studyTracked.current) {
       studyTracked.current = true;
       await incrementStreak();
+      await recordStudyDate();
       await onStudiedToday();
     }
 

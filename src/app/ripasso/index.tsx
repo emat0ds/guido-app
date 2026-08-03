@@ -15,7 +15,7 @@ import { QuestionCard } from '@/components/QuestionCard';
 import { AnswerButton } from '@/components/AnswerButton';
 import { GuidoBubble } from '@/components/GuidoBubble';
 import { QuestionImage } from '@/components/QuestionImage';
-import { saveQuestionState, addMasteredQuestion } from '@/lib/storage';
+import { saveQuestionState, addMasteredQuestion, recordStudyDate } from '@/lib/storage';
 import { updateQuestionState } from '@/lib/progress';
 import { useReviewQueue } from '@/hooks/useReviewQueue';
 
@@ -86,6 +86,8 @@ export default function RipassoScreen() {
 
   const handleAnswer = async (answerValue: boolean) => {
     console.log('question.answer:', current.question.answer, typeof current.question.answer, '| selected:', answerValue, typeof answerValue);
+
+    await recordStudyDate();
 
     const isAnswerCorrect = answerValue === current.question.answer;
     setSelectedAnswer(answerValue);

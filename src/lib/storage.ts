@@ -6,6 +6,7 @@ const STORAGE_KEYS = {
   TOTAL_STREAK: 'total_streak',
   LAST_STUDY_DATE: 'last_study_date',
   STUDY_DAYS_COUNT: 'study_days_count',
+  STUDY_DATES: 'study_dates',
   MACRO_PROGRESS: 'macro_progress_',
   QUESTION_STATES: 'question_states_',
   MASTERED_QUESTIONS: 'mastered_questions',
@@ -115,9 +116,18 @@ export async function hasStudiedToday(): Promise<boolean> {
   return lastDate === today;
 }
 
+export async function recordStudyDate(): Promise<void> {
+  const today = new Date().toDateString();
+  const raw = await AsyncStorage.getItem(STORAGE_KEYS.STUDY_DATES);
+  const dates: string[] = raw ? JSON.parse(raw) : [];
+  if (dates.includes(today)) return;
+  dates.push(today);
+  await AsyncStorage.setItem(STORAGE_KEYS.STUDY_DATES, JSON.stringify(dates));
+}
+
 export async function getTotalStudyDays(): Promise<number> {
-  const raw = await AsyncStorage.getItem(STORAGE_KEYS.STUDY_DAYS_COUNT);
-  return raw ? parseInt(raw, 10) : 0;
+  const raw = await AsyncStorage.getItem(STORAGE_KEYS.STUDY_DATES);
+  return raw ? JSON.parse(raw).length : 0;
 }
 
 export async function addMasteredQuestion(questionId: number): Promise<void> {
