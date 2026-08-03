@@ -56,8 +56,9 @@ export function useUserProgress() {
       }
 
       const totalAnswered = totalCorrect + totalWrong;
+      const totalQuestions = MACROS.reduce((sum, m) => sum + m.totalQuestions, 0);
       const totalProgress =
-        totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+        totalQuestions > 0 ? Math.round((totalAnswered / totalQuestions) * 100) : 0;
 
       setProgress({
         userName,
@@ -106,10 +107,11 @@ export function useUserProgress() {
         const correct = Object.values(merged).reduce((sum, m) => sum + m.correctAnswers, 0);
         const wrong = Object.values(merged).reduce((sum, m) => sum + (m.wrongAnswers || 0), 0);
         const answered = correct + wrong;
+        const totalQ = MACROS.reduce((sum, m) => sum + m.totalQuestions, 0);
         return {
           ...prev,
           macroProgress: merged,
-          totalProgress: answered > 0 ? Math.round((correct / answered) * 100) : 0,
+          totalProgress: totalQ > 0 ? Math.round((answered / totalQ) * 100) : 0,
           wrongCount: wrong,
         };
       });
