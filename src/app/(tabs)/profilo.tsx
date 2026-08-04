@@ -90,7 +90,7 @@ export default function ProfiloScreen() {
               {progress?.userName || 'Studente'}
             </Text>
             <Text style={{ fontSize: 12, color: colors.textMuted, marginTop: spacing.xs }}>
-              Studente da {progress?.totalStudyDays || 0} giorni
+              Studente da {progress?.totalStudyDays || 0} {progress?.totalStudyDays === 1 ? 'giorno' : 'giorni'}
             </Text>
           </View>
         </View>

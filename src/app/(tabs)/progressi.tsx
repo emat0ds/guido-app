@@ -34,7 +34,6 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
     0
   );
   const wrongAnswers = progress?.wrongCount ?? 0;
-  const accuracyPct = progress?.totalProgress ?? 0;
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -47,17 +46,11 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
         <GuidoBubble text="Analizza come stai andando nelle diverse aree. Concentrati su quelle più deboli." />
 
         <View style={styles.statsGrid}>
-          <View style={styles.statCard}>
+          <View style={[styles.statCard, { flex: 1 }]}>
             <Text style={[styles.statNumber, { color: colors.purple }]}>
               {correctAnswers}
             </Text>
             <Text style={styles.statLabel}>Domande affrontate</Text>
-          </View>
-          <View style={styles.statCard}>
-            <Text style={[styles.statNumber, { color: colors.success }]}>
-              {accuracyPct}%
-            </Text>
-            <Text style={styles.statLabel}>Accuratezza</Text>
           </View>
         </View>
 
