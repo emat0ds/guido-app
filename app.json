@@ -38,15 +38,6 @@
           "imageWidth": 120
         }
       ],
-      [
-        "@sentry/react-native/expo",
-        {
-          "url": "https://sentry.io/",
-          "organization": "emt-tods",
-          "project": "react-native"
-        }
-      ],
-      "@sentry/react-native",
       "expo-web-browser",
       [
         "expo-notifications",
@@ -55,7 +46,8 @@
           "color": "#5b3fff",
           "iosDisplayInForeground": true
         }
-      ]
+      ],
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true,
