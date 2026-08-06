@@ -1,0 +1,20 @@
+exclude:
+  - data/
+  - src/
+  - assets/
+  - node_modules/
+  - android/
+  - ios/
+  - .expo/
+  - scripts/
+  - "*.json"
+  - "*.ts"
+  - "*.tsx"
+  - "*.js"
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - app.json
+  - eas.json
+  - babel.config.js
+  - metro.config.js
