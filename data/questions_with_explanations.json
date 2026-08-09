@@ -21909,7 +21909,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Falso. Non indica un limite massimo, ma un **divieto di transito** per veicoli con massa superiore a 30 tonnellate. Diverso dal limite di velocità."
+    "explanation": "Falso. Il segnale blu circolare con numero indica la velocità MINIMA obbligatoria, non massima. I veicoli devono mantenere almeno 30 km/h in quel tratto."
   },
   {
     "id": 1992,
@@ -21920,7 +21920,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "medium",
-    "explanation": "Falso. Non riguarda la velocità dei veicoli, ma il loro **peso/massa complessiva**. È un divieto per i mezzi pesanti oltre i 30 t."
+    "explanation": "Falso. Il segnale non riguarda la velocità massima dei veicoli né la loro categoria. È un segnale di velocità minima obbligatoria: tutti i veicoli devono mantenere almeno la velocità indicata."
   },
   {
     "id": 1993,
@@ -21931,7 +21931,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il numero 30 non indica velocità ma **tonnellate di massa**. Non vieta una velocità, vieta il transito ai camion troppo pesanti."
+    "explanation": "Falso. Il segnale impone una velocità MINIMA, non massima. Puoi marciare più velocemente: la prescrizione è di non scendere sotto i 30 km/h."
   },
   {
     "id": 1994,
@@ -21942,7 +21942,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il 30 si riferisce a **tonnellate**, non a km/h. Non c'entra nulla con la velocità consentita."
+    "explanation": "Falso. Con il segnale di velocità minima a 30 km/h, marciare a 25 km/h sarebbe una violazione: si è sotto il limite minimo obbligatorio."
   },
   {
     "id": 1995,
@@ -21953,7 +21953,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il segnale riguarda il **peso dei veicoli** (30 tonnellate), non la distanza di sicurezza tra auto."
+    "explanation": "Falso. Il segnale riguarda la velocità minima obbligatoria (30 km/h), non la distanza di sicurezza tra veicoli. Non ha nulla a che fare con il peso o la distanza."
   },
   {
     "id": 1996,
@@ -21961,10 +21961,10 @@
     "category": "segnali-obbligo",
     "subcategory": "limite-minimo-velocita",
     "question": "Il segnale raffigurato indica il divieto di transito ai veicoli con massa complessiva superiore a 30 t",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Vero. Questo segnale **vieta il transito ai veicoli con massa complessiva superiore a 30 tonnellate**. È un divieto specifico per i mezzi pesanti."
+    "explanation": "Falso. Il segnale blu circolare con numero indica la velocità minima obbligatoria. Non ha alcun rapporto con la massa dei veicoli: vieta la circolazione a chi non raggiunge i 30 km/h, non a chi supera un certo peso."
   },
   {
     "id": 1997,
@@ -21975,7 +21975,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Falso. Non è un segnale di velocità. Il divieto è assoluto per i veicoli sopra i 30 t, non consente circolazione a nessuna velocità."
+    "explanation": "Falso. Il segnale prescrive una velocità minima: è vietato circolare al di sotto di essa. Chi non riesce a mantenere almeno 30 km/h non può transitare in quel tratto."
   },
   {
     "id": 1998,
@@ -21986,7 +21986,7 @@
     "answer": false,
     "img": "/img_sign/105.png",
     "difficulty": "easy",
-    "explanation": "Falso. Non indica velocità consigliata (quella ha forma quadrata gialla). Questo vieta il passaggio ai veicoli pesanti oltre 30 tonnellate."
+    "explanation": "Falso. Non è una velocità consigliata (quella è rettangolare e gialla): è una velocità minima obbligatoria, indicata da un cerchio blu. Devi mantenere almeno quella velocità."
   },
   {
     "id": 1999,
