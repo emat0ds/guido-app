@@ -23,7 +23,7 @@ export async function getAllQuestions(): Promise<Question[]> {
     id: q.id ?? Math.random(),
     question: q.question || '',
     answer: q.answer === true,
-    macro_area: q.macro_area || '',
+    macro_area: q.macro || q.macro_area || '',
     category: q.category || '',
     explanation: q.explanation || '',
     imagePath: q.img || q.imagePath,
