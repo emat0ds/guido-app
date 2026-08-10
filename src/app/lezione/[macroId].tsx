@@ -35,6 +35,7 @@ import { updateQuestionState } from '@/lib/progress';
 import { MACROS } from '@/constants/macros';
 
 const SESSION_SIZE = 10;
+const GUIDO_API_URL = 'https://guido-app-production.up.railway.app';
 const REPORT_EMAIL = 'ematods@gmail.com';
 
 function buildReportUrl(id: number, question: string, explanation: string | undefined): string {
@@ -64,6 +65,8 @@ export default function LezioneScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [sessionAnswers, setSessionAnswers] = useState<Record<number, boolean>>({});
   const studyTracked = useRef(false);
+  const [guidoText, setGuidoText] = useState<string | null>(null);
+  const [loadingGuido, setLoadingGuido] = useState(false);
 
   useEffect(() => {
     loadSessionQuestions();
@@ -142,11 +145,34 @@ export default function LezioneScreen() {
     }
   };
 
+  const askGuido = async () => {
+    if (!current || loadingGuido) return;
+    setLoadingGuido(true);
+    try {
+      const res = await fetch(`${GUIDO_API_URL}/ask-guido`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: current.question,
+          explanation: current.explanation,
+          isCorrect,
+        }),
+      });
+      const data = await res.json();
+      setGuidoText(data.response);
+    } catch {
+      setGuidoText('Non riesco a rispondere in questo momento. Riprova più tardi.');
+    } finally {
+      setLoadingGuido(false);
+    }
+  };
+
   const handleNext = async () => {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setSelectedAnswer(null);
       setAnswered(false);
+      setGuidoText(null);
     } else {
       const macroIdStr = Array.isArray(macroId) ? macroId[0] : macroId;
       const macro = MACROS.find((m) => m.id === macroIdStr);
@@ -246,9 +272,22 @@ export default function LezioneScreen() {
             {answered && (
               <>
                 <GuidoBubble
-                  text={formatGuido(current.explanation, isCorrect)}
+                  text={guidoText || formatGuido(current.explanation, isCorrect)}
                   variant={isCorrect ? 'success' : 'error'}
                 />
+                {!guidoText && (
+                  <TouchableOpacity
+                    style={styles.guidoButton}
+                    onPress={askGuido}
+                    disabled={loadingGuido}
+                  >
+                    {loadingGuido ? (
+                      <ActivityIndicator size="small" color="#7c6fff" />
+                    ) : (
+                      <Text style={styles.guidoButtonText}>💬 Chiedi a Guido</Text>
+                    )}
+                  </TouchableOpacity>
+                )}
                 <TouchableOpacity
                   onPress={() => Linking.openURL(buildReportUrl(current.id, current.question, current.explanation))}
                 >
@@ -333,6 +372,20 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 14,
     fontWeight: '600',
+  },
+  guidoButton: {
+    borderWidth: 1,
+    borderColor: '#3d2fff44',
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: spacing.md,
+    alignItems: 'center',
+    marginTop: -spacing.sm,
+  },
+  guidoButtonText: {
+    fontSize: 12,
+    color: '#7c6fff',
+    fontWeight: '500',
   },
   reportLink: {
     fontSize: 11,
