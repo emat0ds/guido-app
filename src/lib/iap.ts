@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const PREMIUM_PRODUCT_ID = 'guido_esami_unlimitati';
+export const PREMIUM_PRODUCT_ID = 'guido_premium';
 const IS_PREMIUM_KEY = 'is_premium_v1';
 const EXAM_COUNT_KEY = 'exam_count';
 
