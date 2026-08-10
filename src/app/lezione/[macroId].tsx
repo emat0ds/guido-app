@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Linking,
+  Modal,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { colors, spacing, typography } from '@/constants/theme';
@@ -29,6 +30,7 @@ import {
   incrementDailyGoal,
 } from '@/lib/storage';
 import { onStudiedToday } from '@/lib/notifications';
+import { isPremium, getGuidoRequests, consumeGuidoRequest, purchaseGuidoRequests, purchasePremium, fetchProductPrice } from '@/lib/iap';
 import { getBadgeForConsecutive, getBadgeById } from '@/lib/badges';
 import { useBadge } from '@/contexts/BadgeContext';
 import { updateQuestionState } from '@/lib/progress';
@@ -67,10 +69,22 @@ export default function LezioneScreen() {
   const studyTracked = useRef(false);
   const [guidoText, setGuidoText] = useState<string | null>(null);
   const [loadingGuido, setLoadingGuido] = useState(false);
+  const [guidoRequests, setGuidoRequests] = useState<number>(0);
+  const [hasPremium, setHasPremium] = useState<boolean>(false);
+  const [showGuidoModal, setShowGuidoModal] = useState<'upsell_premium' | 'upsell_refill' | null>(null);
+  const [purchasingGuido, setPurchasingGuido] = useState(false);
 
   useEffect(() => {
     loadSessionQuestions();
   }, [macroId]);
+
+  useEffect(() => {
+    (async () => {
+      const [premium, requests] = await Promise.all([isPremium(), getGuidoRequests()]);
+      setHasPremium(premium);
+      setGuidoRequests(requests);
+    })();
+  }, []);
 
   const loadSessionQuestions = async () => {
     try {
@@ -147,7 +161,28 @@ export default function LezioneScreen() {
 
   const askGuido = async () => {
     if (!current || loadingGuido) return;
+
+    // Gate: no premium → upsell premium
+    if (!hasPremium) {
+      setShowGuidoModal('upsell_premium');
+      return;
+    }
+
+    // Gate: no requests left → upsell refill
+    if (guidoRequests <= 0) {
+      setShowGuidoModal('upsell_refill');
+      return;
+    }
+
     setLoadingGuido(true);
+    const consumed = await consumeGuidoRequest();
+    if (!consumed) {
+      setShowGuidoModal('upsell_refill');
+      setLoadingGuido(false);
+      return;
+    }
+    setGuidoRequests((prev) => prev - 1);
+
     try {
       const res = await fetch(`${GUIDO_API_URL}/ask-guido`, {
         method: 'POST',
@@ -164,6 +199,27 @@ export default function LezioneScreen() {
       setGuidoText('Non riesco a rispondere in questo momento. Riprova più tardi.');
     } finally {
       setLoadingGuido(false);
+    }
+  };
+
+  const handleBuyPremium = async () => {
+    setPurchasingGuido(true);
+    const result = await purchasePremium();
+    setPurchasingGuido(false);
+    if (result.success) {
+      setHasPremium(true);
+      setGuidoRequests(50);
+      setShowGuidoModal(null);
+    }
+  };
+
+  const handleBuyRefill = async () => {
+    setPurchasingGuido(true);
+    const result = await purchaseGuidoRequests();
+    setPurchasingGuido(false);
+    if (result.success) {
+      setGuidoRequests((prev) => prev + 200);
+      setShowGuidoModal(null);
     }
   };
 
@@ -244,6 +300,61 @@ export default function LezioneScreen() {
         </Text>
       </View>
 
+      {/* Guido upsell modals */}
+      <Modal visible={showGuidoModal !== null} transparent animationType="fade">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalBox}>
+            {showGuidoModal === 'upsell_premium' ? (
+              <>
+                <Text style={styles.modalTitle}>✨ Chiedi a Guido</Text>
+                <Text style={styles.modalBody}>
+                  Ottieni spiegazioni personalizzate dall'AI per ogni domanda.{'\n\n'}
+                  Con <Text style={{ fontWeight: '700' }}>Guido Premium</Text> hai:{'\n'}
+                  • Esami illimitati{'\n'}
+                  • 50 domande a Guido incluse
+                </Text>
+                <TouchableOpacity
+                  style={styles.modalButton}
+                  onPress={handleBuyPremium}
+                  disabled={purchasingGuido}
+                >
+                  {purchasingGuido ? (
+                    <ActivityIndicator size="small" color="#fff" />
+                  ) : (
+                    <Text style={styles.modalButtonText}>Acquista Premium — €1,99</Text>
+                  )}
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setShowGuidoModal(null)}>
+                  <Text style={styles.modalCancel}>Non ora</Text>
+                </TouchableOpacity>
+              </>
+            ) : (
+              <>
+                <Text style={styles.modalTitle}>💬 Richieste esaurite</Text>
+                <Text style={styles.modalBody}>
+                  Hai usato tutte le tue domande a Guido.{'\n\n'}
+                  Ricarica <Text style={{ fontWeight: '700' }}>200 domande</Text> per continuare a ricevere spiegazioni AI.
+                </Text>
+                <TouchableOpacity
+                  style={styles.modalButton}
+                  onPress={handleBuyRefill}
+                  disabled={purchasingGuido}
+                >
+                  {purchasingGuido ? (
+                    <ActivityIndicator size="small" color="#fff" />
+                  ) : (
+                    <Text style={styles.modalButtonText}>Ricarica 200 domande — €2,99</Text>
+                  )}
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setShowGuidoModal(null)}>
+                  <Text style={styles.modalCancel}>Non ora</Text>
+                </TouchableOpacity>
+              </>
+            )}
+          </View>
+        </View>
+      </Modal>
+
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         {current && (
           <>
@@ -284,7 +395,9 @@ export default function LezioneScreen() {
                     {loadingGuido ? (
                       <ActivityIndicator size="small" color="#7c6fff" />
                     ) : (
-                      <Text style={styles.guidoButtonText}>💬 Chiedi a Guido</Text>
+                      <Text style={styles.guidoButtonText}>
+                        💬 Chiedi a Guido{hasPremium ? ` (${guidoRequests})` : ' ✨'}
+                      </Text>
                     )}
                   </TouchableOpacity>
                 )}
@@ -393,5 +506,49 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
     marginTop: -spacing.sm,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: spacing.lg,
+  },
+  modalBox: {
+    backgroundColor: colors.surface,
+    borderRadius: 16,
+    padding: spacing.xl,
+    width: '100%',
+    gap: spacing.md,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.textPrimary,
+    textAlign: 'center',
+  },
+  modalBody: {
+    fontSize: 14,
+    color: colors.textMuted,
+    lineHeight: 22,
+    textAlign: 'center',
+  },
+  modalButton: {
+    backgroundColor: colors.purple,
+    borderRadius: 12,
+    paddingVertical: spacing.md,
+    alignItems: 'center',
+    marginTop: spacing.sm,
+  },
+  modalButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  modalCancel: {
+    fontSize: 13,
+    color: colors.textMuted,
+    textAlign: 'center',
+    marginTop: spacing.sm,
   },
 });
