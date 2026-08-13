@@ -43,3 +43,5 @@ example
 /android
 
 .env.local
+data/foto/
+data/*.pdf
