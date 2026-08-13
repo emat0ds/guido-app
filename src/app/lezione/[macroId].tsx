@@ -67,6 +67,7 @@ export default function LezioneScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [sessionAnswers, setSessionAnswers] = useState<Record<number, boolean>>({});
   const studyTracked = useRef(false);
+  const scrollViewRef = useRef<ScrollView>(null);
   const [guidoText, setGuidoText] = useState<string | null>(null);
   const [loadingGuido, setLoadingGuido] = useState(false);
   const [guidoRequests, setGuidoRequests] = useState<number>(0);
@@ -121,6 +122,7 @@ export default function LezioneScreen() {
     const isCorrect = answerValue === current.answer;
     setSelectedAnswer(answerValue);
     setAnswered(true);
+    setTimeout(() => scrollViewRef.current?.scrollToEnd({ animated: true }), 100);
 
     if (isCorrect) setCorrectCount((prev) => prev + 1);
 
@@ -355,7 +357,7 @@ export default function LezioneScreen() {
         </View>
       </Modal>
 
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+      <ScrollView ref={scrollViewRef} style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         {current && (
           <>
             <QuestionCard question={current.question} type="boolean">
