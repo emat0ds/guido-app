@@ -130,6 +130,15 @@ export async function getTotalStudyDays(): Promise<number> {
   return raw ? JSON.parse(raw).length : 0;
 }
 
+export async function hasStudiedYesterday(): Promise<boolean> {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterdayStr = yesterday.toDateString();
+  const raw = await AsyncStorage.getItem(STORAGE_KEYS.STUDY_DATES);
+  const dates: string[] = raw ? JSON.parse(raw) : [];
+  return dates.includes(yesterdayStr);
+}
+
 export async function addMasteredQuestion(questionId: number): Promise<void> {
   const mastered = await AsyncStorage.getItem(STORAGE_KEYS.MASTERED_QUESTIONS);
   const list = mastered ? JSON.parse(mastered) : [];

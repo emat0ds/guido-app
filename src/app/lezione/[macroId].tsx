@@ -111,9 +111,9 @@ export default function LezioneScreen() {
     // Track study session on first answer of the day
     if (!studyTracked.current) {
       studyTracked.current = true;
-      await incrementStreak();
+      const newStreak = await incrementStreak();
       await recordStudyDate();
-      await onStudiedToday();
+      await onStudiedToday(newStreak);
     }
 
     // Daily goal: count every answered question

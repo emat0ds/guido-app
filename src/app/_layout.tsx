@@ -3,7 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { requestNotificationPermissions, setupDailyReminder } from '@/lib/notifications';
-import { hasStudiedToday } from '@/lib/storage';
+import { hasStudiedToday, hasStudiedYesterday, getCurrentStreak } from '@/lib/storage';
 import { BadgeProvider } from '@/contexts/BadgeContext';
 import { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
 
@@ -51,8 +51,12 @@ function RootLayout() {
     const setupNotifications = async () => {
       const granted = await requestNotificationPermissions();
       if (granted) {
-        const studied = await hasStudiedToday();
-        await setupDailyReminder(studied);
+        const [studiedToday, studiedYesterday, streak] = await Promise.all([
+          hasStudiedToday(),
+          hasStudiedYesterday(),
+          getCurrentStreak(),
+        ]);
+        await setupDailyReminder({ studiedToday, studiedYesterday, streak });
       }
     };
     setupNotifications();
