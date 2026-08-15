@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { requestNotificationPermissions, setupDailyReminder } from '@/lib/notifications';
 import { hasStudiedToday, hasStudiedYesterday, getCurrentStreak } from '@/lib/storage';
+import { trackAppOpen } from '@/lib/analytics';
 import { BadgeProvider } from '@/contexts/BadgeContext';
 import { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
 
@@ -60,6 +61,7 @@ function RootLayout() {
       }
     };
     setupNotifications();
+    trackAppOpen();
   }, []);
 
   return (

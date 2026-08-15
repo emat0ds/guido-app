@@ -30,6 +30,7 @@ import {
   incrementDailyGoal,
 } from '@/lib/storage';
 import { onStudiedToday } from '@/lib/notifications';
+import { trackSessionEnd, trackQuestionAnswered } from '@/lib/analytics';
 import { isPremium, getGuidoRequests, consumeGuidoRequest, purchaseGuidoRequests, purchasePremium, fetchProductPrice } from '@/lib/iap';
 import { getBadgeForConsecutive, getBadgeById } from '@/lib/badges';
 import { useBadge } from '@/contexts/BadgeContext';
@@ -67,6 +68,9 @@ export default function LezioneScreen() {
   const [correctCount, setCorrectCount] = useState(0);
   const [sessionAnswers, setSessionAnswers] = useState<Record<number, boolean>>({});
   const studyTracked = useRef(false);
+  const sessionStartRef = useRef<number | null>(null);
+  const sessionAnsweredRef = useRef(0);
+  const sessionCorrectRef = useRef(0);
   const scrollViewRef = useRef<ScrollView>(null);
   const [guidoText, setGuidoText] = useState<string | null>(null);
   const [loadingGuido, setLoadingGuido] = useState(false);
@@ -111,20 +115,30 @@ export default function LezioneScreen() {
     // Track study session on first answer of the day
     if (!studyTracked.current) {
       studyTracked.current = true;
+      sessionStartRef.current = Date.now();
       const newStreak = await incrementStreak();
       await recordStudyDate();
       await onStudiedToday(newStreak);
     }
 
-    // Daily goal: count every answered question
-    await incrementDailyGoal();
+    // Session counters (for analytics on exit/completion)
+    sessionAnsweredRef.current += 1;
 
     const isCorrect = answerValue === current.answer;
     setSelectedAnswer(answerValue);
     setAnswered(true);
     setTimeout(() => scrollViewRef.current?.scrollToEnd({ animated: true }), 100);
 
-    if (isCorrect) setCorrectCount((prev) => prev + 1);
+    if (isCorrect) {
+      setCorrectCount((prev) => prev + 1);
+      sessionCorrectRef.current += 1;
+    }
+
+    // Analytics: per-question accuracy tracking
+    await trackQuestionAnswered(current.id, isCorrect);
+
+    // Daily goal: count every answered question
+    await incrementDailyGoal();
 
     setSessionAnswers((prev) => ({ ...prev, [current.id]: isCorrect }));
 
@@ -225,6 +239,13 @@ export default function LezioneScreen() {
     }
   };
 
+  const flushSessionAnalytics = async (macroIdStr: string) => {
+    if (sessionStartRef.current !== null && sessionAnsweredRef.current > 0) {
+      const durationMs = Date.now() - sessionStartRef.current;
+      await trackSessionEnd(macroIdStr, sessionAnsweredRef.current, sessionCorrectRef.current, durationMs);
+    }
+  };
+
   const handleNext = async () => {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
@@ -250,6 +271,7 @@ export default function LezioneScreen() {
         });
       }
 
+      await flushSessionAnalytics(macroIdStr);
       router.back();
     }
   };
@@ -291,7 +313,11 @@ export default function LezioneScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
+        <TouchableOpacity onPress={async () => {
+          const macroIdStr = Array.isArray(macroId) ? macroId[0] : macroId;
+          await flushSessionAnalytics(macroIdStr);
+          router.back();
+        }}>
           <Text style={styles.backButton}>← Indietro</Text>
         </TouchableOpacity>
         <View style={styles.progressBar}>

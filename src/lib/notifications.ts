@@ -1,4 +1,5 @@
 import * as Notifications from 'expo-notifications';
+import { getRecentDailyStats } from './analytics';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -33,7 +34,25 @@ function pickRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function getEveningContent(streak: number, studiedYesterday: boolean): { title: string; body: string } {
+function formatMinutes(m: number): string {
+  if (m < 1) return 'meno di un minuto';
+  return `${Math.round(m)} min`;
+}
+
+function getEveningContent(
+  streak: number,
+  studiedYesterday: boolean,
+  minutesYesterday = 0,
+  minutesDayBefore = 0
+): { title: string; body: string } {
+  // Personalised time-comparison message (only when we have real data)
+  if (minutesYesterday > 0 && minutesDayBefore > 0 && minutesYesterday < minutesDayBefore * 0.5) {
+    return {
+      title: 'Ieri hai fatto meno del solito ⚡',
+      body: `L'altro ieri ${formatMinutes(minutesDayBefore)}, ieri solo ${formatMinutes(minutesYesterday)}. Stasera torna alla tua media.`,
+    };
+  }
+
   if (!studiedYesterday && streak === 0) {
     return {
       title: 'Hai saltato ieri 👀',
@@ -86,7 +105,14 @@ export async function setupDailyReminder(ctx: DailyReminderContext): Promise<voi
   await Notifications.cancelAllScheduledNotificationsAsync();
 
   const now = new Date();
-  const evening = getEveningContent(ctx.streak, ctx.studiedYesterday);
+
+  // Fetch last 2 days of study minutes for personalised messages
+  const recentStats = await getRecentDailyStats(3);
+  const statKeys = Object.keys(recentStats);
+  const minutesYesterday = recentStats[statKeys[1]]?.minutesStudied ?? 0;
+  const minutesDayBefore = recentStats[statKeys[2]]?.minutesStudied ?? 0;
+
+  const evening = getEveningContent(ctx.streak, ctx.studiedYesterday, minutesYesterday, minutesDayBefore);
 
   // ── Evening reminder ──
   const eveningTrigger = new Date();

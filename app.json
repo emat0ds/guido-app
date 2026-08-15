@@ -2,7 +2,7 @@
   "expo": {
     "name": "Guido Quiz",
     "slug": "guido-app",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "guidoapp",
@@ -10,7 +10,7 @@
     "ios": {
       "icon": "./assets/icon.png",
       "bundleIdentifier": "com.t0ds.guidoapp",
-      "buildNumber": "38",
+      "buildNumber": "39",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }

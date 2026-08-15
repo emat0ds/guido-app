@@ -355,6 +355,27 @@ Rispondi SOLO con JSON: { question, options: [{label, text}], correct, explanati
 
 ---
 
+## App Store Connect — Note operative
+
+### Screenshot IAP
+- Formato che funziona: **JPEG, 1242×2688 px** (iPhone 6.5")
+- Script di conversione: `python3` con PIL, resize da qualsiasi screenshot iPhone portrait
+- File di esempio già generati in `GitHub/screenshot_iap_*.jpg`
+- Comando rapido:
+  ```python
+  from PIL import Image
+  img = Image.open("screenshot.PNG").convert("RGB")
+  img.resize((1242, 2688), Image.LANCZOS).save("iap.jpg", "JPEG", quality=95)
+  ```
+
+### IAP prodotti
+| Product ID | Tipo | Prezzo | Contenuto |
+|---|---|---|---|
+| `guido_premium` | Non-consumable | €1.99 | Esami illimitati + 50 richieste AI |
+| `guido_richieste_extra` | Consumable | €2.99 | 200 richieste AI extra |
+
+---
+
 ## Note importanti
 
 - Il database `questions_with_explanations.json` va copiato in `/data/`. È read-only a runtime.
