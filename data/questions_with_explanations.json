@@ -16321,7 +16321,7 @@
     "answer": false,
     "img": "/img_sign/75.png",
     "difficulty": "easy",
-    "explanation": "FALSO - Il segnale è un divieto che RIGUARDA anche gli autobus se superano il limite di altezza indicato. Non sono esentati."
+    "explanation": "FALSO. Il segnale è un divieto che RIGUARDA anche gli autobus se superano il limite di larghezza indicato (2,30 m). Gli autobus standard sono larghi circa 2,5 m, quindi non possono transitare. Non sono esentati."
   },
   {
     "id": 1484,
@@ -36748,7 +36748,7 @@
     "answer": false,
     "img": "/img_sign/231.png",
     "difficulty": "easy",
-    "explanation": "Il segnale di attraversamento ciclabile non riguarda il sorpasso tra autoveicoli, ma avverte della presenza di ciclisti che attraversano la strada."
+    "explanation": "FALSO. Il segnale raffigurato è il segnale di galleria (sottopassaggio): avverte della presenza di un tunnel o sottopasso. Non prescrive alcun divieto di sorpasso — per quello esiste un segnale specifico (cerchio rosso con due auto)."
   },
   {
     "id": 3341,
@@ -36767,10 +36767,10 @@
     "category": "segnali-indicazione",
     "subcategory": "presenza-ponte",
     "question": "Il segnale raffigurato indica che si sta per transitare sotto un ponte",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/231.png",
     "difficulty": "easy",
-    "explanation": "Il segnale non avverte del transito sotto un ponte, ma della presenza di una pista ciclabile che attraversa la strada."
+    "explanation": "VERO. Il segnale verde con arco bianco è il segnale di galleria (sottopassaggio): indica che si sta per transitare all'interno di una galleria o sotto un sottopasso. Non va confuso con il segnale di attraversamento ciclabile."
   },
   {
     "id": 3343,
@@ -53941,7 +53941,7 @@
     "answer": false,
     "img": "/img_sign/647.png",
     "difficulty": "easy",
-    "explanation": "Falso. B non transita per primo; tra i veicoli in incrocio, S (che ha diritto di precedenza) passa prima di B."
+    "explanation": "FALSO. B non transita per primo: deve dare precedenza agli altri veicoli presenti nell'incrocio che hanno il diritto di passare prima in base alla regola della precedenza a destra e alla provenienza."
   },
   {
     "id": 4904,
