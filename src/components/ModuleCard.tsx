@@ -14,6 +14,7 @@ interface ModuleCardProps {
   color: string;
   progress: number;
   correctAnswers: number;
+  answeredCount: number;
   totalQuestions: number;
   starsCount: number;
   isLocked?: boolean;
@@ -25,6 +26,7 @@ export function ModuleCard({
   color,
   progress,
   correctAnswers,
+  answeredCount,
   totalQuestions,
   starsCount,
   isLocked = false,
@@ -77,7 +79,7 @@ export function ModuleCard({
       </View>
 
       <Text style={styles.subtitle}>
-        {correctAnswers} / {totalQuestions} domande
+        {answeredCount} / {totalQuestions} domande
       </Text>
     </TouchableOpacity>
   );

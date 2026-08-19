@@ -96,6 +96,8 @@ export default function HomeScreen({ refreshKey }: TabScreenProps) {
         {MACROS.map((macro) => {
           const macroProgress = progress?.macroProgress[macro.id];
           const correctAnswers = macroProgress?.correctAnswers ?? 0;
+          const wrongAnswers = macroProgress?.wrongAnswers ?? 0;
+          const answeredCount = correctAnswers + wrongAnswers;
 
           let starsCount = 0;
           if (correctAnswers > 0) {
@@ -112,10 +114,11 @@ export default function HomeScreen({ refreshKey }: TabScreenProps) {
               color={macro.color}
               progress={
                 macro.totalQuestions > 0
-                  ? (correctAnswers / macro.totalQuestions) * 100
+                  ? (answeredCount / macro.totalQuestions) * 100
                   : 0
               }
               correctAnswers={correctAnswers}
+              answeredCount={answeredCount}
               totalQuestions={macro.totalQuestions}
               starsCount={starsCount}
               onPress={() => router.push(`/lezione/${macro.id}` as any)}
