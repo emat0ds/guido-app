@@ -5879,7 +5879,7 @@
     "category": "segnali-pericolo",
     "subcategory": "strada-dissestata",
     "question": "Il segnale raffigurato preannuncia un tratto di strada con pavimentazione irregolare",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/1.png",
     "difficulty": "easy",
     "explanation": "VERO — 'Strada con pavimentazione irregolare' è la descrizione esatta del segnale di 'strada deformata': preannuncia asfalto rotto, buche o irregolarità."
@@ -10455,7 +10455,7 @@
     "category": "segnali-pericolo",
     "subcategory": "ponte-mobile",
     "question": "Il segnale raffigurato impone di dare la precedenza ai veicoli provenienti dal senso opposto",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/22.png",
     "difficulty": "easy",
     "explanation": "FALSO — Il segnale di precedenza (triangolo rosso con frecce) impone di dare precedenza ai veicoli che arrivano da destra e sinistra, non da senso opposto. Chi viene di fronte ha le stesse regole."
@@ -12611,7 +12611,7 @@
     "category": "segnali-pericolo",
     "subcategory": "pericolo-incendio",
     "question": "Il segnale raffigurato vieta il transito ai veicoli che trasportano prodotti facilmente infiammabili",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/38.png",
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale preannuncia un pericolo naturale (incendi), non vieta il trasporto di merci pericolose."
@@ -13029,7 +13029,7 @@
     "category": "segnali-pericolo",
     "subcategory": "semaforo-orizzontale",
     "question": "Il segnale raffigurato indica l'obbligo di arresto ad un posto di blocco stradale istituito dagli organi di polizia",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/35.png",
     "difficulty": "easy",
     "explanation": "Falso. Il semaforo regola il traffico stradale, non è un segnale di arresto obbligatorio per posti di blocco. Quelli sono controllati da organi di polizia con altri mezzi (cartello STOP o ordini diretti)."
@@ -13579,7 +13579,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-sorpasso",
     "question": "Il segnale raffigurato consente il transito agli autotreni, autoarticolati ed autosnodati",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/56.png",
     "difficulty": "easy",
     "explanation": "FALSO. Attenzione: il segnale di divieto di sorpasso vieta il transito agli autotreni e autoarticolati (troppo lunghi per sorpassare in sicurezza)."
@@ -13590,7 +13590,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-sorpasso",
     "question": "In presenza del segnale raffigurato è vietato sorpassare anche gli autoveicoli di massa complessiva inferiore a 3,5 tonnellate",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/56.png",
     "difficulty": "medium",
     "explanation": "FALSO. Il divieto riguarda solo autoveicoli di massa complessiva superiore a 3,5 tonnellate; i più leggeri possono sorpassare."
@@ -14129,7 +14129,7 @@
     "category": "segnali-divieto",
     "subcategory": "limite-80",
     "question": "Il segnale raffigurato consente di circolare a velocità inferiore a quella indicata",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/58.png",
     "difficulty": "easy",
     "explanation": "Vero. Il limite è un massimo, quindi puoi andare più lentamente se le condizioni (traffico, pioggia, ecc.) lo richiedono."
@@ -15515,7 +15515,7 @@
     "category": "segnali-divieto",
     "subcategory": "transito-mezzi-pesanti",
     "question": "In presenza del segnale raffigurato è consentito il transito di un'autocaravan di massa a pieno carico superiore a 3,5 tonnellate",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/68.png",
     "difficulty": "medium",
     "explanation": "FALSO. Il segnale di divieto per massa superiore a 3,5 tonnellate vieta il transito a autocaravan con massa a pieno carico oltre 3,5 ton. Un'autocaravan 'superiore a 3,5 tonnellate' non può passare."
@@ -17583,7 +17583,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-sosta",
     "question": "Il segnale (A), integrato con il pannello (B), vieta la sosta soltanto nei giorni festivi",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/946.png",
     "difficulty": "hard",
     "explanation": "FALSO. Attenzione alla parola 'soltanto': il pannello B non restringe il divieto ai soli giorni festivi, ma indica orari o condizioni generali. Il divieto riguarda più giorni/orari."
@@ -17825,7 +17825,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-fermata",
     "question": "Il segnale raffigurato vieta la temporanea sospensione della marcia del veicolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/85.png",
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale di divieto di sosta vieta la sosta (fermata volontaria prolungata), non la temporanea sospensione della marcia. Una breve fermata per far scendere un passeggero è consentita."
@@ -17902,7 +17902,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-fermata",
     "question": "In presenza del segnale raffigurato è sempre disposta la rimozione forzata del veicolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/85.png",
     "difficulty": "hard",
     "explanation": "FALSO. La parola 'sempre' è il trabocchetto. La rimozione forzata non è automatica; il vigile deve accertare l'infrazione e può decidere di sanzionare senza rimuovere il veicolo."
@@ -22038,7 +22038,7 @@
     "category": "segnali-obbligo",
     "subcategory": "fine-limite-minimo-velocita",
     "question": "Il segnale raffigurato consente di circolare a velocità superiore a quella indicata",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/106.png",
     "difficulty": "easy",
     "explanation": "FALSO. Attenzione: il numero indicato era il limite MINIMO, non massimo. Non puoi andare più veloce di quanto consentito dalla strada, solo meno veloce."
@@ -22676,7 +22676,7 @@
     "category": "segnali-obbligo",
     "subcategory": "pista-ciclabile-marciapiede",
     "question": "Il segnale raffigurato è posto in corrispondenza di un percorso unico per pedoni e ciclisti",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/112.png",
     "difficulty": "easy",
     "explanation": "FALSO. Un segnale di divieto ai motori non indica un percorso unico, ma semplicemente vieta l'accesso ai veicoli motorizzati; la forma del percorso può variare."
@@ -22687,7 +22687,7 @@
     "category": "segnali-obbligo",
     "subcategory": "pista-ciclabile-marciapiede",
     "question": "Il segnale raffigurato è posto in corrispondenza di un viale misto, riservato sia ai pedoni che ai ciclisti",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/112.png",
     "difficulty": "easy",
     "explanation": "FALSO. Un viale misto riservato a pedoni e ciclisti avrebbe un segnale positivo (blu con pittogrammi), non un segnale di divieto ai motori."
@@ -23347,7 +23347,7 @@
     "category": "segnali-obbligo",
     "subcategory": "alt-polizia",
     "question": "Il segnale raffigurato segnala una stazione autostradale alla quale è obbligatorio fermarsi",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/119.png",
     "difficulty": "easy",
     "explanation": "FALSO. Anche se è vero che si deve fermarsi al casello, non è perché è una 'stazione autostradale generica', ma specificamente per le operazioni di pedaggio (pagamento)."
@@ -23666,7 +23666,7 @@
     "category": "segnali-precedenza",
     "subcategory": "dare-precedenza",
     "question": "Il segnale raffigurato si trova sulle corsie di accelerazione per l'immissione in autostrada",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/40.png",
     "difficulty": "easy",
     "explanation": "FALSO. Le corsie di accelerazione per l'immissione in autostrada NON hanno questo segnale perché chi entra da quelle corsie deve già saper di dover cedere il passo. Il segnale si trova agli incroci normali."
@@ -23699,7 +23699,7 @@
     "category": "segnali-precedenza",
     "subcategory": "dare-precedenza",
     "question": "In presenza del segnale raffigurato non occorre fermarsi all'incrocio se, rallentando, si ha modo di vedere che non vi sono veicoli in arrivo, sia da destra che da sinistra",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/40.png",
     "difficulty": "medium",
     "explanation": "FALSO. Anche se non vedi veicoli, DEVI comunque fermarti o rallentare significativamente. Non puoi passare con ragionamento personale: il segnale ti obbliga a cautela assoluta."
@@ -24128,7 +24128,7 @@
     "category": "segnali-precedenza",
     "subcategory": "preavviso-precedenza",
     "question": "Il segnale raffigurato indica la distanza dall'incrocio in cui dobbiamo dare precedenza",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/42.png",
     "difficulty": "easy",
     "explanation": "FALSO. Il triangolo rosso non indica distanze, ma solo avvisa della presenza di un incrocio. Le distanze sono segnalate da pannelli rettangolari bianchi con numeri."
@@ -24689,7 +24689,7 @@
     "category": "segnali-precedenza",
     "subcategory": "sensi-unici-alternati",
     "question": "In presenza del segnale raffigurato e del semaforo a tre luci dobbiamo dare la precedenza se il semaforo è a luce lampeggiante gialla",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/45.png",
     "difficulty": "medium",
     "explanation": "VERO. Il giallo lampeggiante significa 'procedi con cautela': non hai il diritto di precedenza, devi dare la precedenza a chi viene da destra come fosse una precedenza a destra."
@@ -24843,7 +24843,7 @@
     "category": "segnali-precedenza",
     "subcategory": "sensi-unici-alternati",
     "question": "In presenza del segnale raffigurato e del semaforo a tre luci abbiamo la precedenza se il semaforo è a luce gialla lampeggiante",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/45.png",
     "difficulty": "medium",
     "explanation": "FALSO. Con semaforo giallo lampeggiante devi dare la precedenza a chi viene dalla destra e sinistra, quindi il segnale di precedenza non ti aiuta."
@@ -25173,7 +25173,7 @@
     "category": "segnali-precedenza",
     "subcategory": "incrocio-con-precedenza",
     "question": "Il segnale raffigurato può essere preceduto dal segnale DIRITTO DI PRECEDENZA",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/47.png",
     "difficulty": "easy",
     "explanation": "VERO: Questo triangolo di preavviso (X rossa) è spesso seguito dal segnale rettangolare bianco di 'diritto di precedenza' quando arrivi all'incrocio vero e proprio."
@@ -26815,7 +26815,7 @@
     "answer": false,
     "img": "/img_sign/547.png",
     "difficulty": "medium",
-    "explanation": "Falso. Attenzione alla parola 'obbligano': le strisce tratteggiate consentono di cambiare corsia liberamente, quindi la freccia non ti obbliga se puoi muoverti."
+    "explanation": "FALSO. Le strisce tratteggiate consentono di cambiare corsia liberamente. Se puoi spostarti in un'altra corsia, la freccia direzionale non ti vincola: l'obbligo vale solo quando non puoi cambiare corsia (strisce continue)."
   },
   {
     "id": 2438,
@@ -50198,7 +50198,7 @@
     "category": "norme-di-circolazione",
     "subcategory": "obbligo-precedenza",
     "question": "E' obbligatorio dare la precedenza a destra e a sinistra in presenza del segnale in figura",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/41.png",
     "difficulty": "easy",
     "explanation": "VERO. Senza conoscere il segnale esatto in figura, possiamo dire che tipicamente un segnale che richiede precedenza a destra e sinistra (come uno STOP o equivalente) lo prescrive chiaramente."
@@ -53080,7 +53080,7 @@
     "category": "precedenza-incroci",
     "subcategory": "figura-637",
     "question": "Nell'incrocio rappresentato nella figura il conducente del veicolo A passa per ultimo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/637.png",
     "difficulty": "easy",
     "explanation": "Falso perché il veicolo A non passa per ultimo. Ha la freccia verde o è in posizione di precedenza rispetto ad altri veicoli in figura."
@@ -53586,7 +53586,7 @@
     "category": "precedenza-incroci",
     "subcategory": "figura-610",
     "question": "Nell'incrocio rappresentato nella figura i veicoli passano nel seguente ordine: T, L ed A, infine C",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/610.png",
     "difficulty": "easy",
     "explanation": "FALSO. L'ordine corretto è C, A, L, R, E (come confermato dalla domanda 4872). Qui dice T per primo, che è sbagliato."
@@ -57172,7 +57172,7 @@
     "category": "sorpasso",
     "subcategory": "spazio-necessario-sorpasso",
     "question": "E' consentito il sorpasso sul tratto discendente di un dosso in una strada a due corsie a doppio senso di marcia",
-    "answer": false,
+    "answer": true,
     "img": null,
     "difficulty": "easy",
     "explanation": "FALSO. Su un dosso (salita-discesa) il tratto discendente ha visibilità ridotta: sorpassare là è pericoloso perché non vedi se arriva un veicolo dal senso opposto."
@@ -57395,7 +57395,7 @@
     "answer": false,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Il sorpasso di un autobus fermo per salita/discesa è VIETATO: è una situazione pericolosa. L'affermazione è falsa nel senso che il divieto ESISTE."
+    "explanation": "FALSO. Il Codice della Strada non vieta categoricamente il sorpasso di un autobus fermo alla fermata. A differenza dei tram (vietato in assenza di salvagente), sorpassare un autobus fermo per salita/discesa è consentito, purché avvenga in sicurezza senza intralciare i passeggeri."
   },
   {
     "id": 5218,
@@ -64641,7 +64641,7 @@
     "category": "luci-dispositivi-acustici",
     "subcategory": "simbolo-fari-anabbaglianti",
     "question": "Il simbolo raffigurato è posto sul comando di accensione dei proiettori anabbaglianti",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/696.png",
     "difficulty": "easy",
     "explanation": "VERO. Il comando degli anabbaglianti (proiettori di profondità) è contrassegnato da questo simbolo e serve ad accendere questa illuminazione."
@@ -68238,7 +68238,7 @@
     "category": "patente-punti-documenti",
     "subcategory": "Patente-categoria-B",
     "question": "La patente di categoria B abilita a condurre le macchine agricole, comprese quelle definite eccezionali",
-    "answer": false,
+    "answer": true,
     "img": null,
     "difficulty": "easy",
     "explanation": "Falso. La patente B NON abilita a guidare macchine agricole: servono patenti specifiche come la patente agricola."
@@ -68249,7 +68249,7 @@
     "category": "patente-punti-documenti",
     "subcategory": "Patente-categoria-B",
     "question": "La patente di categoria B abilita a condurre le autovetture trainanti un rimorchio non leggero (massa oltre 750 chilogrammi) purché la massa massima autorizzata del complesso non superi 3,5 tonnellate",
-    "answer": false,
+    "answer": true,
     "img": null,
     "difficulty": "medium",
     "explanation": "Falso. Con la B puoi trainare rimorchi non leggeri (>750 kg) SOLO se il rimorchio pesa max 750 kg, oppure se il complesso non supera 3,5 tonnellate E hai almeno 3 anni di esperienza (allora serve la B+E)."
@@ -68678,7 +68678,7 @@
     "category": "patente-punti-documenti",
     "subcategory": "Ritiro-patente-guida",
     "question": "La patente di guida viene immediatamente ritirata, durante la circolazione, se il conducente non sistema correttamente il carico mal disposto, dopo invito degli organi di polizia",
-    "answer": false,
+    "answer": true,
     "img": null,
     "difficulty": "medium",
     "explanation": "FALSO. Il carico mal disposto è una violazione amministrativa, ma non comporta il ritiro immediato della patente. Se non sistemi il carico dopo l'invito, scatta solo la multa."
@@ -68689,7 +68689,7 @@
     "category": "patente-punti-documenti",
     "subcategory": "Ritiro-patente-guida",
     "question": "La patente di guida viene immediatamente ritirata, durante la circolazione, se a seguito di incidente, sono derivate lesioni a persone",
-    "answer": false,
+    "answer": true,
     "img": null,
     "difficulty": "medium",
     "explanation": "FALSO. Causare un incidente non significa automaticamente ritiro della patente. Il ritiro dipende dalla gravità (se c'è ebbrezza, eccesso di velocità) e dalle responsabilità accertate, non dal fatto che ci siano lesioni."

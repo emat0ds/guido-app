@@ -75,9 +75,16 @@ export async function purchasePremium(): Promise<{ success: boolean; error?: str
   try {
     await iap.initConnection();
 
-    const products = await iap.fetchProducts({ skus: [PREMIUM_PRODUCT_ID], type: 'in-app' });
+    // Try 'in-app' first; fallback to 'all' in case the native layer maps the type differently
+    let products = await iap.fetchProducts({ skus: [PREMIUM_PRODUCT_ID], type: 'in-app' });
     if (!products || products.length === 0) {
-      return { success: false, error: 'Prodotto non disponibile sul negozio.' };
+      products = await iap.fetchProducts({ skus: [PREMIUM_PRODUCT_ID], type: 'all' });
+    }
+    if (!products || products.length === 0) {
+      return {
+        success: false,
+        error: `Prodotto non disponibile (SKU: ${PREMIUM_PRODUCT_ID}). Verifica connessione e accordi App Store.`,
+      };
     }
 
     const purchase = await iap.requestPurchase({
@@ -97,7 +104,8 @@ export async function purchasePremium(): Promise<{ success: boolean; error?: str
     return { success: false };
   } catch (e: any) {
     if (e?.code === 'E_USER_CANCELLED') return { success: false };
-    return { success: false, error: e?.message || 'Errore sconosciuto.' };
+    const detail = e?.message ?? e?.code ?? 'Errore sconosciuto';
+    return { success: false, error: `Acquisto non riuscito: ${detail}` };
   } finally {
     try {
       const iap2 = await getIAPModule();
@@ -132,9 +140,15 @@ export async function purchaseGuidoRequests(): Promise<{ success: boolean; error
   try {
     await iap.initConnection();
 
-    const products = await iap.fetchProducts({ skus: [GUIDO_PRODUCT_ID], type: 'in-app' });
+    let products = await iap.fetchProducts({ skus: [GUIDO_PRODUCT_ID], type: 'in-app' });
     if (!products || products.length === 0) {
-      return { success: false, error: 'Prodotto non disponibile sul negozio.' };
+      products = await iap.fetchProducts({ skus: [GUIDO_PRODUCT_ID], type: 'all' });
+    }
+    if (!products || products.length === 0) {
+      return {
+        success: false,
+        error: `Prodotto non disponibile (SKU: ${GUIDO_PRODUCT_ID}). Verifica connessione e accordi App Store.`,
+      };
     }
 
     const purchase = await iap.requestPurchase({
@@ -154,7 +168,8 @@ export async function purchaseGuidoRequests(): Promise<{ success: boolean; error
     return { success: false };
   } catch (e: any) {
     if (e?.code === 'E_USER_CANCELLED') return { success: false };
-    return { success: false, error: e?.message || 'Errore sconosciuto.' };
+    const detail = e?.message ?? e?.code ?? 'Errore sconosciuto';
+    return { success: false, error: `Acquisto non riuscito: ${detail}` };
   } finally {
     try {
       const iap2 = await getIAPModule();
