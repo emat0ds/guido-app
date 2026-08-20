@@ -1,23 +1,55 @@
 import { ScrollView, View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { spacing } from '@/constants/theme';
 import { useTheme } from '@/contexts/ThemeContext';
-import { GuidoBubble } from '@/components/GuidoBubble';
 import { useUserProgress } from '@/hooks/useUserProgress';
+import { getMacroDetailStats, MacroDetailStats } from '@/lib/storage';
 import { MACROS } from '@/constants/macros';
 import type { TabScreenProps } from './_layout';
 
 export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
   const { colors } = useTheme();
   const { progress, loading, loadProgress } = useUserProgress();
+  const [macroStats, setMacroStats] = useState<Record<string, MacroDetailStats>>({});
+  const [statsLoading, setStatsLoading] = useState(true);
 
   useEffect(() => {
     loadProgress();
+    loadDetailedStats();
   }, [refreshKey]);
+
+  const loadDetailedStats = useCallback(async () => {
+    setStatsLoading(true);
+    const results = await Promise.all(MACROS.map((m) => getMacroDetailStats(m.id)));
+    const map: Record<string, MacroDetailStats> = {};
+    results.forEach((s) => { map[s.macroId] = s; });
+    setMacroStats(map);
+    setStatsLoading(false);
+  }, []);
 
   const styles = useMemo(() => makeStyles(colors), [colors]);
 
-  if (loading) {
+  // Totali aggregati
+  const totalAnswered = useMemo(
+    () => Object.values(macroStats).reduce((sum, s) => sum + s.answeredCount, 0),
+    [macroStats]
+  );
+  const totalCorrect = useMemo(
+    () => Object.values(macroStats).reduce((sum, s) => sum + s.correctCount, 0),
+    [macroStats]
+  );
+  const globalAccuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+
+  // Macro più debole (min accuracy tra quelle con almeno 10 domande viste)
+  const weakestMacro = useMemo(() => {
+    const eligible = MACROS.filter((m) => (macroStats[m.id]?.answeredCount ?? 0) >= 10);
+    if (eligible.length === 0) return null;
+    return eligible.reduce((worst, m) =>
+      (macroStats[m.id]?.accuracy ?? 100) < (macroStats[worst.id]?.accuracy ?? 100) ? m : worst
+    );
+  }, [macroStats]);
+
+  if (loading || statsLoading) {
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.loadingContainer}>
@@ -29,91 +61,133 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
     );
   }
 
-  const correctAnswers = Object.values(progress?.macroProgress ?? {}).reduce(
-    (sum, m) => sum + m.correctAnswers,
-    0
-  );
-  const wrongAnswers = progress?.wrongCount ?? 0;
-
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <Text style={[styles.title]}>Tuoi progressi</Text>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+        <Text style={styles.title}>I tuoi progressi</Text>
 
-        <GuidoBubble text="Analizza come stai andando nelle diverse aree. Concentrati su quelle più deboli." />
-
-        <View style={styles.statsGrid}>
-          <View style={[styles.statCard, { flex: 1 }]}>
-            <Text style={[styles.statNumber, { color: colors.purple }]}>
-              {correctAnswers}
+        {/* Card: focus area */}
+        {weakestMacro && (
+          <View style={[styles.focusCard, { borderColor: weakestMacro.color }]}>
+            <Text style={styles.focusLabel}>AREA DA RAFFORZARE</Text>
+            <Text style={[styles.focusTitle, { color: weakestMacro.color }]}>
+              {weakestMacro.title}
             </Text>
-            <Text style={styles.statLabel}>Domande affrontate</Text>
+            <Text style={styles.focusSub}>
+              {macroStats[weakestMacro.id]?.accuracy ?? 0}% di accuratezza — continua a esercitarti
+            </Text>
+          </View>
+        )}
+
+        {/* Statistiche globali */}
+        <View style={styles.statsGrid}>
+          <View style={styles.statCard}>
+            <Text style={[styles.statNumber, { color: colors.purple }]}>{totalAnswered}</Text>
+            <Text style={styles.statLabel}>Domande viste</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Text style={[styles.statNumber, { color: colors.success }]}>{globalAccuracy}%</Text>
+            <Text style={styles.statLabel}>Accuratezza</Text>
           </View>
         </View>
 
         <View style={styles.statsGrid}>
           <View style={styles.statCard}>
             <Text style={[styles.statNumber, { color: colors.purple }]}>
-              {progress?.totalStudyDays || 0}
-            </Text>
-            <Text style={styles.statLabel}>Giorni di studio</Text>
-          </View>
-          <View style={styles.statCard}>
-            <Text style={[styles.statNumber, { color: colors.success }]}>
               {progress?.masteredCount || 0}
             </Text>
             <Text style={styles.statLabel}>Dominate</Text>
           </View>
+          <View style={styles.statCard}>
+            <Text style={[styles.statNumber, { color: colors.textSecondary }]}>
+              {progress?.totalStudyDays || 0}
+            </Text>
+            <Text style={styles.statLabel}>Giorni di studio</Text>
+          </View>
         </View>
 
-        {wrongAnswers > 0 && (
-          <View style={styles.statsGrid}>
-            <View style={[styles.statCard, { flex: 1 }]}>
-              <Text style={[styles.statNumber, { color: colors.error }]}>
-                {wrongAnswers}
-              </Text>
-              <Text style={styles.statLabel}>Crashate</Text>
-            </View>
-          </View>
-        )}
-
-        <Text style={styles.sectionTitle}>DETTAGLI PER MACRO-AREA</Text>
+        {/* Dettaglio per macro */}
+        <Text style={styles.sectionTitle}>DETTAGLIO PER AREA</Text>
 
         {MACROS.map((macro) => {
-          const macroData = progress?.macroProgress[macro.id];
-          const correct = macroData?.correctAnswers ?? 0;
-          const pct =
-            macro.totalQuestions > 0
-              ? Math.round((correct / macro.totalQuestions) * 100)
-              : 0;
+          const s = macroStats[macro.id];
+          if (!s) return null;
+          const pct = macro.totalQuestions > 0
+            ? Math.round((s.answeredCount / macro.totalQuestions) * 100)
+            : 0;
+
+          // Colore accuratezza
+          const accColor =
+            s.answeredCount === 0 ? colors.textDim
+            : s.accuracy >= 80 ? colors.success
+            : s.accuracy >= 60 ? '#F59E0B'
+            : colors.error;
 
           return (
             <View key={macro.id} style={styles.macroCard}>
               <View style={styles.macroHeader}>
                 <View style={[styles.macroColorDot, { backgroundColor: macro.color }]} />
                 <Text style={styles.macroTitle}>{macro.title}</Text>
-                <Text style={[styles.macroPct, { color: macro.color }]}>{pct}%</Text>
+                {s.answeredCount > 0 && (
+                  <Text style={[styles.macroAccuracy, { color: accColor }]}>
+                    {s.accuracy}% ✓
+                  </Text>
+                )}
               </View>
-              <View style={styles.macroCountRow}>
-                <Text style={styles.macroCount}>{correct} / {macro.totalQuestions}</Text>
-              </View>
+
               <View style={styles.progressBarContainer}>
-                <View
-                  style={[
-                    styles.progressBar,
-                    {
-                      width: `${pct}%`,
-                      backgroundColor: macro.color,
-                    },
-                  ]}
-                />
+                <View style={[styles.progressBar, { width: `${pct}%`, backgroundColor: macro.color }]} />
+              </View>
+
+              <View style={styles.macroMeta}>
+                <Text style={styles.macroCount}>
+                  {s.answeredCount} / {macro.totalQuestions} viste
+                </Text>
+                {s.masteredCount > 0 && (
+                  <Text style={[styles.macroDominate, { color: colors.success }]}>
+                    {s.masteredCount} dominate
+                  </Text>
+                )}
               </View>
             </View>
           );
         })}
+
+        {/* Domande più difficili */}
+        {(() => {
+          const hard = MACROS.flatMap((m) =>
+            (macroStats[m.id]?.hardestQuestions ?? []).map((q) => ({ ...q, macroColor: m.color, macroTitle: m.title }))
+          )
+            .sort((a, b) => b.timesWrong - a.timesWrong)
+            .slice(0, 5);
+
+          if (hard.length === 0) return null;
+
+          return (
+            <>
+              <Text style={styles.sectionTitle}>DOMANDE PIÙ DIFFICILI</Text>
+              {hard.map((q) => (
+                <View key={q.id} style={styles.hardCard}>
+                  <View style={[styles.macroColorDot, { backgroundColor: q.macroColor, marginTop: 2 }]} />
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.hardMacro}>{q.macroTitle}</Text>
+                    <Text style={styles.hardId}>Domanda #{q.id}</Text>
+                  </View>
+                  <View style={styles.hardBadge}>
+                    <Text style={[styles.hardWrong, { color: colors.error }]}>
+                      {q.timesWrong}✗
+                    </Text>
+                    {q.timesCorrect > 0 && (
+                      <Text style={[styles.hardCorrect, { color: colors.success }]}>
+                        {q.timesCorrect}✓
+                      </Text>
+                    )}
+                  </View>
+                </View>
+              ))}
+            </>
+          );
+        })()}
       </ScrollView>
     </SafeAreaView>
   );
@@ -121,33 +195,40 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
 
 function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
   return StyleSheet.create({
-    safeArea: {
-      flex: 1,
-      backgroundColor: colors.bg,
-    },
-    scrollView: {
-      flex: 1,
-    },
-    contentContainer: {
-      padding: spacing.lg,
-      paddingBottom: spacing.xl,
-    },
-    loadingContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
+    safeArea: { flex: 1, backgroundColor: colors.bg },
+    scrollView: { flex: 1 },
+    contentContainer: { padding: spacing.lg, paddingBottom: 40, gap: 12 },
+    loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
     title: {
       fontSize: 26,
       fontWeight: '500',
       color: colors.textPrimary,
       lineHeight: 32,
-      marginBottom: spacing.lg,
+      marginBottom: 4,
+    },
+    focusCard: {
+      borderWidth: 1.5,
+      borderRadius: 14,
+      padding: spacing.lg,
+      gap: 4,
+    },
+    focusLabel: {
+      fontSize: 10,
+      fontWeight: '600',
+      letterSpacing: 0.8,
+      color: colors.textDim,
+    },
+    focusTitle: {
+      fontSize: 18,
+      fontWeight: '600',
+    },
+    focusSub: {
+      fontSize: 12,
+      color: colors.textMuted,
     },
     statsGrid: {
       flexDirection: 'row',
-      gap: spacing.md,
-      marginVertical: spacing.sm,
+      gap: 12,
     },
     statCard: {
       flex: 1,
@@ -173,8 +254,7 @@ function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
       fontWeight: '500',
       letterSpacing: 0.8,
       color: colors.textDim,
-      marginTop: spacing.xl,
-      marginBottom: spacing.md,
+      marginTop: 8,
     },
     macroCard: {
       backgroundColor: colors.surface,
@@ -182,7 +262,6 @@ function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
       borderColor: colors.border,
       borderRadius: 12,
       padding: spacing.lg,
-      marginVertical: spacing.xs,
       gap: spacing.sm,
     },
     macroHeader: {
@@ -202,26 +281,63 @@ function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
       fontWeight: '500',
       color: colors.textSecondary,
     },
-    macroPct: {
-      fontSize: 14,
+    macroAccuracy: {
+      fontSize: 13,
       fontWeight: '600',
     },
-    macroCountRow: {
+    progressBarContainer: {
+      height: 6,
+      backgroundColor: colors.border,
+      borderRadius: 3,
+      overflow: 'hidden',
+    },
+    progressBar: {
+      height: '100%',
+      borderRadius: 3,
+    },
+    macroMeta: {
       flexDirection: 'row',
+      justifyContent: 'space-between',
     },
     macroCount: {
       fontSize: 11,
       color: colors.textDim,
     },
-    progressBarContainer: {
-      height: 8,
-      backgroundColor: colors.border,
-      borderRadius: 4,
-      overflow: 'hidden',
+    macroDominate: {
+      fontSize: 11,
+      fontWeight: '500',
     },
-    progressBar: {
-      height: '100%',
-      borderRadius: 4,
+    hardCard: {
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 10,
+      padding: spacing.md,
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      gap: spacing.sm,
+    },
+    hardMacro: {
+      fontSize: 12,
+      color: colors.textDim,
+    },
+    hardId: {
+      fontSize: 13,
+      fontWeight: '500',
+      color: colors.textSecondary,
+    },
+    hardBadge: {
+      flexDirection: 'row',
+      gap: 6,
+      alignItems: 'center',
+    },
+    hardWrong: {
+      fontSize: 13,
+      fontWeight: '600',
+    },
+    hardCorrect: {
+      fontSize: 13,
+      fontWeight: '600',
     },
   });
 }

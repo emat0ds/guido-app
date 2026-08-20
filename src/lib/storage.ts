@@ -252,6 +252,38 @@ export async function markDailyGoalCelebrated(): Promise<void> {
   await AsyncStorage.setItem(STORAGE_KEYS.DAILY_GOAL_CELEBRATED, 'true');
 }
 
+// ─── Stats: statistiche dettagliate per macro ─────────────────────────────────
+
+export interface MacroDetailStats {
+  macroId: string;
+  answeredCount: number;  // domande viste almeno una volta
+  correctCount: number;   // domande risposte correttamente almeno una volta
+  masteredCount: number;  // domande dominate (timesCorrect >= 3)
+  accuracy: number;       // % corrette su totale tentativi (0-100)
+  hardestQuestions: Array<{ id: number; timesWrong: number; timesCorrect: number }>;
+}
+
+export async function getMacroDetailStats(macroId: string): Promise<MacroDetailStats> {
+  const states = await getQuestionStates(macroId);
+  const stateValues = Object.values(states) as QuestionState[];
+
+  const answeredCount = stateValues.length;
+  const correctCount = stateValues.filter((s) => s.timesCorrect > 0).length;
+  const masteredCount = stateValues.filter((s) => s.mastered).length;
+
+  const totalAttempts = stateValues.reduce((sum, s) => sum + s.timesCorrect + s.timesWrong, 0);
+  const totalCorrect = stateValues.reduce((sum, s) => sum + s.timesCorrect, 0);
+  const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+
+  const hardestQuestions = stateValues
+    .filter((s) => s.timesWrong > 0)
+    .map((s) => ({ id: s.id, timesWrong: s.timesWrong, timesCorrect: s.timesCorrect }))
+    .sort((a, b) => b.timesWrong - a.timesWrong)
+    .slice(0, 5);
+
+  return { macroId, answeredCount, correctCount, masteredCount, accuracy, hardestQuestions };
+}
+
 // ─── Stats: ricalcolo dai QuestionState (fonte di verità) ────────────────────
 
 /**
