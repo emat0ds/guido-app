@@ -5,7 +5,9 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useUserProgress } from '@/hooks/useUserProgress';
 import { useReviewQueue } from '@/hooks/useReviewQueue';
 import { getMacroDetailStats, MacroDetailStats } from '@/lib/storage';
-import { getRecentDailyStats, DailyStats } from '@/lib/analytics';
+import { getRecentDailyStats, getRecentExamResults } from '@/lib/analytics';
+import { GuidoBubble } from '@/components/GuidoBubble';
+import { generateGuidoSummary } from '@/lib/guidoSummary';
 import { MACROS } from '@/constants/macros';
 import type { TabScreenProps } from './_layout';
 
@@ -40,6 +42,7 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
     questions: number; accuracy: number;
   }>>([]);
   const [weekVsLastWeek, setWeekVsLastWeek] = useState<{ thisWeek: number; lastWeek: number }>({ thisWeek: 0, lastWeek: 0 });
+  const [guidoText, setGuidoText] = useState<string>('');
   const [statsLoading, setStatsLoading] = useState(true);
 
   useEffect(() => {
@@ -49,9 +52,10 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
 
   const loadDetailedStats = useCallback(async () => {
     setStatsLoading(true);
-    const [macroResults, recent14] = await Promise.all([
+    const [macroResults, recent14, examResults] = await Promise.all([
       Promise.all(MACROS.map((m) => getMacroDetailStats(m.id))),
       getRecentDailyStats(14),
+      getRecentExamResults(1),
     ]);
 
     const map: Record<string, MacroDetailStats> = {};
@@ -97,6 +101,33 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
   );
   const globalAccuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
+  // Aggiorna il testo di Guido quando anche streak e masteredCount sono disponibili
+  useEffect(() => {
+    if (statsLoading || !progress || Object.keys(macroStats).length === 0) return;
+    const totAnswered = Object.values(macroStats).reduce((s, m) => s + m.answeredCount, 0);
+    const totCorrect = Object.values(macroStats).reduce((s, m) => s + m.correctCount, 0);
+    const gAccuracy = totAnswered > 0 ? Math.round((totCorrect / totAnswered) * 100) : 0;
+    const avgQ = weekVsLastWeek.thisWeek / 7;
+    const avgMin = weekData.reduce((s, d) => s + ((d as any).minutes || 0), 0) / 7;
+
+    const eligible = Object.values(macroStats).filter((m) => m.answeredCount >= 10);
+    const strongest = eligible.length > 0 ? eligible.reduce((b, m) => m.accuracy > b.accuracy ? m : b) : null;
+    const weakest = eligible.length > 0 ? eligible.reduce((w, m) => m.accuracy < w.accuracy ? m : w) : null;
+    const readiness = calcReadiness(totAnswered, gAccuracy, progress.currentStreak, progress.masteredCount);
+
+    setGuidoText(generateGuidoSummary({
+      globalAccuracy: gAccuracy,
+      totalAnswered: totAnswered,
+      masteredCount: progress.masteredCount,
+      streak: progress.currentStreak,
+      weeklyAvgMinutes: avgMin,
+      weeklyAvgQuestions: avgQ,
+      strongestMacroTitle: strongest ? MACROS.find((m) => m.id === strongest.macroId)?.title : undefined,
+      weakestMacroTitle: weakest ? MACROS.find((m) => m.id === weakest.macroId)?.title : undefined,
+      readinessScore: readiness,
+    }));
+  }, [statsLoading, progress, macroStats, weekVsLastWeek, weekData]);
+
   const weakestMacro = useMemo(() => {
     const eligible = MACROS.filter((m) => (macroStats[m.id]?.answeredCount ?? 0) >= 10);
     if (eligible.length === 0) return null;
@@ -135,6 +166,9 @@ export default function ProgressiScreen({ refreshKey }: TabScreenProps) {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>I tuoi progressi</Text>
+
+        {/* Guido parla */}
+        {guidoText ? <GuidoBubble key={guidoText} text={guidoText} /> : null}
 
         {/* Prontezza esame */}
         <View style={[styles.readinessCard, { borderColor: readinessColor }]}>

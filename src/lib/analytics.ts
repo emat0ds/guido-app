@@ -226,6 +226,19 @@ export async function getWeakestQuestions(limit = 10): Promise<Array<{ questionI
     .slice(0, limit);
 }
 
+/**
+ * Returns the last N exam simulation results (most recent first).
+ */
+export async function getRecentExamResults(limit = 5): Promise<Array<{ score: number; passed: boolean; timestamp: number }>> {
+  const raw = await AsyncStorage.getItem(KEYS.EVENTS);
+  const events: AnalyticsEvent[] = raw ? JSON.parse(raw) : [];
+  return events
+    .filter((e) => e.type === 'exam_completed')
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .slice(0, limit)
+    .map((e) => ({ score: e.data.score as number, passed: e.data.passed as boolean, timestamp: e.timestamp }));
+}
+
 // ─── Future server sync API ───────────────────────────────────────────────────
 
 /**
