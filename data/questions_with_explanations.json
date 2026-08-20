@@ -18620,7 +18620,7 @@
     "answer": false,
     "img": "/img_sign/92.png",
     "difficulty": "easy",
-    "explanation": "FALSO: Il segnale vieta la sosta negli orari indicati sul cartello, ma non possiamo dire quali siano senza vederlo. L'affermazione è generica e probabilmente non corrisponde agli orari del segnale."
+    "explanation": "FALSO. Il segnale vieta la SOSTA (non la fermata) negli orari 7-9 e 17-20. Fermata e sosta sono concetti distinti nel CDS: la fermata breve per far salire o scendere passeggeri rimane sempre consentita, anche durante gli orari di divieto di sosta."
   },
   {
     "id": 1693,
@@ -35120,7 +35120,7 @@
     "answer": true,
     "img": "/img_sign/193.png",
     "difficulty": "easy",
-    "explanation": "Vero. È un segnale di prudenza che ti avverte di procedere con attenzione a causa delle condizioni difficili."
+    "explanation": "VERO. Non è un segnale di pericolo generico: è un pannello informativo che comunica le condizioni di transitabilità del Passo dello Stelvio (chiuso, con catene obbligatorie fino a Trafoi). Informa che la strada richiede particolare attenzione e attrezzatura adeguata."
   },
   {
     "id": 3193,
