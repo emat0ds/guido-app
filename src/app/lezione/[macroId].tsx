@@ -30,7 +30,7 @@ import {
 } from '@/lib/storage';
 import { onStudiedToday } from '@/lib/notifications';
 import { trackSessionEnd, trackQuestionAnswered } from '@/lib/analytics';
-import { isPremium, getGuidoRequests, consumeGuidoRequest, purchaseGuidoRequests, purchasePremium, fetchProductPrice } from '@/lib/iap';
+import { isPremium, getGuidoRequests, consumeGuidoRequest, purchaseGuidoRequests, purchasePremium, restorePurchases, fetchProductPrice } from '@/lib/iap';
 import { getBadgeForConsecutive, getBadgeById } from '@/lib/badges';
 import { useBadge } from '@/contexts/BadgeContext';
 import { updateQuestionState } from '@/lib/progress';
@@ -243,6 +243,18 @@ export default function LezioneScreen() {
     }
   };
 
+  const handleRestorePurchases = async () => {
+    setPurchasingGuido(true);
+    const result = await restorePurchases();
+    setPurchasingGuido(false);
+    if (result.hasPremium) {
+      setHasPremium(true);
+      const requests = await getGuidoRequests();
+      setGuidoRequests(requests);
+      setShowGuidoModal(null);
+    }
+  };
+
   const handleBuyRefill = async () => {
     setPurchasingGuido(true);
     const result = await purchaseGuidoRequests();
@@ -367,8 +379,13 @@ export default function LezioneScreen() {
                     <Text style={styles.modalButtonText}>Acquista Premium — €1,99</Text>
                   )}
                 </TouchableOpacity>
+                <TouchableOpacity onPress={handleRestorePurchases} disabled={purchasingGuido}>
+                  <Text style={styles.modalCancel}>
+                    {purchasingGuido ? 'Verifica in corso…' : 'Ho già acquistato → Ripristina'}
+                  </Text>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => setShowGuidoModal(null)}>
-                  <Text style={styles.modalCancel}>Non ora</Text>
+                  <Text style={[styles.modalCancel, { opacity: 0.5 }]}>Non ora</Text>
                 </TouchableOpacity>
               </>
             ) : (

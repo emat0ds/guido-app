@@ -6,6 +6,7 @@ import { requestNotificationPermissions, setupDailyReminder } from '@/lib/notifi
 import { hasStudiedToday, hasStudiedYesterday, getCurrentStreak, runStatsMigrationIfNeeded } from '@/lib/storage';
 import { trackAppOpen } from '@/lib/analytics';
 import { MACROS } from '@/constants/macros';
+import { restorePurchases } from '@/lib/iap';
 import { BadgeProvider } from '@/contexts/BadgeContext';
 import { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
 
@@ -63,6 +64,8 @@ function RootLayout() {
     };
     setupNotifications();
     trackAppOpen();
+    // Restore purchases silently — syncs premium status for coupon/promo users
+    restorePurchases().catch(() => {});
     // Migration one-time: ricalcola contatori da QuestionState reali
     runStatsMigrationIfNeeded(MACROS.map((m) => ({ id: m.id, totalQuestions: m.totalQuestions })));
   }, []);
