@@ -259,6 +259,7 @@ export interface MacroDetailStats {
   answeredCount: number;  // domande viste almeno una volta
   correctCount: number;   // domande risposte correttamente almeno una volta
   masteredCount: number;  // domande dominate (timesCorrect >= 3)
+  recoveryCount: number;  // domande prima sbagliate, ora anche corrette
   accuracy: number;       // % corrette su totale tentativi (0-100)
   hardestQuestions: Array<{ id: number; timesWrong: number; timesCorrect: number }>;
 }
@@ -270,6 +271,7 @@ export async function getMacroDetailStats(macroId: string): Promise<MacroDetailS
   const answeredCount = stateValues.length;
   const correctCount = stateValues.filter((s) => s.timesCorrect > 0).length;
   const masteredCount = stateValues.filter((s) => s.mastered).length;
+  const recoveryCount = stateValues.filter((s) => s.timesWrong > 0 && s.timesCorrect > 0).length;
 
   const totalAttempts = stateValues.reduce((sum, s) => sum + s.timesCorrect + s.timesWrong, 0);
   const totalCorrect = stateValues.reduce((sum, s) => sum + s.timesCorrect, 0);
@@ -281,7 +283,7 @@ export async function getMacroDetailStats(macroId: string): Promise<MacroDetailS
     .sort((a, b) => b.timesWrong - a.timesWrong)
     .slice(0, 5);
 
-  return { macroId, answeredCount, correctCount, masteredCount, accuracy, hardestQuestions };
+  return { macroId, answeredCount, correctCount, masteredCount, recoveryCount, accuracy, hardestQuestions };
 }
 
 // ─── Stats: ricalcolo dai QuestionState (fonte di verità) ────────────────────
