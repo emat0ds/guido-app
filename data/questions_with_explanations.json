@@ -16486,7 +16486,7 @@
     "answer": true,
     "img": "/img_sign/77.png",
     "difficulty": "easy",
-    "explanation": "VERO. Il segnale vieta il transito ai veicoli che superano 3,50 m di altezza: uno di 10 m di lunghezza ma entro i 3,50 m di altezza può passare."
+    "explanation": "VERO. Il segnale vieta il transito ai veicoli la cui lunghezza complessiva supera 10 metri. Un veicolo che rientra in questo limite di lunghezza può transitare normalmente."
   },
   {
     "id": 1499,
@@ -23702,7 +23702,7 @@
     "answer": true,
     "img": "/img_sign/40.png",
     "difficulty": "medium",
-    "explanation": "FALSO. Anche se non vedi veicoli, DEVI comunque fermarti o rallentare significativamente. Non puoi passare con ragionamento personale: il segnale ti obbliga a cautela assoluta."
+    "explanation": "VERO. Il segnale 'dare precedenza' non obbliga a fermarsi completamente, a differenza del segnale STOP. Se rallentando puoi verificare che non arrivano veicoli né da destra né da sinistra, puoi proseguire senza fermarti del tutto."
   },
   {
     "id": 2155,
@@ -36374,7 +36374,7 @@
     "answer": true,
     "img": "/img_sign/226.png",
     "difficulty": "medium",
-    "explanation": "È vero perché il segnale di velocità consigliata può avere un pannello sottostante che indica per quanti kilometri vale la limitazione."
+    "explanation": "VERO. Il segnale di velocità consigliata può essere abbinato a un pannello che indica per quanti metri vale il tratto di strada in cui si consiglia di non superare la velocità indicata."
   },
   {
     "id": 3307,
@@ -52137,7 +52137,7 @@
     "answer": false,
     "img": "/img_sign/608.png",
     "difficulty": "easy",
-    "explanation": "La precedenza dipende dalle regole di circolazione (destra, segnali), non dal tipo di veicolo. Un autobus non ha precedenza automatica su chi viene da destra."
+    "explanation": "FALSO. Il tipo di veicolo — autobus o altro — non conferisce alcuna precedenza speciale in un incrocio ordinario. La precedenza è stabilita dalle regole stradali: veicolo proveniente da destra, segnali di stop o dare precedenza. In questo incrocio la precedenza di H su C non dipende dal fatto che H sia un autobus."
   },
   {
     "id": 4740,
@@ -52225,7 +52225,7 @@
     "answer": false,
     "img": "/img_sign/615.png",
     "difficulty": "easy",
-    "explanation": "A non passa per primo: R ha precedenza perché arriva da sinistra senza ostacoli."
+    "explanation": "FALSO. A non passa per primo. R ha precedenza perché arriva da destra rispetto ad A e non ha segnali di stop o dare precedenza. Secondo la regola della precedenza a destra, R transita prima di A."
   },
   {
     "id": 4748,
@@ -53094,7 +53094,7 @@
     "answer": true,
     "img": "/img_sign/643.png",
     "difficulty": "easy",
-    "explanation": "Vero perché questo è l'ordine corretto: H ha la strada libera (freccia verde), poi D, B e L rispettano la precedenza secondo i loro segnali di stop o cedimento."
+    "explanation": "VERO. L'ordine H, D, B, L è corretto: H impegna l'incrocio per primo in base alla sua posizione e ai segnali presenti, seguito da D, poi B, e infine L che deve dare la precedenza agli altri veicoli."
   },
   {
     "id": 4827,
@@ -53402,7 +53402,7 @@
     "answer": false,
     "img": "/img_sign/638.png",
     "difficulty": "easy",
-    "explanation": "R non passa per ultimo perché ha una priorità maggiore rispetto ad altri veicoli (probabilmente prosegue diritto mentre altri svoltano, oppure ha una posizione privilegiata)."
+    "explanation": "FALSO. R non transita per ultimo. In base alla configurazione dell'incrocio e alle regole di precedenza, R ha la precedenza su almeno uno degli altri veicoli presenti e passa prima di loro."
   },
   {
     "id": 4855,
@@ -53575,10 +53575,10 @@
     "category": "precedenza-incroci",
     "subcategory": "figura-610",
     "question": "Nell'incrocio rappresentato nella figura il veicolo T transita per primo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/610.png",
     "difficulty": "easy",
-    "explanation": "FALSO. T non transita per primo perché ha un veicolo (C) che viene da sinistra e ha la precedenza su di lui. C deve passare prima."
+    "explanation": "VERO. Il veicolo T è un tram, che ha precedenza assoluta in quanto veicolo su rotaia (art. 145 CDS). T transita per primo rispetto a tutti gli altri veicoli presenti nell'incrocio, indipendentemente dalla loro provenienza."
   },
   {
     "id": 4871,
@@ -54623,7 +54623,7 @@
     "answer": true,
     "img": "/img_sign/650.png",
     "difficulty": "medium",
-    "explanation": "VERO. L passa per primo, poi E (che arriva da destra di N), quindi N arriva dopo E. L'ordine è corretto secondo la regola della destra."
+    "explanation": "VERO. Il veicolo R è un filobus che, come il tram, gode di precedenza assoluta in quanto mezzo su percorso vincolato (art. 145 CDS). Tra gli altri veicoli, L transita per primo, poi E (che arriva da destra di N), e infine N. L'ordine 'E dopo L e prima di N' è quindi corretto."
   },
   {
     "id": 4966,
@@ -56295,7 +56295,7 @@
     "answer": false,
     "img": "/img_sign/606.png",
     "difficulty": "easy",
-    "explanation": "L'ordine C, M, E è sbagliato; E deve passare per primo, non per ultimo."
+    "explanation": "FALSO. L'ordine C, M, E è sbagliato. Secondo le regole di precedenza nell'incrocio raffigurato, E transita per primo. L'affermazione inverte la precedenza, collocando E per ultimo anziché per primo."
   },
   {
     "id": 5118,
@@ -56383,7 +56383,7 @@
     "answer": false,
     "img": "/img_sign/634.png",
     "difficulty": "easy",
-    "explanation": "FALSO - L non passa per primo. L'ordine corretto è A, C, L perché A ha precedenza e L arriva da strada principale."
+    "explanation": "FALSO. L'ordine L, C, A è sbagliato. L'ordine corretto è A, C, L: A ha la precedenza su C e L, poi C ha la precedenza su L. Mettere L per primo è un errore — L deve attendere sia A che C."
   },
   {
     "id": 5126,
@@ -68560,7 +68560,7 @@
     "answer": true,
     "img": null,
     "difficulty": "medium",
-    "explanation": "VERO. BE è la patente per gli autotreni con auto fino a 3.500 kg e rimorchio fino a 3.500 kg. È la definizione stessa della categoria."
+    "explanation": "VERO. La patente BE abilita a condurre autotreni composti da un veicolo di categoria B (fino a 3.500 kg di massa massima autorizzata) e un rimorchio con massa fino a 3.500 kg. Con la sola patente B si può trainare un rimorchio fino a 750 kg: la BE estende questo limite a 3.500 kg."
   },
   {
     "id": 6233,
