@@ -16,7 +16,7 @@ import { QuestionCard } from '@/components/QuestionCard';
 import { AnswerButton } from '@/components/AnswerButton';
 import { GuidoBubble } from '@/components/GuidoBubble';
 import { QuestionImage } from '@/components/QuestionImage';
-import { getQuestionsByMacroId, getRandomQuestions, Question } from '@/lib/questions';
+import { getQuestionsByMacroId, getAllQuestions, getRandomQuestions, Question } from '@/lib/questions';
 import {
   getQuestionState,
   saveQuestionState,
@@ -94,8 +94,10 @@ export default function LezioneScreen() {
     try {
       const macroIdStr = Array.isArray(macroId) ? macroId[0] : macroId;
       if (!macroIdStr) return;
-      const allQuestions = await getQuestionsByMacroId(macroIdStr);
-      const shuffled = getRandomQuestions(allQuestions, SESSION_SIZE);
+      const pool = macroIdStr === 'random'
+        ? await getAllQuestions()
+        : await getQuestionsByMacroId(macroIdStr);
+      const shuffled = getRandomQuestions(pool, SESSION_SIZE);
       setQuestions(shuffled);
       setLoading(false);
     } catch (error) {
@@ -142,7 +144,14 @@ export default function LezioneScreen() {
     setSessionAnswers((prev) => ({ ...prev, [current.id]: isCorrect }));
 
     const macroIdStr = Array.isArray(macroId) ? macroId[0] : macroId;
-    const currentState = await getQuestionState(macroIdStr, current.id);
+    // In modalità random, salva lo stato sotto la macro reale della domanda
+    const effectiveMacroId = macroIdStr === 'random'
+      ? (MACROS.find((m) => m.categories.some((c) =>
+          c.toLowerCase() === (current.category ?? '').toLowerCase()
+        ))?.id ?? macroIdStr)
+      : macroIdStr;
+
+    const currentState = await getQuestionState(effectiveMacroId, current.id);
     const newState = updateQuestionState(
       currentState || {
         id: current.id,
@@ -156,12 +165,12 @@ export default function LezioneScreen() {
     );
 
     if (newState.mastered) await addMasteredQuestion(current.id);
-    await saveQuestionState(macroIdStr, current.id, newState);
+    await saveQuestionState(effectiveMacroId, current.id, newState);
 
     // Ricalcola MacroProgress dai QuestionState reali (domande uniche, non cumulative)
-    const macroForProgress = MACROS.find((m) => m.id === macroIdStr);
+    const macroForProgress = MACROS.find((m) => m.id === effectiveMacroId);
     if (macroForProgress) {
-      await recalculateMacroProgress(macroIdStr, macroForProgress.totalQuestions);
+      await recalculateMacroProgress(effectiveMacroId, macroForProgress.totalQuestions);
     }
 
     // Badge: prima curva (first answer ever — unlockBadge is idempotent)
@@ -261,10 +270,20 @@ export default function LezioneScreen() {
       const macroIdStr = Array.isArray(macroId) ? macroId[0] : macroId;
 
       // Il MacroProgress viene già aggiornato ad ogni risposta in handleAnswer.
-      // Qui facciamo solo un ricalcolo finale per sicurezza.
-      const macro = MACROS.find((m) => m.id === macroIdStr);
-      if (macro) {
-        await recalculateMacroProgress(macroIdStr, macro.totalQuestions);
+      // In modalità random, ricalcola tutte le macro toccate in questa sessione.
+      if (macroIdStr === 'random') {
+        const touchedMacroIds = [...new Set(questions.map((q) =>
+          MACROS.find((m) => m.categories.some((c) =>
+            c.toLowerCase() === (q.category ?? '').toLowerCase()
+          ))?.id
+        ).filter(Boolean))] as string[];
+        await Promise.all(touchedMacroIds.map((mid) => {
+          const m = MACROS.find((x) => x.id === mid);
+          return m ? recalculateMacroProgress(mid, m.totalQuestions) : Promise.resolve();
+        }));
+      } else {
+        const macro = MACROS.find((m) => m.id === macroIdStr);
+        if (macro) await recalculateMacroProgress(macroIdStr, macro.totalQuestions);
       }
 
       await flushSessionAnalytics(macroIdStr);

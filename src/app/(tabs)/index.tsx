@@ -91,6 +91,15 @@ export default function HomeScreen({ refreshKey }: TabScreenProps) {
           onCelebrationDone={markCelebrated}
         />
 
+        <TouchableOpacity
+          style={styles.randomCard}
+          onPress={() => router.push('/lezione/random' as any)}
+          activeOpacity={0.75}
+        >
+          <Text style={styles.randomTitle}>🎲 Pratica libera</Text>
+          <Text style={styles.randomSub}>10 domande casuali da tutte le 7.139</Text>
+        </TouchableOpacity>
+
         <Text style={styles.sectionLabel}>MACRO-AREE</Text>
 
         {MACROS.map((macro) => {
@@ -211,6 +220,23 @@ function makeStyles(colors: ReturnType<typeof useTheme>['colors']) {
       color: colors.textDim,
       letterSpacing: 0.8,
       marginTop: 4,
+    },
+    randomCard: {
+      backgroundColor: colors.surface,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 14,
+      padding: spacing.lg,
+      gap: 4,
+    },
+    randomTitle: {
+      fontSize: 16,
+      fontWeight: '500',
+      color: colors.textSecondary,
+    },
+    randomSub: {
+      fontSize: 12,
+      color: colors.textMuted,
     },
     reviewBox: {
       backgroundColor: colors.purpleDim,
