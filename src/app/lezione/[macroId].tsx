@@ -129,6 +129,7 @@ export default function LezioneScreen() {
     setSelectedAnswer(answerValue);
     setAnswered(true);
     setTimeout(() => scrollViewRef.current?.scrollToEnd({ animated: true }), 350);
+    setTimeout(() => scrollViewRef.current?.scrollToEnd({ animated: true }), 750);
 
     if (isCorrect) {
       setCorrectCount((prev) => prev + 1);

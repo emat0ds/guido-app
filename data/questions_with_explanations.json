@@ -27409,7 +27409,7 @@
     "answer": false,
     "img": "/img_sign/546.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il cartello mostrato riguarda le corsie e le direzioni consentite, non la sosta. La sosta è regolata da segnaletica diversa (come le strisce blu/gialle), quindi questo cartello non ha nulla a che fare con gli orari di sosta."
+    "explanation": "FALSO. La segnaletica mostrata è la striscia gialla a zig-zag con scritta BUS: indica un'area di fermata dei mezzi pubblici dove la sosta (e la fermata) è vietata sempre, 24 ore su 24, indipendentemente dall'orario. Non esiste nessuna finestra oraria in cui sia consentito sostare."
   },
   {
     "id": 2492,
@@ -31754,7 +31754,7 @@
     "answer": false,
     "img": "/img_sign/386.png",
     "difficulty": "medium",
-    "explanation": "Il vigile con braccia ad angolo retto permette il passaggio dalla sua sinistra (non vieta), quindi l'affermazione del veto è falsa."
+    "explanation": "FALSO. Con le braccia ad angolo retto (un braccio teso in avanti, uno di lato), il vigile blocca chi gli viene di fronte e chi gli viene di dietro. I veicoli che arrivano dal suo lato sinistro hanno il braccio del vigile parallelo alla loro direzione — non puntato contro — quindi possono passare. Il vigile non li vieta, li autorizza."
   },
   {
     "id": 2887,
