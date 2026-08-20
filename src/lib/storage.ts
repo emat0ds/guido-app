@@ -252,6 +252,56 @@ export async function markDailyGoalCelebrated(): Promise<void> {
   await AsyncStorage.setItem(STORAGE_KEYS.DAILY_GOAL_CELEBRATED, 'true');
 }
 
+// ─── Stats: ricalcolo dai QuestionState (fonte di verità) ────────────────────
+
+/**
+ * Ricalcola MacroProgress contando domande uniche, non risposte cumulative.
+ * - correctAnswers = domande con almeno 1 risposta corretta
+ * - wrongAnswers   = domande con almeno 1 risposta sbagliata
+ * - masteredCount  = domande dominate (timesCorrect >= 3)
+ */
+export async function recalculateMacroProgress(
+  macroId: string,
+  totalQuestions: number
+): Promise<UserProgress> {
+  const states = await getQuestionStates(macroId);
+  const stateValues = Object.values(states) as QuestionState[];
+
+  const correctAnswers = stateValues.filter((s) => s.timesCorrect > 0).length;
+  const wrongAnswers = stateValues.filter((s) => s.timesWrong > 0).length;
+  const masteredCount = stateValues.filter((s) => s.mastered).length;
+
+  const progress: UserProgress = {
+    macroId,
+    totalQuestions,
+    correctAnswers,
+    wrongAnswers,
+    masteredCount,
+    lastUpdated: Date.now(),
+  };
+
+  await saveMacroProgress(macroId, progress);
+  return progress;
+}
+
+/**
+ * Migration one-time: riporta i MacroProgress al valore corretto
+ * leggendo i QuestionState reali. Sicura da eseguire più volte (idempotente).
+ */
+const MIGRATION_STATS_V1 = 'stats_migration_v1';
+
+export async function runStatsMigrationIfNeeded(
+  macros: Array<{ id: string; totalQuestions: number }>
+): Promise<void> {
+  const done = await AsyncStorage.getItem(MIGRATION_STATS_V1);
+  if (done === 'true') return;
+  await Promise.all(macros.map((m) => recalculateMacroProgress(m.id, m.totalQuestions)));
+  await AsyncStorage.setItem(MIGRATION_STATS_V1, 'true');
+  console.log('[Migration] stats_migration_v1 completata');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export async function clearAllProgress(): Promise<void> {
   const keys = await AsyncStorage.getAllKeys();
   const prefixes = Object.values(STORAGE_KEYS);

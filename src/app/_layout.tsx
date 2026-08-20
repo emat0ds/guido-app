@@ -3,8 +3,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useOnboarding } from '@/hooks/useOnboarding';
 import { requestNotificationPermissions, setupDailyReminder } from '@/lib/notifications';
-import { hasStudiedToday, hasStudiedYesterday, getCurrentStreak } from '@/lib/storage';
+import { hasStudiedToday, hasStudiedYesterday, getCurrentStreak, runStatsMigrationIfNeeded } from '@/lib/storage';
 import { trackAppOpen } from '@/lib/analytics';
+import { MACROS } from '@/constants/macros';
 import { BadgeProvider } from '@/contexts/BadgeContext';
 import { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
 
@@ -62,6 +63,8 @@ function RootLayout() {
     };
     setupNotifications();
     trackAppOpen();
+    // Migration one-time: ricalcola contatori da QuestionState reali
+    runStatsMigrationIfNeeded(MACROS.map((m) => ({ id: m.id, totalQuestions: m.totalQuestions })));
   }, []);
 
   return (

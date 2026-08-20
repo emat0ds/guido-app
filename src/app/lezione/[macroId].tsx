@@ -20,14 +20,13 @@ import { getQuestionsByMacroId, getRandomQuestions, Question } from '@/lib/quest
 import {
   getQuestionState,
   saveQuestionState,
-  saveMacroProgress,
-  getMacroProgress,
   addMasteredQuestion,
   incrementStreak,
   recordStudyDate,
   updateConsecutiveCorrect,
   unlockBadge,
   incrementDailyGoal,
+  recalculateMacroProgress,
 } from '@/lib/storage';
 import { onStudiedToday } from '@/lib/notifications';
 import { trackSessionEnd, trackQuestionAnswered } from '@/lib/analytics';
@@ -159,6 +158,12 @@ export default function LezioneScreen() {
     if (newState.mastered) await addMasteredQuestion(current.id);
     await saveQuestionState(macroIdStr, current.id, newState);
 
+    // Ricalcola MacroProgress dai QuestionState reali (domande uniche, non cumulative)
+    const macroForProgress = MACROS.find((m) => m.id === macroIdStr);
+    if (macroForProgress) {
+      await recalculateMacroProgress(macroIdStr, macroForProgress.totalQuestions);
+    }
+
     // Badge: prima curva (first answer ever — unlockBadge is idempotent)
     const primaIsNew = await unlockBadge('prima-curva');
     if (primaIsNew) {
@@ -254,21 +259,12 @@ export default function LezioneScreen() {
       setGuidoText(null);
     } else {
       const macroIdStr = Array.isArray(macroId) ? macroId[0] : macroId;
-      const macro = MACROS.find((m) => m.id === macroIdStr);
 
+      // Il MacroProgress viene già aggiornato ad ogni risposta in handleAnswer.
+      // Qui facciamo solo un ricalcolo finale per sicurezza.
+      const macro = MACROS.find((m) => m.id === macroIdStr);
       if (macro) {
-        const existingProgress = await getMacroProgress(macroIdStr);
-        const wrongCount = questions.length - correctCount;
-        await saveMacroProgress(macroIdStr, {
-          macroId: macroIdStr,
-          totalQuestions: macro.totalQuestions,
-          correctAnswers: (existingProgress?.correctAnswers || 0) + correctCount,
-          wrongAnswers: (existingProgress?.wrongAnswers || 0) + wrongCount,
-          masteredCount:
-            (existingProgress?.masteredCount || 0) +
-            Object.values(sessionAnswers).filter((v) => v).length,
-          lastUpdated: Date.now(),
-        });
+        await recalculateMacroProgress(macroIdStr, macro.totalQuestions);
       }
 
       await flushSessionAnalytics(macroIdStr);
