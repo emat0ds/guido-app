@@ -29386,10 +29386,10 @@
     "category": "semafori-vigili",
     "subcategory": "semaforo-verde",
     "question": "Quando è accesa la luce verde del semaforo in figura si può proseguire diritto, dando però la precedenza ai pedoni",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/154.png",
     "difficulty": "medium",
-    "explanation": "FALSO — Con freccia verde direzionata non puoi proprio proseguire dritto: la freccia indica la sola direzione consentita, non è una scelta."
+    "explanation": "VERO. La luce verde rotonda del semaforo autorizza a procedere in tutte le direzioni, compreso dritto. Tuttavia è obbligatorio dare la precedenza ai pedoni che stanno attraversando sulle strisce. La freccia verde direzionale (diversa dalla luce rotonda) indica invece una sola direzione consentita."
   },
   {
     "id": 2672,
@@ -55778,7 +55778,7 @@
     "answer": false,
     "img": "/img_sign/636.png",
     "difficulty": "easy",
-    "explanation": "L'ordine A, T, S non rispetta le regole di precedenza. Senza vedere la figura, l'ordine corretto dipende da chi ha diritto di precedenza (strada principale, destra libera, ecc.)."
+    "explanation": "FALSO. L'ordine A, T, S non è corretto. Il tram T ha precedenza assoluta (art. 145 CDS) e transita per primo. Dopo il tram, la precedenza tra A e S segue la regola della destra: S viene da destra rispetto ad A, quindi l'ordine corretto è T, S, A."
   },
   {
     "id": 5071,
@@ -61872,7 +61872,7 @@
     "answer": false,
     "img": "/img_sign/304.png",
     "difficulty": "easy",
-    "explanation": "I pannelli descritti sono applicati **sui veicoli**, non sulla carreggiata. I segnali sulla strada per ostacoli sono i triangle rossi o i birilli gialli, completamente diversi."
+    "explanation": "FALSO. I pannelli giallo-rossi a strisce diagonali sono applicati sui veicoli (es. veicoli lenti, trasporti eccezionali), non sulla carreggiata. Per segnalare ostacoli sulla strada si usano triangoli di segnalazione o birilli gialli — segnali completamente diversi."
   },
   {
     "id": 5625,
@@ -65216,7 +65216,7 @@
     "answer": false,
     "img": null,
     "difficulty": "easy",
-    "explanation": "FALSO: di giorno non serve l'abbagliante neanche controsole. Di giorno accendi gli anabbaglianti se c'è poca visibilità, ma l'abbagliante non è necessario."
+    "explanation": "FALSO. Gli abbaglianti non si usano mai di giorno, neanche controsole su autostrada. Di giorno in autostrada sono invece obbligatori gli anabbaglianti (art. 153 CDS) — sempre, non solo in caso di scarsa visibilità."
   },
   {
     "id": 5929,
