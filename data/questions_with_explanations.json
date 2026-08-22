@@ -162,7 +162,7 @@
     "answer": false,
     "img": "/img_sign/552.png",
     "difficulty": "medium",
-    "explanation": "FALSO. La corsia di sinistra (centro) è dedicata al sorpasso, non alla marcia ordinaria."
+    "explanation": "VERO. Il segnale indica l'inizio di un centro abitato: da quel punto si applicano le norme specifiche per i centri abitati (limite di 50 km/h, regole di parcheggio, ecc.)."
   },
   {
     "id": 15,
@@ -3770,7 +3770,7 @@
     "answer": false,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Le autovetture vanno in revisione ogni 2 anni (dopo il primo anno), non 5. Il trabocchetto è dire 'cinque' quando è molto più frequente."
+    "explanation": "FALSO. Le autovetture vanno in revisione ogni 2 anni, ma la prima revisione avviene dopo i primi 4 anni dalla prima immatricolazione (non dopo 1 anno). Quindi il ritmo non è 'ogni cinque anni'."
   },
   {
     "id": 343,
@@ -5849,7 +5849,7 @@
     "answer": true,
     "img": "/img_sign/1.png",
     "difficulty": "easy",
-    "explanation": "VERO — Il segnale di 'strada deformata' (rombo giallo con ondulazioni) preannuncia un tratto dove il manto stradale è irregolare o danneggiato."
+    "explanation": "VERO. Il segnale di 'strada deformata' è un triangolo rosso con ondulazioni e preannuncia un tratto dove il manto stradale è irregolare o danneggiato."
   },
   {
     "id": 532,
@@ -6003,7 +6003,7 @@
     "answer": false,
     "img": "/img_sign/1.png",
     "difficulty": "easy",
-    "explanation": "FALSO. È un segnale di avvertimento (rombo giallo), non di prescrizione. I segnali di prescrizione sono rettangolari o circolari con bordo rosso."
+    "explanation": "FALSO. Il segnale di 'dare precedenza' è un triangolo rosso con la punta in basso (triangolo invertito), non un rombo giallo. Il rombo giallo indica invece la 'strada con diritto di precedenza'."
   },
   {
     "id": 546,
@@ -6608,7 +6608,7 @@
     "answer": false,
     "img": "/img_sign/3.png",
     "difficulty": "easy",
-    "explanation": "Il segnale raffigurato è una curva pericolosa (non un dosso). Un dosso è una gobba della strada, mentre la curva è una deviazione laterale del tracciato."
+    "explanation": "FALSO. Il segnale raffigurato indica un dosso o un avvallamento, non una curva pericolosa. Sono segnali diversi: il dosso ha un profilo a gobba, la curva ha una freccia curva."
   },
   {
     "id": 601,
@@ -7972,7 +7972,7 @@
     "answer": false,
     "img": "/img_sign/8.png",
     "difficulty": "medium",
-    "explanation": "Falso. Se le luci rosse sono spente NON significa che puoi passare: l'obbligo di fermarsi vale quando le barriere sono chiuse o le luci sono accese."
+    "explanation": "FALSO. Il segnale (passaggio a livello con barriere) NON impone di fermarsi quando le luci sono spente: l'obbligo di fermarsi scatta quando le barriere si abbassano o le luci rosse lampeggiano. Se le luci sono spente e le barriere sono aperte, si procede con prudenza."
   },
   {
     "id": 725,
@@ -12007,9 +12007,9 @@
     "subcategory": "semaforo-verticale",
     "question": "Il segnale raffigurato è a fondo giallo se posto prima di un cantiere stradale",
     "answer": true,
-    "img": null,
+    "img": "/img_sign/34.png",
     "difficulty": "easy",
-    "explanation": "VERO. I segnali di preavviso diventano a fondo giallo quando segnalano pericoli temporanei come i cantieri stradali."
+    "explanation": "VERO. Il pannello di cantiere con indicazione degli orari indica i periodi in cui è attivo il cantiere stradale. Fuori da quegli orari le restrizioni potrebbero non essere in vigore."
   },
   {
     "id": 1092,
@@ -14682,7 +14682,7 @@
     "answer": false,
     "img": "/img_sign/61.png",
     "difficulty": "easy",
-    "explanation": "FALSO - Il segnale è generico di divieto ai pedoni, non una strada riservata a specifiche categorie di veicoli agricoli."
+    "explanation": "VERO. Il segnale raffigurato indica il divieto di transito ai veicoli a trazione animale (carri trainati da cavalli o altri animali). Non riguarda i pedoni."
   },
   {
     "id": 1335,
@@ -14825,7 +14825,7 @@
     "answer": true,
     "img": "/img_sign/63.png",
     "difficulty": "easy",
-    "explanation": "VERO - Attentamente alla parola 'vieta': il segnale di ZTL (zona a traffico limitato) vieta il transito alle biciclette se non autorizzate, dipendendo dalle specifiche ordinanze locali."
+    "explanation": "VERO. Il segnale raffigurato è il divieto di transito per velocipedi (biciclette): cerchio rosso su sfondo bianco con la sagoma di una bicicletta. Vieta il passaggio alle bici su quella strada o tratto."
   },
   {
     "id": 1348,
@@ -16002,7 +16002,7 @@
     "answer": false,
     "img": "/img_sign/72.png",
     "difficulty": "easy",
-    "explanation": "FALSO — Il GPL è un combustibile pericoloso, quindi i veicoli alimentati a gas liquido SONO vietati dal segnale (l'affermazione dice il contrario)."
+    "explanation": "FALSO. L'obbligo di fermarsi al passaggio a livello sussiste anche quando le barriere non sono ancora completamente chiuse: è sufficiente che le luci rosse lampeggino o che le barriere siano in movimento."
   },
   {
     "id": 1455,
@@ -21348,7 +21348,7 @@
     "answer": false,
     "img": "/img_sign/102.png",
     "difficulty": "easy",
-    "explanation": "Il segnale di passaggio obbligatorio (frecce destra-sinistra) non ordina di lasciare l'ostacolo a destra, ma permette di passare da entrambi i lati. Chi dice 'soltanto a destra' sbaglia."
+    "explanation": "FALSO. Il segnale raffigurato indica una intersezione con precedenza a destra, non frecce destra-sinistra generiche. Indica che bisogna dare la precedenza ai veicoli che provengono da destra."
   },
   {
     "id": 1941,
@@ -24208,7 +24208,7 @@
     "answer": false,
     "img": "/img_sign/42.png",
     "difficulty": "easy",
-    "explanation": "FALSO: Il segnale di preavviso non obbliga a fermarsi subito, ma solo avvisa che a 320 metri c'è uno STOP. L'obbligo di fermarsi arriva al segnale STOP stesso, non prima."
+    "explanation": "VERO. Il segnale raffigurato è 'dare precedenza' (triangolo rosso con punta in basso): obbliga a cedere il passo ai veicoli sul percorso intersecato. Non è uno stop."
   },
   {
     "id": 2201,
@@ -24439,7 +24439,7 @@
     "answer": true,
     "img": "/img_sign/44.png",
     "difficulty": "easy",
-    "explanation": "VERO. Il segnale di precedenza si trova PRIMA del tratto dove hai diritto di precedenza, non sul tratto stesso."
+    "explanation": "FALSO. Il segnale raffigurato con la X indica 'intersezione con precedenza a destra': non si tratta del segnale di precedenza assoluta. In questo incrocio vige la regola della precedenza a destra tra veicoli pari grado."
   },
   {
     "id": 2222,
@@ -24843,10 +24843,10 @@
     "category": "segnali-precedenza",
     "subcategory": "sensi-unici-alternati",
     "question": "In presenza del segnale raffigurato e del semaforo a tre luci abbiamo la precedenza se il semaforo è a luce gialla lampeggiante",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/45.png",
     "difficulty": "medium",
-    "explanation": "FALSO. Con semaforo giallo lampeggiante devi dare la precedenza a chi viene dalla destra e sinistra, quindi il segnale di precedenza non ti aiuta."
+    "explanation": "FALSO. Con la luce gialla lampeggiante il semaforo non impone uno stop obbligatorio: si deve procedere con prudenza, rispettando le eventuali altre segnalazioni presenti (stop, dare precedenza, ecc.)."
   },
   {
     "id": 2259,
@@ -27398,7 +27398,7 @@
     "answer": false,
     "img": "/img_sign/546.png",
     "difficulty": "easy",
-    "explanation": "Falso. Le strisce di delimitazione delle corsie devono essere bianche, ma la segnaletica verticale (cartelli) ha colori specifici che non possono cambiare: il divieto è su fondo rosso, l'obbligo su fondo blu. Non puoi realizzare un cartello di divieto con strisce bianche."
+    "explanation": "VERO. La scritta 'BUS' dipinta sulla carreggiata indica una corsia riservata agli autobus. La segnaletica orizzontale (scritta sul manto stradale) è vincolante quanto quella verticale."
   },
   {
     "id": 2491,
@@ -29972,7 +29972,7 @@
     "answer": true,
     "img": "/img_sign/156.png",
     "difficulty": "easy",
-    "explanation": "Questo semaforo è pensato appositamente per i veicoli in servizio di linea per trasporto di persone (tram e autobus pubblici)."
+    "explanation": "VERO. Il segnale di 'nebbia' (triangolo rosso con nuvola tratteggiata) preannuncia una zona dove la visibilità può essere ridotta a causa della nebbia. Impone di ridurre la velocità e aumentare la distanza di sicurezza."
   },
   {
     "id": 2725,
@@ -30500,7 +30500,7 @@
     "answer": true,
     "img": "/img_sign/159.png",
     "difficulty": "easy",
-    "explanation": "La freccia gialla lampeggiante ti avvisa di liberare quella corsia perché sta per diventare vietata: devi spostarti. L'affermazione è corretta."
+    "explanation": "VERO. Il segnale raffigurato obbliga a tenere le luci accese (anabbaglianti o abbaglianti secondo le condizioni): non è un semplice avviso, ma un obbligo."
   },
   {
     "id": 2773,
@@ -30940,7 +30940,7 @@
     "answer": false,
     "img": "/img_sign/158.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il semaforo giallo lampeggiante non vieta il transito alle biciclette; anzi, i ciclisti hanno ruoli importanti proprio nei segnali di precedenza di tipo B e C."
+    "explanation": "FALSO. Con il semaforo a luce gialla lampeggiante non si ha una precedenza assoluta: si deve procedere con prudenza e rispettare la segnaletica di precedenza eventualmente presente. I veicoli B e C non hanno automaticamente priorità su tutti gli altri."
   },
   {
     "id": 2813,
@@ -32898,7 +32898,7 @@
     "answer": false,
     "img": "/img_sign/206.png",
     "difficulty": "easy",
-    "explanation": "Un segnale di velocità consigliata ha forma rettangolare blu. Il segnale di parcheggio taxi ha forma quadrata: non indica velocità."
+    "explanation": "FALSO. Il pannello raffigurato mostra il numero della strada (54) affiancato dal pannello verde con la destinazione (Piacenza, 4 km). Non indica la velocità consigliata, che sarebbe un pannello rettangolare giallo con un numero."
   },
   {
     "id": 2991,
@@ -33910,7 +33910,7 @@
     "answer": true,
     "img": "/img_sign/170.png",
     "difficulty": "easy",
-    "explanation": "I segnali di destinazione indicano dove andare, ma questo dipende dal segnale specifico raffigurato. Senza vederlo, si assume sia coerente con le istruzioni ricevute."
+    "explanation": "VERO. Il segnale (cartello blu di preavviso direzioni) mostra la freccia dritta associata alla destinazione 'Porto Torres': quindi per raggiungere Porto Torres si deve proseguire diritto."
   },
   {
     "id": 3083,
@@ -39916,7 +39916,7 @@
     "answer": false,
     "img": "/img_sign/291.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Il delineatore non è un pannello distanziometrico: è un oggetto completamente diverso. I pannelli distanziometrici si trovano sui binari dei passaggi a livello."
+    "explanation": "FALSO. Il segnale di 'lavori' (triangolo rosso con operaio) preannuncia un cantiere stradale. Non indica percorsi su rotaia né zone ferroviarie."
   },
   {
     "id": 3629,
@@ -40653,7 +40653,7 @@
     "answer": false,
     "img": "/img_sign/121.png",
     "difficulty": "medium",
-    "explanation": "FALSO. Scritto 'strada pericoloso' (errore grammaticale nel testo), ma la risposta corretta è che il pannello indica la lunghezza del tratto pericoloso quando posto sotto segnali di pericolo."
+    "explanation": "VERO. La distanza di sicurezza deve essere mantenuta non solo in condizioni normali, ma anche in situazioni di emergenza o frenata improvvisa degli altri veicoli."
   },
   {
     "id": 3696,
@@ -40664,7 +40664,7 @@
     "answer": true,
     "img": "/img_sign/122.png",
     "difficulty": "medium",
-    "explanation": "VERO. Il pannello numerico sotto un segnale di pericolo (triangolo giallo) indica quanti metri si estende il tratto dove il pericolo è presente."
+    "explanation": "FALSO. Il segnale raffigurato è un triangolo rosso (segnale di pericolo) con l'indicazione della lunghezza del tratto pericoloso, non della distanza a cui è posizionato."
   },
   {
     "id": 3697,
@@ -40840,7 +40840,7 @@
     "answer": false,
     "img": "/img_sign/964.png",
     "difficulty": "easy",
-    "explanation": "FALSO — Il pannello orario non indica gli orari di apertura di una zona, ma le fasce orarie in cui il segnale sottostante è in vigore. La zona potrebbe avere limiti diversi in altri orari."
+    "explanation": "VERO. Il segnale raffigurato indica la presenza di semafori: il conducente deve aspettarsi un impianto semaforico e regolarsi di conseguenza."
   },
   {
     "id": 3713,
@@ -41287,7 +41287,7 @@
     "macro": "segnaletica-avanzata",
     "category": "pannelli-integrativi",
     "subcategory": "inizio-prescrizione",
-    "question": "il segnale raffigurato evidenzia il punto d'inizio del divieto di fermata",
+    "question": "Il segnale raffigurato evidenzia il punto d'inizio del divieto di fermata",
     "answer": true,
     "img": "/img_sign/953.png",
     "difficulty": "easy",
@@ -46281,7 +46281,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "conducente deve valutare la distanza di sicurezza anche sulla base della velocità del veicolo di cui è alla guida",
+    "question": "Conducente deve valutare la distanza di sicurezza anche sulla base della velocità del veicolo di cui è alla guida",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46292,7 +46292,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "conducente deve commisurare la distanza di sicurezza anche in base alla propria prontezza di riflessi",
+    "question": "Conducente deve commisurare la distanza di sicurezza anche in base alla propria prontezza di riflessi",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46303,7 +46303,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base alle condizioni del traffico",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alle condizioni del traffico",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46314,7 +46314,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base all’andamento planoaltimetrico della strada",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base all’andamento planoaltimetrico della strada",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46325,7 +46325,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base alle condizioni atmosferiche",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alle condizioni atmosferiche",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46336,7 +46336,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base al tipo di veicolo di cui si è alla guida",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base al tipo di veicolo di cui si è alla guida",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46347,7 +46347,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base allo stato di efficienza del veicolo",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base allo stato di efficienza del veicolo",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46358,7 +46358,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base all’entità del carico",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base all’entità del carico",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46369,7 +46369,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza da mantenere da una macchina sgombraneve in azione è di 20 metri",
+    "question": "Valore della distanza di sicurezza da mantenere da una macchina sgombraneve in azione è di 20 metri",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46380,7 +46380,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza da mantenere da una macchina spanditrice di sale in azione è di 20 metri",
+    "question": "Valore della distanza di sicurezza da mantenere da una macchina spanditrice di sale in azione è di 20 metri",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46391,7 +46391,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "conducente deve valutare la distanza di sicurezza con riferimento anche alla velocità del veicolo che lo precede",
+    "question": "Conducente deve valutare la distanza di sicurezza con riferimento anche alla velocità del veicolo che lo precede",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46402,7 +46402,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base all’efficienza dei freni",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base all’efficienza dei freni",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -46413,7 +46413,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base alla condizione dei pneumatici",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alla condizione dei pneumatici",
     "answer": true,
     "img": null,
     "difficulty": "medium",
@@ -46424,7 +46424,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "strada extraurbana a una corsia per senso di marcia, la distanza fra veicoli adibiti al trasporto di merci di massa complessiva superiore a 3,5 tonnellate, cui sia stato imposto il divieto di sorpasso, deve essere di almeno 100 metri",
+    "question": "Strada extraurbana a una corsia per senso di marcia, la distanza fra veicoli adibiti al trasporto di merci di massa complessiva superiore a 3,5 tonnellate, cui sia stato imposto il divieto di sorpasso, deve essere di almeno 100 metri",
     "answer": true,
     "img": null,
     "difficulty": "medium",
@@ -46435,7 +46435,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base al tipo di alimentazione del motore",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base al tipo di alimentazione del motore",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46446,7 +46446,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base alla cilindrata del veicolo",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alla cilindrata del veicolo",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46457,7 +46457,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base alla potenza del motore",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alla potenza del motore",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46468,7 +46468,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base all’ampiezza della carreggiata",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base all’ampiezza della carreggiata",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46479,7 +46479,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "conducente deve stabilire il valore della distanza di sicurezza anche in base alla larghezza del veicolo di cui è alla guida",
+    "question": "Conducente deve stabilire il valore della distanza di sicurezza anche in base alla larghezza del veicolo di cui è alla guida",
     "answer": false,
     "img": null,
     "difficulty": "medium",
@@ -46490,7 +46490,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "conducente ha l’obbligo di controllare che il veicolo che lo segue rispetti la distanza di sicurezza",
+    "question": "Conducente ha l’obbligo di controllare che il veicolo che lo segue rispetti la distanza di sicurezza",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46501,7 +46501,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza da mantenere da una macchina sgombraneve in azione è di 10 metri",
+    "question": "Valore della distanza di sicurezza da mantenere da una macchina sgombraneve in azione è di 10 metri",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46512,7 +46512,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza da mantenere da una macchina spanditrice di sale in azione è di 15 metri",
+    "question": "Valore della distanza di sicurezza da mantenere da una macchina spanditrice di sale in azione è di 15 metri",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46523,7 +46523,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "distanza fra autotreni, in presenza di segnali di divieto di sorpasso fra di loro, deve essere pari ad almeno 10 metri",
+    "question": "Distanza fra autotreni, in presenza di segnali di divieto di sorpasso fra di loro, deve essere pari ad almeno 10 metri",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46534,7 +46534,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "strade extraurbane, il valore della distanza di sicurezza è sempre pari a 70 metri",
+    "question": "Strade extraurbane, il valore della distanza di sicurezza è sempre pari a 70 metri",
     "answer": false,
     "img": null,
     "difficulty": "hard",
@@ -46545,7 +46545,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere almeno pari a quello della distanza di frenatura",
+    "question": "Valore della distanza di sicurezza deve essere almeno pari a quello della distanza di frenatura",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46556,7 +46556,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere almeno pari a quello della distanza di visibilità",
+    "question": "Valore della distanza di sicurezza deve essere almeno pari a quello della distanza di visibilità",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46567,7 +46567,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "distanza di sicurezza non deve essere rispettata a velocità di marcia inferiori ai 50 km/h",
+    "question": "Distanza di sicurezza non deve essere rispettata a velocità di marcia inferiori ai 50 km/h",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -46578,7 +46578,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "valore della distanza di sicurezza deve essere stabilito anche in base alla marcia innestata",
+    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alla marcia innestata",
     "answer": false,
     "img": null,
     "difficulty": "easy",
@@ -47110,7 +47110,7 @@
     "answer": true,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Lo spazio di frenatura è proporzionale al quadrato della velocità: se raddoppi la velocità (2²), lo spazio diventa 4 volte maggiore."
+    "explanation": "VERO. Lo spazio di frenatura aumenta con il quadrato della velocità: raddoppiando la velocità, lo spazio di frenatura quadruplica (2² = 4 volte)."
   },
   {
     "id": 4283,
@@ -48672,7 +48672,7 @@
     "answer": false,
     "img": null,
     "difficulty": "medium",
-    "explanation": "FALSO perché non puoi 'oltrepassare o interrompere' un corteo in nessun caso, densa che sia. L'unico comportamento corretto è fermarsi e aspettare."
+    "explanation": "FALSO. Il segnale di pericolo generico (triangolo rosso con punto esclamativo) richiede attenzione. Perché la risposta è falsa: questo segnale non impone uno specifico comportamento ma invita alla prudenza generica."
   },
   {
     "id": 4425,
@@ -51715,7 +51715,7 @@
     "macro": "la-strada",
     "category": "norme-di-circolazione",
     "subcategory": "utilizzo-specchi-retrovisori",
-    "question": "specchi retrovisori esterni degli autoveicoli possono essere sostituiti con altri di tipo differente, purché di superficie maggiore",
+    "question": "Specchi retrovisori esterni degli autoveicoli possono essere sostituiti con altri di tipo differente, purché di superficie maggiore",
     "answer": false,
     "img": null,
     "difficulty": "medium",
@@ -53006,7 +53006,7 @@
     "answer": true,
     "img": "/img_sign/637.png",
     "difficulty": "easy",
-    "explanation": "VERO: A ha precedenza su D perché A è nella sequenza prima di D (D è ultimo come nella domanda 4813)."
+    "explanation": "VERO. Nell'incrocio raffigurato il veicolo A ha la precedenza sul veicolo D perché proviene da destra rispetto a D, applicando la regola generale della precedenza a destra."
   },
   {
     "id": 4819,
@@ -55602,7 +55602,7 @@
     "answer": true,
     "img": "/img_sign/607.png",
     "difficulty": "easy",
-    "explanation": "VERO. T è un veicolo in servizio (ambulanza, pompieri, polizia) e ha diritto di precedenza assoluta: transita sempre per primo, indipendentemente dalle altre regole."
+    "explanation": "VERO. Il tram (T) ha diritto di precedenza assoluta agli incroci secondo l'art. 145 del Codice della Strada: tutti gli altri veicoli, inclusi bus e auto, devono cedergli il passo."
   },
   {
     "id": 5055,
@@ -65542,7 +65542,7 @@
     "macro": "il-veicolo",
     "category": "luci-dispositivi-acustici",
     "subcategory": "spia-della-batteria",
-    "question": "il simbolo raffigurato, se collocato su una spia di colore rosso, permette di capire se la batteria viene correttamente ricaricata o meno dall’alternatore",
+    "question": "Il simbolo raffigurato, se collocato su una spia di colore rosso, permette di capire se la batteria viene correttamente ricaricata o meno dall’alternatore",
     "answer": true,
     "img": "/img_sign/705.png",
     "difficulty": "medium",
