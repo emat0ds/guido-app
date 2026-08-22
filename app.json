@@ -16,6 +16,8 @@
       }
     },
     "android": {
+      "package": "com.t0ds.guidoapp",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
