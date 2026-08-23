@@ -9842,7 +9842,7 @@
     "answer": false,
     "img": "/img_sign/18.png",
     "difficulty": "easy",
-    "explanation": "Falso. In salita non devi mai abbassare la frizione: perderesti il controllo e il motore non frenherebbe il veicolo. Deve restare in presa!"
+    "explanation": "Falso. In salita non devi mai abbassare la frizione: perderesti il controllo e il motore non frenerebbe il veicolo. Deve restare in presa!"
   },
   {
     "id": 895,
@@ -21128,7 +21128,7 @@
     "answer": false,
     "img": "/img_sign/101.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il segnale con freccia a sinistra non obbliga a svoltare, ma indica il senso di marcia da seguire (è una freccia direzionale, non un obbligo di svolta)."
+    "explanation": "Falso. Il segnale è un cerchio blu con freccia diagonale: indica l'obbligo di passare a sinistra dell'ostacolo, non l'obbligo di svoltare a sinistra. L'obbligo c'è, ma non è una svolta."
   },
   {
     "id": 1921,
@@ -26221,7 +26221,7 @@
     "answer": false,
     "img": "/img_sign/53.png",
     "difficulty": "medium",
-    "explanation": "La strettoia non significa automaticamente doppio senso di circolazione; il segnale avverte semplicemente che la strada si restringe, non che arrivano auto in senso opposto."
+    "explanation": "Falso. Il segnale raffigurato non è una strettoia generica ma indica di dare precedenza ai veicoli provenienti dal senso opposto. In quel tratto passa un veicolo per volta, ma non c'è doppio senso simultaneo."
   },
   {
     "id": 2384,
@@ -26870,7 +26870,7 @@
     "answer": false,
     "img": "/img_sign/547.png",
     "difficulty": "easy",
-    "explanation": "Le frecce direzionali in autostrada sono bianche, non blu. Il blu è usato per le corsie riservate in ambiente urbano, non autostradale."
+    "explanation": "Falso. Le frecce direzionali in autostrada sono bianche, non blu. Il blu nella segnaletica orizzontale indica le aree di parcheggio a pagamento (strisce blu), non le corsie riservate."
   },
   {
     "id": 2443,
@@ -26991,7 +26991,7 @@
     "answer": false,
     "img": "/img_sign/595.png",
     "difficulty": "medium",
-    "explanation": "Il veicolo B arriva dall'isola e non ha diritto di precedenza: se svolta a sinistra deve attendere il passaggio del veicolo A che prosegue dritto."
+    "explanation": "Falso. In presenza di quell'isola di traffico, il veicolo B non può svoltare a sinistra in assoluto — non è una questione di precedenza, ma di divieto di manovra imposto dalla geometria dell'incrocio."
   },
   {
     "id": 2454,
@@ -28751,7 +28751,7 @@
     "answer": false,
     "img": "/img_sign/445.png",
     "difficulty": "easy",
-    "explanation": "Vedi sopra: le strisce gialle segnalano zone di carico/scarico solo se accompagnate da indicazioni precise; il colore giallo da solo non basta per affermarlo con certezza."
+    "explanation": "Falso. Le strisce gialle diagonali in figura delimitano un'area riservata all'accesso dei veicoli delle persone disabili, non una zona di carico e scarico merci."
   },
   {
     "id": 2614,
@@ -29180,7 +29180,7 @@
     "answer": true,
     "img": "/img_sign/154.png",
     "difficulty": "easy",
-    "explanation": "Vero. Le tre luci del semaforo hanno tutte le stesse dimensioni per legge, ma la domanda dice 'può essere più grande' — tecnicamente in alcuni casi la luce rossa potrebbe avere dimensioni leggermente diverse, ma la risposta ufficiale è vera per il codice italiano."
+    "explanation": "Vero. Il Codice della Strada prevede che la luce rossa del semaforo possa avere dimensioni maggiori rispetto alle altre luci, per garantire maggiore visibilità e sicurezza."
   },
   {
     "id": 2653,
@@ -30280,7 +30280,7 @@
     "answer": false,
     "img": "/img_sign/154.png",
     "difficulty": "easy",
-    "explanation": "FALSO perché questi semafori si trovano solo ai passaggi a livello ferroviari, non in tutti i caselli autostradali."
+    "explanation": "Falso. Il semaforo raffigurato è un normale semaforo usato agli incroci stradali urbani ed extraurbani. Ai caselli autostradali si usano sistemi diversi."
   },
   {
     "id": 2753,
@@ -31204,7 +31204,7 @@
     "answer": false,
     "img": "/img_sign/161.png",
     "difficulty": "easy",
-    "explanation": "L'onda verde non ha nulla a che fare con i caselli autostradali. È un semplice semaforo per incroci cittadini che indica la direzione di marcia consentita."
+    "explanation": "Falso. Il semaforo a onda verde non indica distanze dai caselli: segnala la velocità consigliata (es. 50 km/h) per percorrere una serie di incroci senza fermarsi, sincronizzandosi con i semafori successivi."
   },
   {
     "id": 2837,
@@ -36638,7 +36638,7 @@
     "answer": false,
     "img": "/img_sign/230.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il segnale di ponte/viadotto/cavalcavia non indica che la strada è chiusa, ma avverte di una struttura particolare dove serve attenzione."
+    "explanation": "Falso. Il segnale raffigurato indica la presenza di una galleria, non una strada chiusa. Avvisa il conducente di un tunnel da percorrere."
   },
   {
     "id": 3331,
@@ -39388,7 +39388,7 @@
     "answer": false,
     "img": "/img_sign/283.png",
     "difficulty": "easy",
-    "explanation": "Il segnale di limitazione lunghezza vieta il transito ai veicoli che superano una certa misura, ma non è di 7 metri — la misura specifica è indicata nel pannello sottostante."
+    "explanation": "Falso. Il valore 7,00 nel segnale indica tonnellate di massa, non metri di lunghezza. È un segnale di preavviso di direzione con divieto integrato per i veicoli che superano 7 tonnellate."
   },
   {
     "id": 3581,
@@ -40587,7 +40587,7 @@
     "answer": true,
     "img": "/img_sign/121.png",
     "difficulty": "medium",
-    "explanation": "VERO. Sotto i segnali di indicazione (come uscite, attraversamenti), il pannello integrativo specifica quanti chilometri mancano per raggiungere il luogo indicato."
+    "explanation": "Vero. Il pannello integrativo, posto sotto un segnale di indicazione, specifica la distanza che manca per raggiungere il luogo indicato dal segnale."
   },
   {
     "id": 3690,
@@ -41313,7 +41313,7 @@
     "answer": false,
     "img": "/img_sign/128.png",
     "difficulty": "easy",
-    "explanation": "Il pannello A raffigurato (pendenza della strada) non indica una salita ma comunica informazioni sulla pendenza; inoltre i pannelli integrativi non descrivono caratteristiche fisiche della strada. Falso."
+    "explanation": "Falso. Il pannello A raffigurato è una freccia direzionale che indica di proseguire dritto. Non ha nulla a che fare con la pendenza della strada."
   },
   {
     "id": 3756,
@@ -42391,7 +42391,7 @@
     "answer": false,
     "img": "/img_sign/137.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Il pannello non vieta il transito alle macchine operatrici: al contrario, le segnala come presenti sulla strada. Non è un divieto ma un avvertimento."
+    "explanation": "Falso. Il pannello integrativo non vieta il transito alle macchine operatrici: ne segnala la possibile presenza come avvertimento di pericolo, spesso abbinato a segnali di lavori in corso o pericolo generico."
   },
   {
     "id": 3854,
@@ -42644,7 +42644,7 @@
     "answer": false,
     "img": "/img_sign/139.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Non indica una stazione meteorologica: è un segnale di pericolo stradale, non una struttura nelle vicinanze."
+    "explanation": "Falso. Il pannello integrativo raffigurato indica la condizione meteorologica (pioggia) in cui vale il segnale principale a cui è abbinato. Non segnala alcuna stazione meteorologica."
   },
   {
     "id": 3877,
@@ -47132,7 +47132,7 @@
     "answer": true,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Se quadruplichi la velocità (4²), lo spazio diventa 16 volte maggiore. Sempre la stessa regola matematica."
+    "explanation": "Vero. Lo spazio di frenatura è proporzionale al quadrato della velocità. Se la velocità quadruplica (×4), lo spazio di frenatura diventa 4² = 16 volte maggiore."
   },
   {
     "id": 4285,
@@ -52181,7 +52181,7 @@
     "answer": true,
     "img": "/img_sign/615.png",
     "difficulty": "easy",
-    "explanation": "R ha precedenza assoluta. A arriva da destra di R, quindi deve aspettare che R passi prima."
+    "explanation": "Vero. R arriva da destra rispetto ad A: per la regola della precedenza a destra, A deve cedere il passo a R e passare dopo di lui."
   },
   {
     "id": 4744,
@@ -52775,7 +52775,7 @@
     "answer": false,
     "img": "/img_sign/632.png",
     "difficulty": "easy",
-    "explanation": "D ha precedenza sulla strada principale, N arriva da una strada secondaria. Non passano contemporaneamente. Falso."
+    "explanation": "Falso. D non deve dare precedenza a nessuno e transita per primo. N deve cedere il passo: i due veicoli non passano contemporaneamente."
   },
   {
     "id": 4798,
@@ -53347,7 +53347,7 @@
     "answer": false,
     "img": "/img_sign/638.png",
     "difficulty": "medium",
-    "explanation": "FALSO. R non si ferma al centro: passa direttamente senza fermarsi perché ha precedenza su D e può proseguire."
+    "explanation": "Falso. R non si ferma al centro dell'incrocio: in questa situazione R procede senza necessità di fermarsi al centro, perché non sta svoltando a sinistra in presenza di flusso contrario."
   },
   {
     "id": 4850,
@@ -53930,7 +53930,7 @@
     "answer": false,
     "img": "/img_sign/647.png",
     "difficulty": "medium",
-    "explanation": "Falso. O deve dare precedenza a B (che viene dalla strada principale), quindi B passa prima di O, non dopo."
+    "explanation": "Falso. L'ordine di transito non è quello descritto: B deve dare precedenza e non transita prima di O. La sequenza corretta dipende dalle precedenze nell'incrocio, non dalla posizione sulla strada principale."
   },
   {
     "id": 4903,
@@ -54051,7 +54051,7 @@
     "answer": false,
     "img": "/img_sign/655.png",
     "difficulty": "medium",
-    "explanation": "FALSO — R non impegna per primo l'incrocio: arriva da sinistra e deve attendere gli altri. Inoltre non ci si ferma mai al centro dell'incrocio."
+    "explanation": "Falso. R non è il primo a impegnare l'incrocio: deve cedere la precedenza ai veicoli che hanno la precedenza su di lui e attendere il momento opportuno per procedere."
   },
   {
     "id": 4914,
