@@ -18510,7 +18510,7 @@
     "answer": false,
     "img": "/img_sign/91.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il segnale mostrato regola la sosta per tutti i veicoli senza distinzioni per categoria: ciclomotori e motocicli seguono le stesse regole."
+    "explanation": "Falso. Il segnale di divieto di sosta con i pannelli P e disabili consente la sosta esclusivamente ai titolari di contrassegno di parcheggio e ai disabili. Ciclomotori e motocicli non rientrano in queste eccezioni."
   },
   {
     "id": 1683,
@@ -24725,7 +24725,7 @@
     "answer": false,
     "img": "/img_sign/45.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Il segnale di strettoia non preannuncia il doppio senso di circolazione. Doppio senso si annuncia con un segnale diverso (frecce opposte)."
+    "explanation": "Falso. Il segnale raffigurato indica l'inizio del doppio senso di circolazione nel punto in cui è collocato — non lo preannuncia in anticipo. Un eventuale preavviso sarebbe un segnale separato posto prima."
   },
   {
     "id": 2248,
@@ -27585,7 +27585,7 @@
     "answer": false,
     "img": "/img_sign/574.png",
     "difficulty": "medium",
-    "explanation": "La striscia continua non si deve mai superare perché delimitazioni nette. Anche con altre strisce presenti, quella continua è un divieto assoluto di cambio corsia."
+    "explanation": "Falso. La striscia continua vieta il cambio di corsia — non è qualcosa da verificare prima di cambiare. Si può cambiare corsia solo dove la striscia è discontinua (tratteggiata)."
   },
   {
     "id": 2508,
@@ -36165,7 +36165,7 @@
     "answer": true,
     "img": "/img_sign/224.png",
     "difficulty": "easy",
-    "explanation": "VERO. La freccia storta che torna indietro è il simbolo classico di strada senza sbocco per i veicoli (fondo cieco)."
+    "explanation": "Vero. Il segnale raffigurato — sbarra rossa orizzontale su sfondo blu — indica una strada senza sbocco per i veicoli (fondo cieco): non è possibile transitare dall'altra parte."
   },
   {
     "id": 3288,
@@ -37760,7 +37760,7 @@
     "answer": true,
     "img": "/img_sign/250.png",
     "difficulty": "easy",
-    "explanation": "Corretto: è un segnale di preavviso e consiglio, non di obbligo. I segnali di obbligo hanno forma rotonda con bordo blu."
+    "explanation": "Vero. Il segnale è un pannello di preselezione di corsia (segnale di indicazione), non un segnale di obbligo. I segnali di obbligo sono i cerchi blu. Questo indica ai veicoli raffigurati la direzione da seguire nella corsia."
   },
   {
     "id": 3433,
@@ -40422,7 +40422,7 @@
     "answer": false,
     "img": "/img_sign/297.png",
     "difficulty": "easy",
-    "explanation": "Falso: il segnale preavvisa un semaforo ordinario per il traffico stradale, non specificamente per ponti mobili o girevoli (che hanno normative diverse)."
+    "explanation": "Falso. Il segnale triangolare preavvisa la presenza di un semaforo stradale generico. Non è specifico per ponti mobili o girevoli."
   },
   {
     "id": 3675,
@@ -41555,7 +41555,7 @@
     "answer": true,
     "img": "/img_sign/903.png",
     "difficulty": "easy",
-    "explanation": "VERO. Il pannello rettangolare con striscia rossa segna la fine della zona pericolosa (strada deformata), quindi finisce il pericolo e il relativo divieto."
+    "explanation": "Vero. Il pannello integrativo con freccia verso il basso posto sotto il segnale di strada deformata indica che la zona pericolosa finisce in quel punto."
   },
   {
     "id": 3778,
@@ -43029,7 +43029,7 @@
     "answer": true,
     "img": "/img_sign/143.png",
     "difficulty": "easy",
-    "explanation": "Il pannello A con curve ondulate indica esattamente la vicinanza di una o più curve strette che richiedono cautela."
+    "explanation": "Vero. Il pannello A con la scritta 'tornante' indica la vicinanza di una curva molto stretta a 180°, che richiede una riduzione significativa della velocità."
   },
   {
     "id": 3912,
@@ -68351,7 +68351,7 @@
     "answer": false,
     "img": null,
     "difficulty": "medium",
-    "explanation": "Falso. Nei primi tre anni di guida con patente B, il limite è 55 kW/t e 70 kW massimi, ma la domanda dice che questo limite è ASSENTE. In realtà il limite c'è, non per tutti ma per i neopatentati."
+    "explanation": "Falso. I limiti attuali per i neopatentati nei primi tre anni sono 75 kW/t (rapporto potenza/tara) e 105 kW di potenza massima. I valori indicati nella domanda (55 kW/t e 70 kW) sono superati dalla normativa vigente."
   },
   {
     "id": 6214,
