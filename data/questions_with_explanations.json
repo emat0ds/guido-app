@@ -27123,7 +27123,7 @@
     "answer": true,
     "img": "/img_sign/566.png",
     "difficulty": "medium",
-    "explanation": "Vero: la striscia discontinua permette il sorpasso superando entrambe le strisce (quella centrale e quella del bordo della propria corsia)."
+    "explanation": "Vero. La striscia discontinua al centro ti permette di sorpassare: puoi attraversarla e occupare temporaneamente la corsia opposta. Durante il sorpasso superi sia la riga di bordo della tua corsia che quella centrale tratteggiata."
   },
   {
     "id": 2466,
@@ -27574,7 +27574,7 @@
     "answer": false,
     "img": "/img_sign/574.png",
     "difficulty": "easy",
-    "explanation": "Una corsia destra con freccia dritta-destra consente sia di proseguire diritto che di svoltare a destra, non solo quest'ultima manovra."
+    "explanation": "Falso. In quella corsia c'è la freccia dritto+destra: puoi sia andare dritto che svoltare a destra. Non è una corsia solo per la svolta."
   },
   {
     "id": 2507,
@@ -29125,7 +29125,7 @@
     "answer": false,
     "img": "/img_sign/563.png",
     "difficulty": "hard",
-    "explanation": "La parola 'sempre' è il trabocchetto — la striscia serve solo se l'incrocio è regolato (semaforo o agente). Altrimenti non ti devi fermare."
+    "explanation": "Falso. 'Sempre' è sbagliato: la striscia indica dove fermarsi se un segnale lo richiede (rosso, STOP, agente). Se non c'è nessun obbligo, puoi transitare senza fermarti."
   },
   {
     "id": 2648,
@@ -31644,7 +31644,7 @@
     "answer": false,
     "img": "/img_sign/385.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Il braccio alzato non è identico al semaforo rosso: con il rosso non puoi nemmeno svoltare a destra, con il vigile che alza il braccio la situazione è più flessibile."
+    "explanation": "Falso. Braccio alzato ≠ semaforo rosso. Il braccio alzato ferma chi si avvicina, ma chi è già dentro l'incrocio può completare la manovra. Il rosso è assoluto e vale per tutti, senza eccezioni."
   },
   {
     "id": 2877,
@@ -38750,7 +38750,7 @@
     "answer": false,
     "img": "/img_sign/251.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Questo segnale preavvisa i lavori in corso, non indica un'area di sosta. Le aree di sosta hanno segnali completamente diversi (rettangoli blu)."
+    "explanation": "Falso. Sfondo giallo + freccia + camion = deviazione temporanea per autocarri, tipica delle zone di cantiere. Gli autocarri devono seguire quella direzione. Niente a che vedere con un'area di sosta."
   },
   {
     "id": 3523,
@@ -39278,7 +39278,7 @@
     "answer": false,
     "img": "/img_sign/280.png",
     "difficulty": "easy",
-    "explanation": "Falso. Il segnale raffigurato è un segnale di limitazione di massa, non indica una piazzola di sosta. Una piazzola di sosta avrebbe simboli diversi (parcheggio, area di riposo)."
+    "explanation": "Falso. I segnali raffigurati indicano un restringimento di carreggiata in presenza di lavori stradali, con preavviso a 500 metri. Non hanno nulla a che fare con una piazzola di sosta."
   },
   {
     "id": 3571,
@@ -40125,7 +40125,7 @@
     "answer": false,
     "img": "/img_sign/293.png",
     "difficulty": "easy",
-    "explanation": "FALSO. Gli ostacoli sporgenti sulla carreggiata sono segnalati con delineatori diversi o con segnali specifici, non con il chevron per curve."
+    "explanation": "Falso. Quelle frecce bianche e nere sono un delineatore di curva: ti dicono che la strada piega a sinistra, non che c'è un ostacolo. Stai sulla direzione indicata dalle frecce."
   },
   {
     "id": 3648,
@@ -40752,7 +40752,7 @@
     "answer": false,
     "img": "/img_sign/901.png",
     "difficulty": "easy",
-    "explanation": "Il segnale indica un tratto stradale in cattivo stato, ma il pannello integrativo con numero indica la distanza dal segnale, non sempre l'inizio del danno. È falso."
+    "explanation": "Falso. Il pannello ↑ 380 m ↑ con le frecce su entrambi i lati indica la lunghezza del tratto in cattivo stato (380 metri). Il problema inizia subito dopo il segnale, non a 380 metri di distanza."
   },
   {
     "id": 3705,
@@ -41621,7 +41621,7 @@
     "answer": false,
     "img": "/img_sign/82.png",
     "difficulty": "easy",
-    "explanation": "Il segnale raffigurato non indica continuazione del divieto di sorpasso. I segnali di continuazione hanno forme e colori specifici, diversi da quello descritto."
+    "explanation": "Falso. Quel segnale indica la fine del divieto di sorpasso: da quel punto puoi sorpassare di nuovo. Non è una continuazione del divieto, è la sua conclusione."
   },
   {
     "id": 3784,
@@ -52368,7 +52368,7 @@
     "answer": false,
     "img": "/img_sign/618.png",
     "difficulty": "easy",
-    "explanation": "L'ordine di precedenza è sbagliato. La sequenza corretta segue le regole di precedenza: chi viene da destra ha priorità, chi arriva da strade secondarie cede il passo. Questo ordine (L, H, C) non rispetta queste regole."
+    "explanation": "Falso. L'ordine corretto è L → C → H. H arriva dalla strada secondaria e deve cedere il passo a tutti. C passa dopo L, ma prima di H. Mettere H secondo è sbagliato."
   },
   {
     "id": 4761,
@@ -52973,7 +52973,7 @@
     "answer": true,
     "img": "/img_sign/637.png",
     "difficulty": "easy",
-    "explanation": "VERO: A ha precedenza su D perché A passa prima di D nell'ordine di transito (come confermato dalla domanda 4813 dove D è ultimo)."
+    "explanation": "Vero. A arriva dalla destra di D: per la regola della precedenza a destra, D deve cedere il passo ad A e passare dopo."
   },
   {
     "id": 4816,
@@ -55492,7 +55492,7 @@
     "answer": false,
     "img": "/img_sign/631.png",
     "difficulty": "easy",
-    "explanation": "Falso perché il filobus non ha priorità solo perché vincolato alla linea elettrica: le regole di precedenza all'intersezione valgono per tutti i veicoli allo stesso modo, indipendentemente dal tipo."
+    "explanation": "Falso. La linea elettrica aerea non dà nessuna priorità. Il filobus non è un tram: non ha rotaie e non gode della precedenza assoluta che il CdS (art. 145) riserva ai tram. All'incrocio segue le stesse regole degli altri veicoli."
   },
   {
     "id": 5045,
@@ -59221,7 +59221,7 @@
     "answer": false,
     "img": null,
     "difficulty": "hard",
-    "explanation": "FALSO. La parola 'in ogni caso' è il trabocchetto. Di notte accendi le luci di posizione SOLO se il veicolo è parcato al buio o in zone senza illuminazione; se c'è buona illuminazione pubblica non è obbligatorio."
+    "explanation": "Falso. 'In ogni caso' è il trabocchetto. Le luci di posizione di notte vanno accese SOLO se il veicolo è parcheggiato al buio o in zone senza illuminazione pubblica. Con buona illuminazione stradale non è obbligatorio."
   },
   {
     "id": 5384,
@@ -61036,7 +61036,7 @@
     "answer": true,
     "img": null,
     "difficulty": "medium",
-    "explanation": "VERO. Il campeggio è vietato ovunque sull'autostrada tranne in aree specifiche e solo per i periodi e modi stabiliti dall'ente gestore."
+    "explanation": "Vero. In autostrada non puoi campeggiare dove vuoi: è permesso solo nelle aree specificamente attrezzate per il campeggio e solo nei periodi autorizzati dall'ente che gestisce la strada."
   },
   {
     "id": 5549,
