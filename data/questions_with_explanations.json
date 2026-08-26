@@ -11690,7 +11690,7 @@
     "answer": false,
     "img": "/img_sign/31.png",
     "difficulty": "medium",
-    "explanation": "Un segnale giallo con il simbolo di cantiere è diverso: non rappresenta massi che cadono, ma lavori in corso sulla strada."
+    "explanation": "Falso. Il fondo giallo non significa strada chiusa per cantieri: indica solo che è una versione temporanea del segnale. E questo segnale avverte di proiezione di pietre o ghiaia — strada aperta, ma attento ai sassi che volano."
   },
   {
     "id": 1063,
@@ -14836,7 +14836,7 @@
     "answer": true,
     "img": "/img_sign/63.png",
     "difficulty": "easy",
-    "explanation": "VERO - Il segnale di ZTL è un segnale di divieto perché impedisce l'accesso ai veicoli non autorizzati in quella zona urbana protetta."
+    "explanation": "Vero. Il cerchio rosso = divieto, sempre. Questo segnale vieta il transito alle biciclette in quella strada — non ha nulla a che fare con le ZTL."
   },
   {
     "id": 1349,
@@ -42281,7 +42281,7 @@
     "answer": false,
     "img": "/img_sign/136.png",
     "difficulty": "easy",
-    "explanation": "Falso perché il pannello integrativo non obbliga a sorpassare a sinistra. Non contiene frecce di sorpasso o simbologie che indichino sorpassamenti obbligatori."
+    "explanation": "Falso. Quel pannello mostra due file di auto incolonnate: significa che più avanti ci sono code o incolonnamenti. Zero obbligo di sorpasso — è solo un avviso: rallenta e preparati a trovare traffico fermo."
   },
   {
     "id": 3844,
