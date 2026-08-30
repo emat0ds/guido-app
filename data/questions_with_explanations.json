@@ -46303,7 +46303,7 @@
     "macro": "la-strada",
     "category": "distanza-di-sicurezza",
     "subcategory": "condizioni-sicurezza",
-    "question": "Valore della distanza di sicurezza deve essere stabilito anche in base alle condizioni del traffico",
+    "question": "Il valore della distanza di sicurezza deve essere stabilito anche in base alle condizioni del traffico",
     "answer": true,
     "img": null,
     "difficulty": "easy",
@@ -47044,7 +47044,7 @@
     "answer": true,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Vero. A 150 km/h = 150.000 m/h ÷ 3.600 sec ≈ 42 m/s."
+    "explanation": "Vero. 150 km/h ÷ 3.600 secondi = circa 41,7 metri al secondo. Arrotondi a 42 metri. In un secondo a quella velocità percorri quasi mezzo campo da calcio."
   },
   {
     "id": 4277,
