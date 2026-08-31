@@ -52159,7 +52159,7 @@
     "answer": true,
     "img": "/img_sign/615.png",
     "difficulty": "easy",
-    "explanation": "R arriva da sinistra senza ostacoli e ha la precedenza su tutti gli altri veicoli in questo incrocio."
+    "explanation": "Vero. R ha la precedenza su tutti gli altri veicoli in questo incrocio e transita per primo."
   },
   {
     "id": 4742,
@@ -63610,7 +63610,7 @@
     "answer": false,
     "img": null,
     "difficulty": "medium",
-    "explanation": "FALSO è corretto. La targa della motrice rimane sulla motrice. Il rimorchio ha la sua targa propria che si applica nella parte posteriore."
+    "explanation": "Falso. La targa della motrice rimane sulla motrice: quando traini un rimorchio ci metti la targa del rimorchio sul retro, non quella della tua auto."
   },
   {
     "id": 5783,
@@ -65535,7 +65535,7 @@
     "answer": true,
     "img": "/img_sign/705.png",
     "difficulty": "medium",
-    "explanation": "Giusto: la spia della batteria rossa avvisa che l'alternatore (generatore) non sta ricaricando la batteria. È il termine tecnico preciso per lo stesso problema."
+    "explanation": "Giusto: quando la spia rossa della batteria si accende mentre stai guidando, significa che l'alternatore non sta ricaricando. Se non ti fermi presto, la batteria si scarica e il motore si spegne."
   },
   {
     "id": 5958,
@@ -76502,7 +76502,7 @@
     "answer": true,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Vero: la prima marcia offre il massimo rapporto di riduzione, quindi l'azione frenante del motore è più forte. Ecco perché si usa in discesa."
+    "explanation": "Vero: La prima marcia offre il massimo rapporto di riduzione, quindi l'azione frenante del motore è più forte. Ecco perché si usa in discesa."
   },
   {
     "id": 6955,
@@ -76535,7 +76535,7 @@
     "answer": true,
     "img": null,
     "difficulty": "easy",
-    "explanation": "Vero: dopo il lavaggio l'acqua può aver bagnato i dischi freno, quindi una frenata leggera li asciuga e ripristina l'efficienza."
+    "explanation": "Vero: Dopo il lavaggio l'acqua può aver bagnato i dischi freno, quindi una frenata leggera li asciuga e ripristina l'efficienza."
   },
   {
     "id": 6958,
