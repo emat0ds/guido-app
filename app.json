@@ -2,7 +2,7 @@
   "expo": {
     "name": "Guido Quiz",
     "slug": "guido-app",
-    "version": "1.5.2",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "guidoapp",
@@ -10,14 +10,14 @@
     "ios": {
       "icon": "./assets/icon.png",
       "bundleIdentifier": "com.t0ds.guidoapp",
-      "buildNumber": "39",
+      "buildNumber": "40",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
       "package": "com.t0ds.guidoapp",
-      "versionCode": 1,
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
