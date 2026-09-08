@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { colors, spacing, radius, typography } from '@/constants/theme';
+import { spacing, radius, typography } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface QuestionCardProps {
   question: string;
@@ -13,9 +14,11 @@ export function QuestionCard({
   type,
   children,
 }: QuestionCardProps) {
+  const { colors } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text style={[typography.question, styles.question]}>{question}</Text>
+    <View style={[styles.container, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+      <Text style={[typography.question, styles.question, { color: colors.textPrimary }]}>{question}</Text>
       <View style={styles.answersContainer}>{children}</View>
     </View>
   );
@@ -23,9 +26,7 @@ export function QuestionCard({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
     borderRadius: radius.lg,
     padding: spacing.lg,
     marginVertical: spacing.md,

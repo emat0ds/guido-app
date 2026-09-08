@@ -11,7 +11,8 @@ import Animated, {
   withSpring,
   useAnimatedStyle,
 } from 'react-native-reanimated';
-import { colors, spacing, radius } from '@/constants/theme';
+import { spacing, radius } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface AnswerButtonProps {
   label: string;
@@ -34,6 +35,7 @@ export function AnswerButton({
   onPress,
   containerStyle,
 }: AnswerButtonProps) {
+  const { colors } = useTheme();
   const scaleValue = useSharedValue(1);
 
   useEffect(() => {

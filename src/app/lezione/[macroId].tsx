@@ -11,7 +11,8 @@ import {
   Modal,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { colors, spacing, typography } from '@/constants/theme';
+import { spacing, typography, type AppColors } from '@/constants/theme';
+import { useTheme } from '@/contexts/ThemeContext';
 import { QuestionCard } from '@/components/QuestionCard';
 import { AnswerButton } from '@/components/AnswerButton';
 import { GuidoBubble } from '@/components/GuidoBubble';
@@ -55,6 +56,8 @@ function formatGuido(explanation: string | undefined, isCorrect: boolean): strin
 }
 
 export default function LezioneScreen() {
+  const { colors } = useTheme();
+  const styles = getStyles(colors);
   const { macroId } = useLocalSearchParams();
   const router = useRouter();
   const { showBadgeUnlock } = useBadge();
@@ -486,7 +489,7 @@ export default function LezioneScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+function getStyles(colors: AppColors) { return StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.bg,
@@ -612,4 +615,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: spacing.sm,
   },
-});
+}); }
