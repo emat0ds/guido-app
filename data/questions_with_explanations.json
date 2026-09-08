@@ -5,7 +5,7 @@
     "category": "definizioni-generali-doveri-strada",
     "subcategory": "carreggiata-doppio-senso",
     "question": "In una carreggiata del tipo rappresentato si può sorpassare anche in curva",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/550.png",
     "difficulty": "easy",
     "explanation": "FALSO. In curva il sorpasso è vietato perché non vedi bene la strada davanti e rischi di scontri frontali. Il sorpasso in curva è pericoloso e non permesso dal codice."
@@ -3547,7 +3547,7 @@
     "category": "definizioni-generali-doveri-strada",
     "subcategory": "autoveicoli",
     "question": "I quadricicli non sono autoveicoli",
-    "answer": false,
+    "answer": true,
     "img": null,
     "difficulty": "easy",
     "explanation": "FALSO: i quadricicli SONO autoveicoli. Sono veicoli a motore con quattro ruote e massa inferiore a 400 kg. L'affermazione contraria è errata."
@@ -5846,7 +5846,7 @@
     "category": "segnali-pericolo",
     "subcategory": "strada-dissestata",
     "question": "Il segnale raffigurato preannuncia un tratto di strada deformata",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/1.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale di 'strada deformata' è un triangolo rosso con ondulazioni e preannuncia un tratto dove il manto stradale è irregolare o danneggiato."
@@ -6165,7 +6165,7 @@
     "category": "segnali-pericolo",
     "subcategory": "dosso",
     "question": "Il segnale raffigurato preannuncia un dosso",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/2.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale del dosso (triangolo con due linee ondulate) preannuncia esattamente un dosso, cioè un'improvvisa elevazione del terreno."
@@ -6297,7 +6297,7 @@
     "category": "segnali-pericolo",
     "subcategory": "dosso",
     "question": "Il segnale raffigurato preannuncia una cunetta",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/2.png",
     "difficulty": "easy",
     "explanation": "Una cunetta è un avvallamento nel terreno; il segnale avvisa genericamente di dossi e avvallamenti, non specificamente di cunette."
@@ -6396,7 +6396,7 @@
     "category": "segnali-pericolo",
     "subcategory": "dosso",
     "question": "Il segnale raffigurato è un segnale di obbligo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/2.png",
     "difficulty": "easy",
     "explanation": "FALSO — La cunetta è un segnale di pericolo (triangolo rosso), non di obbligo. I segnali di obbligo hanno forma circolare blu."
@@ -9091,7 +9091,7 @@
     "category": "segnali-pericolo",
     "subcategory": "attraversamento-pedoni",
     "question": "Il segnale raffigurato preannuncia un attraversamento pedonale",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/15.png",
     "difficulty": "easy",
     "explanation": "VERO. Questo è il segnale triangolare di pericolo che preannuncia un attraversamento pedonale. Ti avvisa che a breve troverai strisce pedonali."
@@ -9245,7 +9245,7 @@
     "category": "segnali-pericolo",
     "subcategory": "attraversamento-pedoni",
     "question": "Il segnale raffigurato vieta il transito ai pedoni",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/15.png",
     "difficulty": "easy",
     "explanation": "Il segnale di attraversamento pedonale non vieta il transito ai pedoni, anzi lo regola e protegge. I pedoni possono attraversare sulle strisce."
@@ -9355,7 +9355,7 @@
     "category": "segnali-pericolo",
     "subcategory": "attraversamento-ciclabile",
     "question": "Il segnale raffigurato preannuncia un attraversamento ciclabile",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/16.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale di pericolo con la bicicletta preannuncia un attraversamento ciclabile dove i ciclisti possono attraversare la strada."
@@ -9586,7 +9586,7 @@
     "category": "segnali-pericolo",
     "subcategory": "discesa-pericolosa",
     "question": "Il segnale raffigurato preannuncia una discesa e ne specifica la pendenza",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/17.png",
     "difficulty": "easy",
     "explanation": "VERO - Il segnale di discesa preannuncia il pericolo e specifica la pendenza percentuale (ad esempio 10% significa 10 metri di dislivello ogni 100 metri)."
@@ -9883,7 +9883,7 @@
     "category": "segnali-pericolo",
     "subcategory": "restringimento-carreggiata",
     "question": "Il segnale raffigurato preannuncia un restringimento della carreggiata",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/19.png",
     "difficulty": "easy",
     "explanation": "Vero. Il segnale del restringimento avverte che la carreggiata diventa più stretta, riducendo lo spazio di circolazione."
@@ -10059,7 +10059,7 @@
     "category": "segnali-pericolo",
     "subcategory": "restringimento-sinistra",
     "question": "Il segnale raffigurato preannuncia un restringimento della carreggiata",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/20.png",
     "difficulty": "easy",
     "explanation": "È vero: il segnale triangolare giallo con le frecce che si restringono preannuncia esattamente il restringimento della carreggiata."
@@ -12039,7 +12039,7 @@
     "category": "segnali-pericolo",
     "subcategory": "semaforo-verticale",
     "question": "Sulle strade extraurbane il segnale è sempre obbligatorio",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/34.png",
     "difficulty": "hard",
     "explanation": "FALSO. La parola 'sempre' è il trabocchetto: il segnale non è obbligatorio in ogni caso sulle extraurbane, dipende dal contesto e dal tipo di strada."
@@ -12600,7 +12600,7 @@
     "category": "segnali-pericolo",
     "subcategory": "pericolo-incendio",
     "question": "Il segnale raffigurato vieta il transito ai veicoli che trasportano esplosivi",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/38.png",
     "difficulty": "easy",
     "explanation": "FALSO. È un segnale di pericolo (preannuncia un rischio), non un divieto. Non vieta il transito a nessun veicolo."
@@ -13029,7 +13029,7 @@
     "category": "segnali-pericolo",
     "subcategory": "semaforo-orizzontale",
     "question": "Il segnale raffigurato indica l'obbligo di arresto ad un posto di blocco stradale istituito dagli organi di polizia",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/35.png",
     "difficulty": "easy",
     "explanation": "Falso. Il semaforo regola il traffico stradale, non è un segnale di arresto obbligatorio per posti di blocco. Quelli sono controllati da organi di polizia con altri mezzi (cartello STOP o ordini diretti)."
@@ -13216,7 +13216,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito",
     "question": "Il segnale raffigurato è un DIVIETO DI TRANSITO",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/54.png",
     "difficulty": "easy",
     "explanation": "VERO. Il cerchio rosso con barra trasversale è il segnale di DIVIETO DI TRANSITO, uno dei più importanti segnali di divieto del codice della strada."
@@ -13227,7 +13227,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito",
     "question": "Il segnale raffigurato consente il transito alle biciclette",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/54.png",
     "difficulty": "easy",
     "explanation": "FALSO. Le biciclette non sono veicoli a motore, quindi il divieto di transito non le riguarda: possono circolare tranquillamente."
@@ -13293,7 +13293,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/54.png",
     "difficulty": "easy",
     "explanation": "FALSO. Il divieto di transito è un segnale di DIVIETO (categoria C), non di pericolo (che hanno triangolo giallo)."
@@ -13370,7 +13370,7 @@
     "category": "segnali-divieto",
     "subcategory": "senso-vietato",
     "question": "Il segnale raffigurato è posto su una strada a senso unico",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/55.png",
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale di divieto d'accesso non indica che la strada è a senso unico, ma che l'entrata da quel lato è vietata."
@@ -13436,7 +13436,7 @@
     "category": "segnali-divieto",
     "subcategory": "senso-vietato",
     "question": "Il segnale raffigurato vieta la sosta, ma non la fermata",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/55.png",
     "difficulty": "easy",
     "explanation": "FALSO — Il divieto di sosta vieta sia la sosta che la fermata (breve arresto). Non puoi fermarti nemmeno momentaneamente dove c'è questo segnale."
@@ -14008,7 +14008,7 @@
     "category": "segnali-divieto",
     "subcategory": "limite-80",
     "question": "Il segnale raffigurato è un segnale di divieto",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/58.png",
     "difficulty": "easy",
     "explanation": "Attenzione: il limite di velocità è un segnale di **prescrizione** (obbliga a comportarsi in un certo modo), non di divieto. Però tecnicamente **vieta** di andare più veloce."
@@ -14063,7 +14063,7 @@
     "category": "segnali-divieto",
     "subcategory": "limite-80",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/58.png",
     "difficulty": "easy",
     "explanation": "Il limite di velocità è un segnale di prescrizione: prescrive (obbliga) un comportamento specifico."
@@ -14580,7 +14580,7 @@
     "category": "segnali-divieto",
     "subcategory": "veicoli-trazione-animale",
     "question": "Il segnale raffigurato vieta il transito ai veicoli a trazione animale",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/61.png",
     "difficulty": "easy",
     "explanation": "Il segnale raffigurato (divieto di accesso ai veicoli a trazione animale) vieta esattamente questo: il transito ai veicoli trainati da animali come cavalli, asini, muli."
@@ -14690,7 +14690,7 @@
     "category": "segnali-divieto",
     "subcategory": "veicoli-trazione-animale",
     "question": "Il segnale raffigurato vieta il transito ai veicoli a braccia",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/61.png",
     "difficulty": "easy",
     "explanation": "FALSO - I veicoli a braccia (carrelli, carriole) non sono espressamente vietati da questo segnale che riguarda i pedoni."
@@ -14734,7 +14734,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito-pedoni",
     "question": "Il segnale raffigurato consente il transito ai motocicli",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/62.png",
     "difficulty": "easy",
     "explanation": "VERO - I motocicli sono veicoli a motore e il segnale non li vieta, anzi permette il transito a tutti i veicoli motorizzati."
@@ -14822,7 +14822,7 @@
     "category": "segnali-divieto",
     "subcategory": "transito-biciclette",
     "question": "Il segnale raffigurato vieta il transito alle biciclette",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/63.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale raffigurato è il divieto di transito per velocipedi (biciclette): cerchio rosso su sfondo bianco con la sagoma di una bicicletta. Vieta il passaggio alle bici su quella strada o tratto."
@@ -14833,7 +14833,7 @@
     "category": "segnali-divieto",
     "subcategory": "transito-biciclette",
     "question": "Il segnale raffigurato è un segnale di divieto",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/63.png",
     "difficulty": "easy",
     "explanation": "Vero. Il cerchio rosso = divieto, sempre. Questo segnale vieta il transito alle biciclette in quella strada — non ha nulla a che fare con le ZTL."
@@ -14965,7 +14965,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito-motocicli",
     "question": "Il segnale raffigurato vieta il transito ai motocicli",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/64.png",
     "difficulty": "easy",
     "explanation": "Il segnale di divieto ai motocicli (cerchio rosso con motocicletta) vieta il transito a tutti i motocicli senza eccezioni."
@@ -15086,7 +15086,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito-motocicli",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/64.png",
     "difficulty": "easy",
     "explanation": "È un segnale di obbligo (rettangolare azzurro), non di pericolo (triangolare rosso); quindi è falso classificarlo come segnale di pericolo."
@@ -15185,7 +15185,7 @@
     "category": "segnali-divieto",
     "subcategory": "veicoli-braccia",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/65.png",
     "difficulty": "easy",
     "explanation": "Il segnale è di divieto (cerchio rosso), non di pericolo (triangolo rosso). Comunica un'inibizione, non un avvertimento."
@@ -15273,7 +15273,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito-autoveicoli",
     "question": "Il segnale raffigurato vieta il transito ai quadricicli a motore",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/66.png",
     "difficulty": "easy",
     "explanation": "I quadricicli a motore sono autoveicoli e quindi vietati dal segnale."
@@ -15339,7 +15339,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito-autoveicoli",
     "question": "In presenza del segnale raffigurato è consentito il transito agli autobus",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/66.png",
     "difficulty": "easy",
     "explanation": "Gli autobus hanno più di 4 ruote e non rientrano nella categoria dei veicoli vietati (quadricicli e tricicli): il transito è permesso."
@@ -15350,7 +15350,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-transito-autoveicoli",
     "question": "In presenza del segnale raffigurato è consentito il transito agli autocarri",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/66.png",
     "difficulty": "easy",
     "explanation": "Gli autocarri hanno più di 4 ruote e non sono inclusi nel divieto che riguarda solo quadricicli e tricicli a motore: sono permessi."
@@ -16285,7 +16285,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-veicoli-larghi",
     "question": "Il segnale raffigurato si riferisce a tutti i veicoli di larghezza superiore a 2,30 metri",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/75.png",
     "difficulty": "easy",
     "explanation": "FALSO - Il segnale di limitazione dell'altezza riguarda l'altezza dei veicoli (misurata dal suolo), non la larghezza. I veicoli larghi trovano altri segnali di limitazione."
@@ -16967,7 +16967,7 @@
     "category": "segnali-divieto",
     "subcategory": "fine-prescrizione-velocita",
     "question": "Il segnale raffigurato indica la fine del limite massimo di velocità",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/81.png",
     "difficulty": "easy",
     "explanation": "Vero. Il segnale di fine limite di velocità (disco bianco barrato) annulla l'obbligo precedente di non superare quel limite."
@@ -17044,7 +17044,7 @@
     "category": "segnali-divieto",
     "subcategory": "fine-prescrizione-velocita",
     "question": "Il segnale raffigurato indica la fine del limite minimo di velocità",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/81.png",
     "difficulty": "easy",
     "explanation": "Falso. Un disco bianco barrato indica fine di limite MASSIMO di velocità, non minimo. I limiti minimi si segnalano diversamente."
@@ -17330,7 +17330,7 @@
     "category": "segnali-divieto",
     "subcategory": "fine-divieto-sorpasso-mezzi-pesanti",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/83.png",
     "difficulty": "easy",
     "explanation": "FALSO. Un segnale di fine divieto è un segnale di obbligo o fine prescrizione (cerchio bianco), non un segnale di pericolo (triangolo giallo)."
@@ -17407,7 +17407,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-sosta",
     "question": "Il segnale raffigurato consente la sosta nel tratto precedente",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/84.png",
     "difficulty": "easy",
     "explanation": "FALSO. Il segnale di divieto di sosta vieta la sosta nel tratto, non nel tratto 'precedente'. La validità inizia dove è posizionato il cartello."
@@ -17528,7 +17528,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-sosta",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/84.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale di divieto di sosta è un segnale di prescrizione perché obbliga il conducente a rispettare il divieto, non è solo informativo."
@@ -18419,7 +18419,7 @@
     "category": "segnali-divieto",
     "subcategory": "divieto-sosta-contrassegno-persone-invalide",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/91.png",
     "difficulty": "easy",
     "explanation": "VERO - È un segnale di prescrizione perché obbliga al rispetto di una regola specifica (dove e per chi è consentita la sosta)."
@@ -18914,7 +18914,7 @@
     "category": "segnali-obbligo",
     "subcategory": "preavviso-direzione-sinistra",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/97.png",
     "difficulty": "easy",
     "explanation": "VERO. Prescrizione significa imposizione di una regola: il presegnale prescrive quale direzione sarai obbligato a prendere."
@@ -19057,7 +19057,7 @@
     "category": "segnali-obbligo",
     "subcategory": "preavviso-direzione-sinistra",
     "question": "Il segnale raffigurato presegnala una curva pericolosa a sinistra",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/97.png",
     "difficulty": "easy",
     "explanation": "VERO: È esattamente un segnale di presegnalazione di curva pericolosa a sinistra (forma rombo, freccia sinistra)."
@@ -19145,7 +19145,7 @@
     "category": "segnali-obbligo",
     "subcategory": "direzione-dritto",
     "question": "Il segnale raffigurato indica l'obbligo di proseguire diritto",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/93.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale freccia dritta è un obbligo di direzione: devi proseguire nella direzione indicata, cioè diritto."
@@ -19200,7 +19200,7 @@
     "category": "segnali-obbligo",
     "subcategory": "direzione-dritto",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/93.png",
     "difficulty": "easy",
     "explanation": "VERO. È un segnale di prescrizione perché prescrive, cioè ordina obbligatoriamente una condotta (andare diritto)."
@@ -19233,7 +19233,7 @@
     "category": "segnali-obbligo",
     "subcategory": "direzione-dritto",
     "question": "Il segnale raffigurato non consente la svolta a destra",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/93.png",
     "difficulty": "easy",
     "explanation": "VERO. Se l'obbligo è solo diritto, non puoi svoltare a destra: quella direzione è esclusa."
@@ -19431,7 +19431,7 @@
     "category": "segnali-obbligo",
     "subcategory": "direzione-sinistra",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/94.png",
     "difficulty": "easy",
     "explanation": "VERO — È un segnale di prescrizione perché impone un obbligo (quadrato blu con freccia bianca)."
@@ -19684,7 +19684,7 @@
     "category": "segnali-obbligo",
     "subcategory": "direzione-destra",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/95.png",
     "difficulty": "easy",
     "explanation": "VERO - È un segnale blu con freccia: appartiene alla categoria dei segnali di prescrizione (obblighi), non avvertimenti o divieti."
@@ -19728,7 +19728,7 @@
     "category": "segnali-obbligo",
     "subcategory": "direzione-destra",
     "question": "Il segnale raffigurato indica direzione obbligatoria a destra",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/95.png",
     "difficulty": "easy",
     "explanation": "Vero. La freccia punta chiaramente a destra, quindi ordina una svolta obbligatoria verso destra."
@@ -19937,7 +19937,7 @@
     "category": "segnali-obbligo",
     "subcategory": "preavviso-direzione-destra",
     "question": "Il segnale raffigurato precede un incrocio con obbligo di svoltare a destra",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/96.png",
     "difficulty": "easy",
     "explanation": "FALSO. È un preavviso (triangolo), non un segnale che precede direttamente l'incrocio; quello sarebbe il quadrato di obbligo vero e proprio."
@@ -19992,7 +19992,7 @@
     "category": "segnali-obbligo",
     "subcategory": "preavviso-direzione-destra",
     "question": "Il segnale raffigurato è un segnale d'obbligo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/96.png",
     "difficulty": "easy",
     "explanation": "FALSO. È un segnale di preavviso (triangolo), non di obbligo; quello di obbligo è il quadrato blu che segue."
@@ -20058,7 +20058,7 @@
     "category": "segnali-obbligo",
     "subcategory": "preavviso-direzione-destra",
     "question": "Il segnale raffigurato è un segnale di obbligo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/96.png",
     "difficulty": "easy",
     "explanation": "FALSO. È un segnale di presegnalazione (avvertimento), non di obbligo. I segnali di obbligo sono rotondi blu."
@@ -20542,7 +20542,7 @@
     "category": "segnali-obbligo",
     "subcategory": "dritto-destra",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/99.png",
     "difficulty": "easy",
     "explanation": "VERO - È un segnale di prescrizione (obbligo) perché impone quale direzione seguire obbligatoriamente."
@@ -20652,7 +20652,7 @@
     "category": "segnali-obbligo",
     "subcategory": "dritto-destra",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/99.png",
     "difficulty": "easy",
     "explanation": "FALSO. I segnali di pericolo sono triangolari con bordo rosso; questo è un segnale di obbligo (rettangolare blu)."
@@ -20740,7 +20740,7 @@
     "category": "segnali-obbligo",
     "subcategory": "dritto-sinistra",
     "question": "Il segnale raffigurato non consente la svolta a destra",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/100.png",
     "difficulty": "easy",
     "explanation": "Vero. Non è presente una freccia a destra, quindi la svolta a destra è vietata dal segnale d'obbligo."
@@ -20773,7 +20773,7 @@
     "category": "segnali-obbligo",
     "subcategory": "dritto-sinistra",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/100.png",
     "difficulty": "easy",
     "explanation": "Vero. È un segnale blu con frecce: appartiene ai segnali di prescrizione (obbligo) che impongono un comportamento."
@@ -20883,7 +20883,7 @@
     "category": "segnali-obbligo",
     "subcategory": "dritto-sinistra",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/100.png",
     "difficulty": "easy",
     "explanation": "Falso. I segnali di pericolo hanno forma triangolare: questo è quadrato, quindi è di obbligo."
@@ -21543,7 +21543,7 @@
     "category": "segnali-obbligo",
     "subcategory": "rotatoria",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/104.png",
     "difficulty": "easy",
     "explanation": "Vero. È un segnale di prescrizione perché ti prescrive (ordina) come circolare nella rotatoria: in senso antiorario, seguendo la freccia."
@@ -23061,7 +23061,7 @@
     "category": "segnali-obbligo",
     "subcategory": "animali-sella-soma",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/116.png",
     "difficulty": "easy",
     "explanation": "FALSO. È un segnale informativo (rettangolare), non di pericolo (triangolare). Indica un percorso riservato, non un pericolo imminente."
@@ -23292,7 +23292,7 @@
     "category": "segnali-obbligo",
     "subcategory": "alt-polizia",
     "question": "Il segnale raffigurato indica l'obbligo di arresto ad un posto di blocco stradale istituito dagli organi di polizia",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/119.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale comunica l'obbligo di arresto: devi fermarti al posto di blocco, non è facoltativo."
@@ -23622,7 +23622,7 @@
     "category": "segnali-precedenza",
     "subcategory": "dare-precedenza",
     "question": "Il segnale raffigurato è un segnale di precedenza",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/40.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale raffigurato è la strada principale (in genere a forma di rettangolo spesso): obbliga a dare precedenza agli altri. È un segnale di precedenza."
@@ -23710,7 +23710,7 @@
     "category": "segnali-precedenza",
     "subcategory": "dare-precedenza",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/40.png",
     "difficulty": "easy",
     "explanation": "VERO. È un segnale di prescrizione (obbligo) perché ti impone di dare precedenza, non è un semplice avvertimento."
@@ -24293,7 +24293,7 @@
     "category": "segnali-precedenza",
     "subcategory": "preavviso-stop",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/43.png",
     "difficulty": "easy",
     "explanation": "VERO: È un segnale di prescrizione perché il triangolo giallo è un segnale di preavviso, categoria che rientra nei segnali di prescrizione del Codice della Strada."
@@ -24381,7 +24381,7 @@
     "category": "segnali-precedenza",
     "subcategory": "preavviso-stop",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/43.png",
     "difficulty": "easy",
     "explanation": "Falso. È un segnale di preavviso (losanga gialla) che appartiene alla categoria 'informazione', non un segnale di pericolo (triangoli rossi). Avvisa, non comanda."
@@ -24425,7 +24425,7 @@
     "category": "segnali-precedenza",
     "subcategory": "incrocio-precedenza-destra",
     "question": "Il segnale raffigurato è un segnale di precedenza",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/44.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale di precedenza (triangolo rosso) indica che hai il diritto di passare per primo agli incroci, a meno che non ci siano segnali contrari."
@@ -24590,7 +24590,7 @@
     "category": "segnali-precedenza",
     "subcategory": "sensi-unici-alternati",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/45.png",
     "difficulty": "easy",
     "explanation": "VERO. È un segnale di obbligo (triangolo rosso), quindi impone un'azione prescritta, non solo un avvertimento."
@@ -24810,7 +24810,7 @@
     "category": "segnali-precedenza",
     "subcategory": "sensi-unici-alternati",
     "question": "Il segnale raffigurato è un segnale di pericolo",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/45.png",
     "difficulty": "easy",
     "explanation": "FALSO. È un segnale di precedenza (triangolo bianco), non di pericolo. I pericoli si riconoscono dal triangolo con bordo rosso e simbolo interno."
@@ -24843,7 +24843,7 @@
     "category": "segnali-precedenza",
     "subcategory": "sensi-unici-alternati",
     "question": "In presenza del segnale raffigurato e del semaforo a tre luci abbiamo la precedenza se il semaforo è a luce gialla lampeggiante",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/45.png",
     "difficulty": "medium",
     "explanation": "FALSO. Con la luce gialla lampeggiante il semaforo non impone uno stop obbligatorio: si deve procedere con prudenza, rispettando le eventuali altre segnalazioni presenti (stop, dare precedenza, ecc.)."
@@ -24898,7 +24898,7 @@
     "category": "segnali-precedenza",
     "subcategory": "fine-diritto-precedenza",
     "question": "Il segnale raffigurato è un segnale di precedenza",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/46.png",
     "difficulty": "easy",
     "explanation": "VERO — È il segnale di fine precedenza, che modifica le norme precedenti: è un segnale che riguarda la precedenza (cambiandola)."
@@ -25316,7 +25316,7 @@
     "category": "segnali-precedenza",
     "subcategory": "intersezione-T-destra",
     "question": "Il segnale raffigurato è un segnale di precedenza",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/48.png",
     "difficulty": "easy",
     "explanation": "VERO. È il segnale triangolare con due linee bianche: comunica che tu hai la precedenza rispetto agli altri veicoli all'incrocio."
@@ -25844,7 +25844,7 @@
     "category": "segnali-precedenza",
     "subcategory": "strada-diritto-precedenza",
     "question": "Il segnale raffigurato è un segnale di precedenza",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/52.png",
     "difficulty": "easy",
     "explanation": "VERO — Il segnale di precedenza è classificato come segnale di precedenza perché regola la priorità di passaggio agli incroci, indicando chi ha diritto di passare per primo."
@@ -25866,7 +25866,7 @@
     "category": "segnali-precedenza",
     "subcategory": "strada-diritto-precedenza",
     "question": "Il segnale raffigurato è un segnale di prescrizione",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/52.png",
     "difficulty": "easy",
     "explanation": "VERO. È un segnale di prescrizione (azzurro) che obbliga: ti comunica che hai diritto di precedenza e gli altri devono cederla, non è solo informativo."
@@ -29386,7 +29386,7 @@
     "category": "semafori-vigili",
     "subcategory": "semaforo-verde",
     "question": "Quando è accesa la luce verde del semaforo in figura si può proseguire diritto, dando però la precedenza ai pedoni",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/154.png",
     "difficulty": "medium",
     "explanation": "VERO. La luce verde rotonda del semaforo autorizza a procedere in tutte le direzioni, compreso dritto. Tuttavia è obbligatorio dare la precedenza ai pedoni che stanno attraversando sulle strisce. La freccia verde direzionale (diversa dalla luce rotonda) indica invece una sola direzione consentita."
@@ -29606,7 +29606,7 @@
     "category": "semafori-vigili",
     "subcategory": "semafori-corsia",
     "question": "I segnali luminosi in figura sono semafori per corsie reversibili",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/155.png",
     "difficulty": "easy",
     "explanation": "I segnali luminosi per corsie reversibili hanno frecce direzionali, non il classico schema rosso-giallo-verde dei semafori normali."
@@ -32059,7 +32059,7 @@
     "category": "segnali-indicazione",
     "subcategory": "conferma-autostradale",
     "question": "Il segnale raffigurato è posto sulle strade extraurbane",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/184.png",
     "difficulty": "easy",
     "explanation": "I segnali E (itinerari internazionali) si trovano su strade di **importanza internazionale**, che possono essere autostrade, superstrade o strade ordinarie, non solo extraurbane."
@@ -32598,7 +32598,7 @@
     "category": "segnali-indicazione",
     "subcategory": "senso-unico-frontale",
     "question": "Il segnale raffigurato indica un senso unico frontale",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/153.png",
     "difficulty": "easy",
     "explanation": "Esatto: il segnale raffigurato (freccia verticale bianca su sfondo nero rettangolare) è il cartello di senso unico, che indica il senso frontale della marcia consentita."
@@ -32917,7 +32917,7 @@
     "category": "segnali-indicazione",
     "subcategory": "progressiva-autostradale",
     "question": "Il segnale raffigurato indica l'inizio di un centro abitato",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/206.png",
     "difficulty": "easy",
     "explanation": "L'inizio di centro abitato è il classico cartello con il nome della città in nero. Un'area taxi è un servizio, non un insediamento."
@@ -34666,7 +34666,7 @@
     "category": "segnali-indicazione",
     "subcategory": "itinerario-extraurbano",
     "question": "Il segnale raffigurato indica l'inizio di un centro abitato",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/182.png",
     "difficulty": "easy",
     "explanation": "Il segnale mostra la FINE di un centro abitato (con i nomi barrati), non l'inizio. Significa che stai uscendo dal centro, non entrando."
@@ -34996,7 +34996,7 @@
     "category": "segnali-indicazione",
     "subcategory": "inizio-traffico-limitato",
     "question": "Il segnale raffigurato indica l'inizio di un'area pedonale",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/187.png",
     "difficulty": "easy",
     "explanation": "Falso. Questo segnale indica condizioni invernali su strade di montagna, non l'inizio di un'area pedonale."
@@ -35205,7 +35205,7 @@
     "category": "segnali-indicazione",
     "subcategory": "inizio-strada-extraurbana",
     "question": "Il segnale raffigurato indica l'inizio di una strada extraurbana principale",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/194.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale raffigurato (autostrada o strada extraurbana principale) mostra il simbolo caratteristico con le carreggiate separate, che indica appunto l'inizio di questo tipo di strada."
@@ -36481,7 +36481,7 @@
     "category": "segnali-indicazione",
     "subcategory": "strada-veicoli-motore",
     "question": "Il segnale raffigurato vieta il transito alle biciclette",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/228.png",
     "difficulty": "easy",
     "explanation": "Le biciclette non possono circolare in autostrada: il segnale vieta il transito a tutti i veicoli senza motore, incluse le bici."
@@ -36503,7 +36503,7 @@
     "category": "segnali-indicazione",
     "subcategory": "strada-veicoli-motore",
     "question": "Il segnale raffigurato vieta il transito ai veicoli senza motore",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/228.png",
     "difficulty": "easy",
     "explanation": "I veicoli senza motore (bici, monopattini, carretti) sono vietati in autostrada: il segnale li esclude esplicitamente dalla circolazione."
@@ -36767,7 +36767,7 @@
     "category": "segnali-indicazione",
     "subcategory": "presenza-ponte",
     "question": "Il segnale raffigurato indica che si sta per transitare sotto un ponte",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/231.png",
     "difficulty": "easy",
     "explanation": "VERO. Il segnale verde con arco bianco è il segnale di galleria (sottopassaggio): indica che si sta per transitare all'interno di una galleria o sotto un sottopasso. Non va confuso con il segnale di attraversamento ciclabile."
@@ -37339,7 +37339,7 @@
     "category": "segnali-indicazione",
     "subcategory": "velocita-minima-corsie",
     "question": "Il segnale raffigurato è posto sulle autostrade",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/243.png",
     "difficulty": "easy",
     "explanation": "VERO — Questo tipo di segnale viene posto sulle autostrade dove sono previste corsie con velocità minime diverse."
@@ -64652,7 +64652,7 @@
     "category": "luci-dispositivi-acustici",
     "subcategory": "simbolo-fari-anabbaglianti",
     "question": "Il simbolo raffigurato è posto su una spia a luce verde",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/696.png",
     "difficulty": "easy",
     "explanation": "VERO. La spia verde segnala che un sistema è attivo e funzionante correttamente; in questo caso potrebbe riferirsi a spie di altri sistemi di illuminazione."
@@ -64663,7 +64663,7 @@
     "category": "luci-dispositivi-acustici",
     "subcategory": "simbolo-fari-anabbaglianti",
     "question": "Il simbolo raffigurato è posto su una spia a luce blu",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/696.png",
     "difficulty": "easy",
     "explanation": "FALSO. La spia degli anabbaglianti è BLU, non c'è spia blu per questo simbolo in questo contesto."
@@ -64729,7 +64729,7 @@
     "category": "luci-dispositivi-acustici",
     "subcategory": "simbolo-indicatori-direzione",
     "question": "Il simbolo raffigurato è posto su una spia a luce verde",
-    "answer": true,
+    "answer": false,
     "img": "/img_sign/697.png",
     "difficulty": "easy",
     "explanation": "Vero. La spia degli indicatori di direzione è sempre di colore verde, per indicare una funzione di segnalazione visiva consentita."
@@ -64751,7 +64751,7 @@
     "category": "luci-dispositivi-acustici",
     "subcategory": "simbolo-indicatori-direzione",
     "question": "Il simbolo raffigurato è posto su una spia di colore rosso",
-    "answer": false,
+    "answer": true,
     "img": "/img_sign/697.png",
     "difficulty": "easy",
     "explanation": "Falso. La spia degli indicatori di direzione è verde, non rossa. Le spie rosse sono riservate a funzioni di pericolo o anomalie (freni, motore, ecc.)."
