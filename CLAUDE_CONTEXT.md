@@ -14,8 +14,12 @@ App iOS (e presto Android) per prepararsi all'esame della patente B in Italia.
 - Repo: `github.com/emat0ds/guido-app`
 - Stack: React Native / Expo SDK 57, Expo Router
 - Owner: Emanuele Todini (`t0ds`)
-- Versione in app.json: **2.0.0** (buildNumber 40, versionCode 2) — aggiornata il 1 set 2026
-- Ultima build EAS iOS: fatta il 1 settembre 2026, ma era ancora **1.5.2** (buildNumber 39) perché è stata avviata prima del bump di versione. Per pubblicare come 2.0 serve una nuova build.
+- Versione in app.json: **2.0.0** (buildNumber 40, versionCode 2)
+- Build 2.0.0 **approvata da Apple** il 1 settembre 2026. Live sull'App Store.
+- **Android build 2.0.0 completata** (versionCode 3, EAS auto-incrementato). AAB pronto.
+- AAB Android: https://expo.dev/artifacts/eas/_69YYlt6z9YuXMMZiqUMj-OOTyS8fcYCoOIH_p3KYjw.aab
+- **Google Play**: scheda store completata e inviata in review (8 modifiche). Test chiuso richiede 12 tester x 14 giorni prima di andare in produzione.
+- **TODO**: trovare 12 tester Android, configurare prodotti in-app su Play Console (guido_premium 1,99€ e guido_richieste_extra 2,99€).
 
 ## Personaggio AI: Guido
 L'assistente AI si chiama **Guido** — tono da istruttore di scuola guida, non da robot.
@@ -37,6 +41,11 @@ AI sottostante: Claude (Anthropic).
 - Guido commenta i progressi (come istruttore, non come AI)
 - Modalità pratica libera: domande casuali da tutte le aree
 - `guidoSummary.ts` — logica commenti Guido
+
+## URL importanti
+- **Sito web app**: https://emat0ds.github.io/guido-app/
+- **Privacy Policy**: https://emat0ds.github.io/guido-app/privacy-policy.html
+- **Email contatto**: etodini@gmail.com
 
 ## File chiave
 - `data/questions_with_explanations.json` — dataset domande (5700+ ID)
@@ -65,6 +74,8 @@ eas build --platform android --profile production
 ## Testi lancio 2.0
 Bozze pronte in `/Users/EmaTods/Developer/guido_launch_2.0.md`
 - App Store description + release notes 2.0 già scritte e approvate
+- **Promotional Text** (170 car, aggiornabile senza review): "Guido 2.0 è qui. La versione più grande di sempre. Spiegazioni migliorate, statistiche avanzate. Passare l'esame non è mai stato così facile. Aggiorna adesso."
+- **IMPORTANTE**: leggere guido_launch_2.0.md prima di rispondere a qualsiasi domanda sui testi — non inventare.
 
 ## Watermark rimossi (PATENTATI.IT) — lista completa
 383, 384, 385, 386, 595, 604, 607, 608, 614, 615, 617, 618, 620, 631, 632, 633, 636, 637, 638, 640, 643, 646, 647, 648, 651, 652, 654, 661, 669, 676, 705.png
